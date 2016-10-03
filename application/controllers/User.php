@@ -7,7 +7,10 @@ class User extends CI_Controller {
 
 
 		$this->load->view('user/header');
-		$this->load->view('user/home');
+		$this->load->view('user/main_menu');
+		$this->load->view('user/main_header');
+		$this->load->view('user/info');
+		$this->load->view('user/our_advantage');
 		$this->load->view('user/footer');
 	}
 
