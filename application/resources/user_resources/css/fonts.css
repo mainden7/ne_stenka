@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "OSR";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/OpenSans/OpenSansRegular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "OSB";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/OpenSans/OpenSansBold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "OSL";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/OpenSans/OpenSans-Light.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "Exo";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Exo2/Exo2-Bold.ttf") format("truetype"); }
