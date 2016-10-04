@@ -21,3 +21,4 @@
     <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/css/lib/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/css/main.css">
 </head>
+<body class="with-side-menu">

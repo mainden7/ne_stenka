@@ -6,7 +6,7 @@
       <div class="header-info-wrappertop clear hide-for-large">
         <!--лого-->
         <div class="header-info_logo column small-12 medium-6 large-3">
-          <a href="/"><img src="<?php echo site_url(); ?>/application/resources/user_resources/img/logo.png" alt=""></a>
+          <a href="<?php echo site_url(); ?>"><img src="<?php echo site_url(); ?>/application/resources/user_resources/img/logo.png" alt=""></a>
 
           <!--гамбургер-->
           <a href="#" id="hamburger" class="hide-for-medium">
@@ -16,14 +16,14 @@
         <!--позвонить нам small medium-->
         <div class="header-info_regions column text-right small-12 medium-6">
           <span>Бесплатный звонок по РФ. 24/7</span>
-          <a class="header-info_regions_phone" href="tel:88001008848">8 800 100-88-48</a>
+          <a class="header-info_regions_phone" href="tel:<?php echo $data['contact_settings']['tel_1'] ?>"><?php echo $data['contact_settings']['tel_1']; ?></a>
         </div>
       </div>
 
       <div class="header-info-wrapperbottom clear">
         <!--лого-->
         <div class="header-info_logo column hide-for-medium-only hide-for-small-only large-3">
-          <a href="/"><img src="<?php echo site_url(); ?>/application/resources/user_resources/img/logo.png" alt=""></a>
+          <a href="<?php echo site_url(); ?>"><img src="<?php echo site_url(); ?>/application/resources/user_resources/img/logo.png" alt=""></a>
         </div>
         <!--выбор региона-->
         <div class="header-info_regions header-info_regionsSelect column  small-5 medium-3 large-2">
@@ -52,7 +52,7 @@
         <!--позвонить нам спрятан на medium-->
         <div class="header-info_regions column hide-for-small-only text-right hide-for-medium-only large-2">
           <span>Бесплатный звонок <br class="hide-for-large">по РФ. 24/7</span>
-          <a class="header-info_regions_phone" href="tel:88001008848">8 800 100-88-48</a>
+          <a class="header-info_regions_phone" href="tel:<?php echo $data['contact_settings']['tel_1'] ?>"><?php echo $data['contact_settings']['tel_1']; ?></a>
         </div>
       </div>
 
