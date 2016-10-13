@@ -35,7 +35,7 @@ class Admin_panel extends CI_Controller {
         $post = $this->input->post(NULL, TRUE);
 
 		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
-			redirect('/index.php/login/admin_login');
+			redirect('/login/admin_login');
 		}
 		$data = array();
 		$data['main_settings'] = Settings::load_main_settings();
@@ -52,7 +52,7 @@ class Admin_panel extends CI_Controller {
 
 	public function main_settings(){
 		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
-			redirect('/index.php/login/admin_login');
+			redirect('/login/admin_login');
 		}
 		// CSRF protection arguments.
         $csrf_token_name = $this->security->get_csrf_token_name();
@@ -96,7 +96,7 @@ class Admin_panel extends CI_Controller {
             $admin_login = $admin_creds['login'];
             $new_login = $post['admin_login'];
             $new_pass = sha1($post['admin_pass'] . 'admin');
-            if($admin_login == $new_login OR $admin_pass == $new_pass){
+            if($admin_login != $new_login OR $admin_pass != $new_pass){
             	//send email
                 $this->load->library('email');
                 $config['charset'] = 'utf-8';
@@ -128,7 +128,7 @@ class Admin_panel extends CI_Controller {
 
 	public function contact_settings(){
 		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
-			redirect('/index.php/login/admin_login');
+			redirect('/login/admin_login');
 		}
 		// CSRF protection arguments.
         $csrf_token_name = $this->security->get_csrf_token_name();
@@ -151,4 +151,94 @@ class Admin_panel extends CI_Controller {
 		$this->load->view('admin/contact_settings', $data);
 		$this->load->view('admin/footer');
 	}
+
+	public function products(){
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        $data = array();
+        if($post || $is_post){
+        	/*print '<pre>' . print_r($post, true) . '</pre>'; die();*/
+        	$name = $post['name'];
+        	$description = $post['description'];
+        	Product::add_product($name, $description);
+        	redirect('/admin_panel/categories');
+        }
+		$data['main_settings'] = Settings::load_main_settings();
+		$data['contact_settings'] = Settings::load_contact_settings();
+		$data['products'] = Product::load_products();
+		$data['categories'] = Product::load_categories();
+		/*print '<pre>' . print_r($data['categories'], true) . '</pre>'; die();*/
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('admin/header');
+		$this->load->view('admin/main_header', $data);
+		$this->load->view('admin/main_menu');
+		$this->load->view('admin/products', $data);
+		$this->load->view('admin/footer');
+	}
+
+	public function categories(){
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        $data = array();
+        if($post || $is_post){
+        	/*print '<pre>' . print_r($post, true) . '</pre>'; die();*/
+        	$name = $post['name'];
+        	$description = $post['description'];
+        	Product::add_product_category($name, $description);
+        	redirect('/admin_panel/categories');
+        }
+        
+		$data['main_settings'] = Settings::load_main_settings();
+		$data['contact_settings'] = Settings::load_contact_settings();
+		$data['categories'] = Product::load_categories();
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('admin/header');
+		$this->load->view('admin/main_header', $data);
+		$this->load->view('admin/main_menu');
+		$this->load->view('admin/categories', $data);
+		$this->load->view('admin/footer');
+	}
+
+	public function edit_category($id = NULL) {
+        // CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        // Data.
+        if ($post || $is_post) {
+
+            $name = $post['name'];
+            $description = $post['description'];
+            $id = $post['id'];
+            Product::update_product_category($name, $description, $id);
+            redirect(site_url() . 'admin_panel/categories');
+        }
+    }
+
+    public function delete_category($id = NULL) {
+        
+        Product::delete_product_category($id);
+        redirect(site_url() . 'admin_panel/categories');
+    }
 }

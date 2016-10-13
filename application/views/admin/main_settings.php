@@ -44,7 +44,7 @@
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 form-control-label">Пароль</label>
                         <div class="col-sm-2">
-                            <input type="password" name="admin_pass" class="form-control" id="inputPassword" placeholder="Password" autocomplete="off">
+                            <input type="password" name="admin_pass" class="form-control" id="inputPassword" placeholder="Password" autocomplete="new-password">
                         </div>
                     </div>
                     <input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">

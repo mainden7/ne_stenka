@@ -24,13 +24,12 @@
         <li class="brown with-sub">
             <span>
                 <i class="font-icon glyphicon glyphicon-tint"></i>
-                <span class="lbl">Еще</span>
+                <span class="lbl">Продукция</span>
             </span>
             <ul>
-                <li><a href="#"><span class="lbl">1</span></a></li>
-                <li><a href="#"><span class="lbl">2</span></a></li>
-                <li><a href="#"><span class="lbl">3</span></a></li>
-                <li><a href="#"><span class="lbl">4</span></a></li>
+                <li><a href="<?php echo site_url().'admin_panel/categories'; ?>"><span class="lbl">Категории</span></a></li>
+                <li><a href="#"><span class="lbl">Товары</span></a></li>
+                <li><a href="#"><span class="lbl">Управление товаром</span></a></li>
             </ul>
         </li>
         <li class="purple with-sub">
