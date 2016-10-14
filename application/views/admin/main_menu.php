@@ -28,19 +28,16 @@
             </span>
             <ul>
                 <li><a href="<?php echo site_url().'admin_panel/categories'; ?>"><span class="lbl">Категории</span></a></li>
-                <li><a href="#"><span class="lbl">Товары</span></a></li>
-                <li><a href="#"><span class="lbl">Управление товаром</span></a></li>
+                <li><a href="<?php echo site_url().'admin_panel/products'; ?>"><span class="lbl">Товары</span></a></li>
             </ul>
         </li>
         <li class="purple with-sub">
             <span>
-                <i class="font-icon font-icon-comments active"></i>
-                <span class="lbl">1</span>
+                <i class="font-icon font-icon-comments"></i>
+                <span class="lbl">Отзывы</span>
             </span>
             <ul>
-                <li><a href="#"><span class="lbl">1</span><span class="label label-custom label-pill label-danger">8</span></a></li>
-                <li><a href="#"><span class="lbl">2</span></a></li>
-                <li><a href="#"><span class="lbl">3</span></a></li>
+                <li><a href="<?php echo site_url().'admin_panel/testimonials'; ?>"><span class="lbl">Управление</span></a></li>
             </ul>
         </li>
         <li class="red">

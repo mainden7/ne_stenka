@@ -218,6 +218,9 @@ class Admin_panel extends CI_Controller {
 	}
 
 	public function edit_category($id = NULL) {
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
         // CSRF protection arguments.
         $csrf_token_name = $this->security->get_csrf_token_name();
         $csrf_hash = $this->security->get_csrf_hash();
@@ -232,13 +235,56 @@ class Admin_panel extends CI_Controller {
             $description = $post['description'];
             $id = $post['id'];
             Product::update_product_category($name, $description, $id);
-            redirect(site_url() . 'admin_panel/categories');
+            redirect(site_url() . '/admin_panel/categories');
         }
     }
 
     public function delete_category($id = NULL) {
+    	if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
         
         Product::delete_product_category($id);
-        redirect(site_url() . 'admin_panel/categories');
+        redirect(site_url() . '/admin_panel/categories');
+    }
+
+    public function testimonials(){
+    	if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        $data = array();
+        if($post || $is_post){
+        	//save logo
+            if ($_FILES['photo']['name']) {
+                $uploaddir = base_url().'application/resources/upload/site/';
+                $uploadfile = $uploaddir . basename($_FILES['photo']['name']);
+                if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)) {
+                    $photo = $_FILES['photo']['name'];
+                }
+            }
+        	
+        	Testimonial::add_testimonial($post['name'], $post['position'], $post['email'], $post['description'], $photo);
+        	redirect(site_url() . '/admin_panel/testimonials');
+        	
+        }
+        
+		$data['main_settings'] = Settings::load_main_settings();
+		$data['contact_settings'] = Settings::load_contact_settings();
+		$data['testimonials'] = Testimonial::load_all_testimonials();
+		/*print '<pre>' . print_r($data['testimonials'], true) . '</pre>'; die();*/
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('admin/header');
+		$this->load->view('admin/main_header', $data);
+		$this->load->view('admin/main_menu');
+		$this->load->view('admin/testimonials', $data);
+		$this->load->view('admin/footer');
     }
 }
