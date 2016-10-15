@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/libs/foundation/foundation.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/css/fonts.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/css/main.css">
+  
 </head>
 
 <!--[if lt IE 9]>

@@ -1,3 +1,6 @@
+$( function() {
+    $( "#tabs" ).tabs();
+  } );
 $(function() {
 
 $('#hamburger').click(function(){

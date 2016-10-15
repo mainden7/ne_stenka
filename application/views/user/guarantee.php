@@ -6,13 +6,7 @@
 	.guarantee-header{
 
 	}
-	.btn-inverted{
-		padding: 25px 70px;
-		color: #0066d9;
-		background: #fff;
-		text-transform: none;
-		font-size: 24px;
-	}
+	
 	
 </style>
 
@@ -20,31 +14,46 @@
 	<div class="column products-title medium-6 small-centered text-center">
 		<h2 class="mb80 block-header">Гарантируем качество</h2>
 	</div>
-	<div class="row mb130">
+	<div class="row mb50">
 		<div class="column small-12 medium-4">
-			<div class="guarantee_block">
-				<img src="">
-				<div class="text_caption">
-					<h3 class="uppercase guarantee-header">Без посредников</h3>
-					<p>Наши цены на 20% ниже рыночных, потому что мы работаем на прямую с производителем.</p>
+			<div class="column small-12 medium-4">
+				<img src="<?php echo base_url() ?>application/resources/user_resources/img/1.jpg">
+			</div>
+			<div class="column small-12 medium-8">
+				<div class="guarantee_block">
+
+					<div class="text_caption">
+						<h3 class="uppercase guarantee-header mt0">Без посредников</h3>
+						<p>Наши цены на 20% ниже рыночных, потому что мы работаем на прямую с производителем.</p>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="column small-12 medium-4">
-			<div class="guarantee_block">
-				<img src="">
-				<div class="text_caption">
-					<h3 class="uppercase guarantee-header">Возмещаем брак</h3>
-					<p>Заменим бракованные блоки, или вернем за них деньги.</p>
+			<div class="column small-12 medium-4">
+				<img src="<?php echo base_url() ?>application/resources/user_resources/img/2.jpg">
+			</div>
+			<div class="column small-12 medium-8">
+				<div class="guarantee_block">
+
+					<div class="text_caption">
+						<h3 class="uppercase guarantee-header mt0">Возмещаем брак</h3>
+						<p>Заменим бракованные блоки, или вернем за них деньги.</p>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="column small-12 medium-4">
-			<div class="guarantee_block">
-				<img src="">
-				<div class="text_caption">
-					<h3 class="uppercase guarantee-header">Сертификаты качества</h3>
-					<p>Качество наших блоков подтверждено сертификатами и паспортом качества</p>
+			<div class="column small-12 medium-4">
+				<img src="<?php echo base_url() ?>application/resources/user_resources/img/3.jpg">
+			</div>
+			<div class="column small-12 medium-8">
+				<div class="guarantee_block">
+
+					<div class="text_caption">
+						<h3 class="uppercase guarantee-header mt0">Сертификаты качества</h3>
+						<p>Качество наших блоков подтверждено сертификатами и паспортом качества</p>
+					</div>
 				</div>
 			</div>
 		</div>

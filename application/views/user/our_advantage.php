@@ -1,5 +1,5 @@
 <!--Подход к работе-->
-  <div class="row expanded padding work small-12 medium-12 large-10 large-centered">
+  <div class="row expanded padding work small-12 medium-12 large-10 large-centered pb130">
     <div class="column work-title small-8 medium-4 small-centered">
       <h2>Подход к работе</h2>
     </div>

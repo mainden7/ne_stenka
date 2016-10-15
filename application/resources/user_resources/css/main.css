@@ -2283,7 +2283,7 @@ h1 {
   color: #231f20; }
 
 h2 {
-  font-size: 2.75rem;
+  font-size: 2.25rem;
   color: #231f20; }
 
 h4 {
@@ -2625,6 +2625,16 @@ h4 {
 //Some custom styles
 //
 */
+.btn-inverted{
+    padding: 25px 70px;
+    color: #0066d9;
+    background: #fff;
+    text-transform: none;
+    font-size: 24px;
+  }
+.btn-transparent{
+  background: transparent;
+}
 .block-header{
   text-transform: uppercase;
   font-size: 48px;
@@ -2641,11 +2651,27 @@ h4 {
   .pr0{
     padding-right: 0;
   }
+  .pt20{
+    padding-top: 20px;
+  }
+  
+  .mb30{
+    margin-bottom: 30px;
+  }
+  .ml40{
+    margin-left: 40px;
+  }
+  .mb50{
+    margin-bottom: 50px;
+  }
 .pb80{
     padding-bottom: 80px;
   }
   .mb80{
     margin-bottom: 80px;
+  }
+  .mt80{
+    margin-top: 80px;
   }
   .pt80{
     padding-top: 80px;

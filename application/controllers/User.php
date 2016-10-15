@@ -26,6 +26,9 @@ class User extends CI_Controller {
 		$this->load->view('user/how_order', $data);
 		$this->load->view('user/guarantee', $data);
 		$this->load->view('user/testimonials', $data);
+		$this->load->view('user/news', $data);
+		$this->load->view('user/seotext', $data);
+		$this->load->view('user/main_footer', $data);
 		$this->load->view('user/footer', $data);
 	}
 

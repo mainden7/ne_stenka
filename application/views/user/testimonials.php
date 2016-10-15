@@ -1,5 +1,5 @@
 <style type="text/css">
-	.img img{
+	.img img.rounded{
 		    max-width: 150px;
     border-radius: 50%;
 	}
@@ -19,7 +19,7 @@
 		<div class="row">
 			<div class="column small-12 medium-4">
 				<div class="product_block">
-					<div class="img">
+					<div class="img text-center">
 						<img class="rounded" src="http://localhost/ne_stenka//application/resources/user_resources/img/block.png" alt="">
 					</div>
 					<div class="header-caption text-center">

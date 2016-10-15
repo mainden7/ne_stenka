@@ -1,45 +1,52 @@
 <style type="text/css">
-	
+	.howToBg{
+	background-image: url('<?php echo base_url() ?>application/resources/user_resources/img/howtobg.png');
+	    background-position: 100% 80%;
+    background-size: 236%;
+	}
+	.question-btn{
+		padding: 15px 50px;
+	}
 </style>
-<div class='row expanded large-12 pb80 pt80'  style='background-color: #f0f2f6'>
+<div class='row expanded large-12'  style='background-color: #f0f2f6'>
 	<div class="large-7 columns pb80">
 		<div class="column products-title medium-6 small-centered text-center">
-			<h2>Как заказать</h2>
+			<h2 class='uppercase'>Как заказать</h2>
 		</div>
-		<div class="column medium-10">
-			<div class="row">
-				<div class="large-6 columns text-center">
-					<img src="">
-					<p class="text-left">Заказывайте через сайт или по бесплатному телефону в любое время суток</p>
+		<div class="column medium-9">
+			<div class="row mb50">
+				<div class="large-6 columns text-left">
+					<img src="<?php echo base_url() ?>application/resources/user_resources/img/1.png">
+					<p class="text-left">Заказывайте через сайт или <br>по бесплатному телефону<br> в любое время суток</p>
 				</div>
-				<div class="large-6 columns text-center">
-					<img src="">
-					<p class="text-left">Наш консультант отвечает на вопросы и помогает сформировать заказ</p>
+				<div class="large-6 columns text-left">
+					<img src="<?php echo base_url() ?>application/resources/user_resources/img/2.png"">
+					<p>Наш консультант отвечает<br> на вопросы и помогает<br> сформировать заказ</p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="large-6 columns text-center">
-					<img src="">
-					<p class="text-left">Мы доставляем заказ по адресу в удобное для вас время, даже в выходные</p>
+				<div class="large-6 columns text-left">
+					<img src="<?php echo base_url() ?>application/resources/user_resources/img/3.png"">
+					<p class="text-left">Мы доставляем заказ по<br> адресу в удобное для вас<br> время, даже в выходные</p>
 				</div>
-				<div class="large-6 columns text-center">
-					<img src="">
-					<p class="text-left">Вы оплачиваете товар на месте и получаете всю необходимую документацию</p>
+				<div class="large-6 columns text-left">
+					<img src="<?php echo base_url() ?>application/resources/user_resources/img/4.png"">
+					<p class="text-left">Вы оплачиваете товар на<br> месте и получаете всю<br> необходимую документацию</p>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="large-5 columns pt80 pl0 pr0" style='background: #fff;'>
-		<div class="column products-title large-12 small-centered" style='background: #e23'>
-			<div class="row large-10">
-				<h2 class="text-white">Нужна помощь?</h2>
-				<p class="text-white">Наши специалисты бесплатно помогут вам с подбором блоков. В разделе <a href="">справка</a> есть ответы на популярные вопросы</p>
+		<div class="column products-title large-12 small-centered howToBg pb80">
+			<div class="row large-9">
+				<h2 class="text-white uppercase">Нужна помощь?</h2>
+				<p class="text-white">Наши специалисты бесплатно помогут вам <br>с подбором блоков. В разделе <a href="">справка</a> есть<br> ответы на популярные вопросы</p>
 				<p><span>по телефону:</span></p>
-				<h2>8 800 998-32-33</h2>
+				<h2 class="text-white">8 800 998-32-33</h2>
 				<p><span>Бесплатный звонок 24/7</span></p>
 				<p><span>Через форму:</span></p>
-				<a href="" class="btn-blue"></a>
-				<p><span>Подготовим комплексное предложение в течение одного рабочего дня</span></p>
+				<a role="button" aria-label="submit form" href="#" class="button btn-blueLine question-btn">Задать вопрос</a>
+				<p><span>Подготовим комплексное предложение<br> в течение одного рабочего дня</span></p>
 			</div>
 		</div>
 	</div>
