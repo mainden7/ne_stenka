@@ -85,7 +85,7 @@
     <div class="row header-nav">
       <div class="column small-12 menu-centered clearfix">
         <ul class="menu">
-          <li class='<?php echo $data['active'] == 1 ? 'active' : ''; ?>'><a href="/blocks">Блоки</a></li>
+          <li class='<?php echo $data['active'] == 1 ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
           <li><a href="#">Плиты перекрытия</a></li>
           <li><a href="#">Клей и инструменты</a></li>
           <li><a href="#">Справка</a></li>
