@@ -2632,12 +2632,24 @@ h4 {
     text-transform: none;
     font-size: 24px;
   }
+  .display-block{
+    display: block;
+  }
+  .display-inline-block{
+    display: inline-block;
+  }
 .btn-transparent{
   background: transparent;
 }
 .block-header{
   text-transform: uppercase;
   font-size: 48px;
+}
+.not-decorated{
+  text-decoration: none;
+}
+.mb-25{
+  margin-bottom: -25px;
 }
 .mt0{
   margin-top: 0;
@@ -2651,18 +2663,35 @@ h4 {
   .pr0{
     padding-right: 0;
   }
+  .ml10{
+    margin-left: 10px;
+  }
+  .pl20{
+    padding-left: 20px;
+  }
   .pt20{
     padding-top: 20px;
   }
-  
+  .pl30{
+    padding-left: 30px;
+  }
   .mb30{
     margin-bottom: 30px;
+  }
+  .pl40{
+    padding-left: 40px;
   }
   .ml40{
     margin-left: 40px;
   }
   .mb50{
     margin-bottom: 50px;
+  }
+  .pt50{
+    padding-top: 50px;
+  }
+  .pl80{
+    padding-left: 80px;
   }
 .pb80{
     padding-bottom: 80px;

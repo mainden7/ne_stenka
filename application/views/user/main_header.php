@@ -1,15 +1,4 @@
-<style type="text/css">
-.menu > li{
-	box-sizing: none;	
-}
-	.menu >li > a:hover{
-		text-decoration: none;
-	}
-	.menu > li:hover{
-		text-decoration: none !important;
-		border-bottom: 5px solid #fed536;
-	}
-</style>
+
 <!--Блок с товаром из каталога (Стеновые блоки из ячеестого бетона)-->
   <div class="row  frontSlide expanded small-12 medium-12 large-12">
     <div class="frontSlide-container row expanded small-12 medium-12 large-11 large-centered">

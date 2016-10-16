@@ -1,3 +1,26 @@
+<style type="text/css">
+.menu > li{
+	box-sizing: none;	
+}
+.menu > li{
+	border-bottom: 5px solid #000;
+}
+	.menu >li > a:hover{
+		text-decoration: none;
+	}
+	.menu > li:hover{
+		text-decoration: none !important;
+		border-bottom: 5px solid #fed536;
+	}
+	.menu > li.active{
+
+		border-bottom: 5px solid #fed536;
+	}
+	.menu > li.active a{
+		background: transparent;
+		text-decoration: none !important;
+	}
+</style>
 <!--,блок с навигацией и корзиной-->
   <div class="row expanded small-12 medium-12 large-11 large-centered header">
 
@@ -62,7 +85,7 @@
     <div class="row header-nav">
       <div class="column small-12 menu-centered clearfix">
         <ul class="menu">
-          <li><a href="#">Блоки</a></li>
+          <li class='<?php echo $data['active'] == 1 ? 'active' : ''; ?>'><a href="/blocks">Блоки</a></li>
           <li><a href="#">Плиты перекрытия</a></li>
           <li><a href="#">Клей и инструменты</a></li>
           <li><a href="#">Справка</a></li>

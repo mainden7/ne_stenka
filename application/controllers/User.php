@@ -32,6 +32,30 @@ class User extends CI_Controller {
 		$this->load->view('user/footer', $data);
 	}
 
+	public function blocks($user_id = NULL){
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+		$data = array();
+		$data['active'] = 1;
+		$data['main_settings'] = Settings::load_main_settings();		
+		$data['contact_settings'] = Settings::load_contact_settings();
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('user/header', $data);
+		$this->load->view('user/main_menu', $data);
+		$this->load->view('user/blocks_main', $data);
+		$this->load->view('user/instruments', $data);
+		$this->load->view('user/block_advantage', $data);
+		$this->load->view('user/contact_director', $data);
+		$this->load->view('user/main_footer', $data);
+		$this->load->view('user/footer', $data);
+	}
+
 
 
 }
