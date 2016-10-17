@@ -13,7 +13,7 @@
 		display: inline-block;
 		background: #fdd537;
 		/* padding: 10px 30px; */
-		font-size: 24px;
+		font-size: 20px;
 		position: relative;
 		width: 100%;
 		text-align: center;
@@ -29,8 +29,8 @@
 		top: 0;
 		/* border-left: 50px solid #fff; */
 		/* border-right: 0; */
-		border-top: 19px solid #fdd537;
-		border-bottom: 19px solid #fdd537;
+		border-top: 15px solid #fdd537;
+		border-bottom: 17px solid #fdd537;
 		/* z-index: 141; */
 		/* border: 29px solid transparent; */
 		border-left: 20px solid #fff;

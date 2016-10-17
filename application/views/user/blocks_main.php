@@ -20,7 +20,7 @@
 		margin-bottom: 0;
 	}
 	a.ui-tabs-anchor{
-		width: 350px;
+		width: 344px;
 		padding: 10px 30px;
 		text-decoration: none;
 		color: #000;
@@ -206,11 +206,16 @@
 		background: #fff;
 		padding-bottom: 50px;
 	}
+	.proposal_block > .img > img{
+		min-height: 267px;
+		max-height: 267px;
+	}
 </style>
 <section style='background-color: #f0f2f6'>
 	<div class="row frontSlide expanded small-12 medium-12 large-12 pt80" style='background-color: #f0f2f6'>
 		<div class="row large-10 ">
-			<div id="tabs">
+			<div class="column large-12">
+				<div id="tabs">
 
 				<ul class='inline'>
 					<li class="mb30"><a href="#tabs-1"><span class='icon-tab'>1</span><p class="mt0">Для кладки на клей<br><small>(1-я категория)</small></p></a></li>
@@ -357,6 +362,7 @@
 				</div>
 
 			</div>
+			</div>
 		</div>
 
 	</div>
@@ -385,7 +391,7 @@
 						<img src="http://localhost/ne_stenka//application/resources/user_resources/img/grid_block.png" alt="">
 					</div>
 					<div class="">
-						<h2>Пазогребенные блоки</h2>
+						<h2>Пазогребенные<br> блоки</h2>
 					</div>
 
 					<a href="#" class="btn-blue uppercase not-decorated">Размеры и цены <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
@@ -398,7 +404,7 @@
 						<img src="http://localhost/ne_stenka//application/resources/user_resources/img/brus_block.png" alt="">
 					</div>
 					<div class="">
-						<h2>Брусовые перемычки</h2>
+						<h2>Брусовые<br> перемычки</h2>
 					</div>
 
 					<a href="#" class="btn-blue uppercase not-decorated">Размеры и цены <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
