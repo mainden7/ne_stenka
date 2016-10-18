@@ -12,14 +12,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta property="og:image" content="path/to/image.jpg">
 
-  <link rel="shortcut icon" href="<?php echo base_url() ?>application/resources/user_resources/img/favicon/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="<?php echo base_url() ?>application/resources/user_resources/img/favicon/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url() ?>application/resources/user_resources/img/favicon/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url() ?>application/resources/user_resources/img/favicon/apple-touch-icon-114x114.png">
+  <link rel="shortcut icon" href="<?php echo '/' ?>application/resources/user_resources/img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="<?php echo '/' ?>application/resources/user_resources/img/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="<?php echo '/' ?>application/resources/user_resources/img/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="<?php echo '/' ?>application/resources/user_resources/img/favicon/apple-touch-icon-114x114.png">
 
-  <link rel="stylesheet" href="<?php echo base_url() ?>application/resources/user_resources/libs/foundation/foundation.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>application/resources/user_resources/css/fonts.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>application/resources/user_resources/css/main.css">
+  <link rel="stylesheet" href="<?php echo '/' ?>application/resources/user_resources/libs/foundation/foundation.css">
+  <link rel="stylesheet" href="<?php echo '/' ?>application/resources/user_resources/css/fonts.css">
+  <link rel="stylesheet" href="<?php echo '/' ?>application/resources/user_resources/css/main.css">
   
 </head>
 <body>
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="header-info-wrappertop clear hide-for-large">
         <!--лого-->
         <div class="header-info_logo column small-12 medium-6 large-3">
-          <a href="/"><img src="<?php echo base_url() ?>application/resources/user_resources/img/logo.png" alt=""></a>
+          <a href="/"><img src="<?php echo '/' ?>application/resources/user_resources/img/logo.png" alt=""></a>
 
           <!--гамбургер-->
           <a href="#" id="hamburger" class="hide-for-medium">
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="header-info-wrapperbottom clear">
         <!--лого-->
         <div class="header-info_logo column hide-for-medium-only hide-for-small-only large-3">
-          <a href="/"><img src="<?php echo base_url() ?>application/resources/user_resources/img/logo.png" alt=""></a>
+          <a href="/"><img src="<?php echo '/' ?>application/resources/user_resources/img/logo.png" alt=""></a>
         </div>
         <!--выбор региона-->
         <div class="header-info_regions header-info_regionsSelect column  small-5 medium-3 large-2">
@@ -142,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="row expanded large-12 frontSlide pt130" style='background: #f3f5f8'>
 	<div class="large-10 row small-12">
 		<div class="column large-12 text-center">
-			<img src="<?php echo base_url() ?>application/resources/user_resources/img/404.png">
+			<img src="<?php echo '/' ?>application/resources/user_resources/img/404.png">
 			<h1 class="uppercase">Страница не найдена</h1>
 			<p class="mb30">К сожалению такой страницы не существует. Вероятно она устарела и была удалена, либо никогда не существовала</p>
 			<a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted btn-transparent">В каталог<i class="fa fa-long-arrow-right"></i></a>
@@ -189,7 +189,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<p>&copy<?php echo date('Y'); ?> NeStenka</p>
 			</div>
 			<div class="column small-12 medium-4 text-right">
-				<img src="<?php echo base_url() ?>application/resources/user_resources/img/visaMaestroMC.png">
+				<img src="<?php echo '/' ?>application/resources/user_resources/img/visaMaestroMC.png">
 			</div>
 			<div class="column small-12 medium-4 text-right">
 				<p class='grey'>Разработка &#8212; <a href="http://jetmarketing.by" class="">JetMarketing</a></p>
@@ -200,15 +200,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
   
-  <script src="<?php echo base_url() ?>application/resources/user_resources/libs/modernizr/modernizr.js" charset="utf-8"></script>
-  <script src="<?php echo base_url() ?>application/resources/user_resources/libs/jquery/jquery-2.2.2.min.js" charset="utf-8"></script>
-  <script src="<?php echo base_url() ?>application/resources/user_resources/libs/foundation/foundation.min.js" charset="utf-8"></script>
+  <script src="<?php echo '/' ?>application/resources/user_resources/libs/modernizr/modernizr.js" charset="utf-8"></script>
+  <script src="<?php echo '/' ?>application/resources/user_resources/libs/jquery/jquery-2.2.2.min.js" charset="utf-8"></script>
+  <script src="<?php echo '/' ?>application/resources/user_resources/libs/foundation/foundation.min.js" charset="utf-8"></script>
   <!--  
   <script src="libs/animate-plugin/jquery.waypoints.min.js"></script>
   <script src="libs/animate-plugin/animate-css.js" charset="utf-8"></script>
   -->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="<?php echo base_url() ?>application/resources/user_resources/js/common.js" charset="utf-8"></script>
+  <script src="<?php echo '/' ?>application/resources/user_resources/js/common.js" charset="utf-8"></script>
 
 </body>
 </html>
