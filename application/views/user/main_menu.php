@@ -90,7 +90,7 @@
           <li class='<?php echo $data['active'] == 'instruments' ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
           <li class='<?php echo $data['active'] == 'faq' ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
           <li class='<?php echo $data['active'] == 'about' ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
-          <li class='<?php echo $data['active'] == 'contact' ? 'active' : ''; ?>'><a href="/user/contact">Контакты</a></li>
+          <li class='<?php echo $data['active'] == 'contact' ? 'active' : ''; ?>'><a href="/user/contacts">Контакты</a></li>
         </ul>
       </div>
     </div>
