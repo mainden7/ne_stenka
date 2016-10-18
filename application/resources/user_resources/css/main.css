@@ -2663,6 +2663,9 @@ h4 {
   .pr0{
     padding-right: 0;
   }
+  .mb5{
+    margin-bottom: 5px;
+  }
   .ml10{
     margin-left: 10px;
   }
@@ -2678,6 +2681,9 @@ h4 {
   .mb30{
     margin-bottom: 30px;
   }
+  .mt30{
+    margin-top: 30px;
+  }
   .pl40{
     padding-left: 40px;
   }
@@ -2687,11 +2693,17 @@ h4 {
   .mb50{
     margin-bottom: 50px;
   }
+  .pb50{
+    padding-bottom: 50px;
+  }
   .pt50{
     padding-top: 50px;
   }
   .pl80{
     padding-left: 80px;
+  }
+  .pt80{
+    padding-top: 80px;
   }
 .pb80{
     padding-bottom: 80px;
@@ -2714,7 +2726,12 @@ h4 {
   .mb130{
     margin-bottom: 130px;
   }
-
+  .text-bold{
+    font-weight: 800;
+  }
+  .text-light{
+    font-weight: 100;
+  }
   .text-center{
     text-align: center;
   }
@@ -2726,6 +2743,18 @@ h4 {
   }
   .uppercase{
     text-transform: uppercase;
+  }
+  ul.inline{
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  ul.inline li{
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  .white_block{
+        background: #fff;
+    padding: 40px;
   }
 @media screen and (max-width: 39.9375em) {
   .work-title {

@@ -3,7 +3,7 @@
 	box-sizing: none;	
 }
 .menu > li{
-	border-bottom: 5px solid #000;
+	border-bottom: 5px solid #231f20;
 }
 	.menu >li > a:hover{
 		text-decoration: none;
@@ -85,12 +85,12 @@
     <div class="row header-nav">
       <div class="column small-12 menu-centered clearfix">
         <ul class="menu">
-          <li class='<?php echo $data['active'] == 1 ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
-          <li><a href="#">Плиты перекрытия</a></li>
-          <li><a href="#">Клей и инструменты</a></li>
-          <li><a href="#">Справка</a></li>
-          <li><a href="#">О компании</a></li>
-          <li><a href="#">Контакты</a></li>
+          <li class='<?php echo $data['active'] == 'blocks' ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
+          <li class='<?php echo $data['active'] == 1 ? 'active' : ''; ?>'><a href="#">Плиты перекрытия</a></li>
+          <li class='<?php echo $data['active'] == 'instruments' ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
+          <li class='<?php echo $data['active'] == 'faq' ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
+          <li class='<?php echo $data['active'] == 'about' ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
+          <li class='<?php echo $data['active'] == 'contact' ? 'active' : ''; ?>'><a href="#">Контакты</a></li>
         </ul>
       </div>
     </div>

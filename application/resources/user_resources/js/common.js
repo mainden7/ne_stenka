@@ -81,3 +81,52 @@ $(function(){
     $(this).parent().hide();
   });
 });
+$( function() {
+  $( "#accordion" ).accordion();
+});
+//FAQ tabs
+$(function(){
+  $('#faq ul li').click(function(){
+    $('#faq ul li').removeClass('active');
+    $(this).addClass('active');
+    var show = $(this).attr('data-show');
+    $('.tab').hide();
+    $('div[data-filter="'+show+'"').show();
+  });
+});
+//accordion FAQ 1st TAB
+$(function(){
+  if($('#accordion h3').hasClass('ui-accordion-header-active')){
+    $('h3.ui-accordion-header-active i').removeClass('fa-angle-down').addClass('fa-angle-up');
+  }
+  $('#accordion h3').click(function(){
+    if($('#accordion h3').hasClass('ui-accordion-header-active')){
+
+      $('#accordion h3 i').removeClass('fa-angle-up').addClass('fa-angle-down');
+      $('h3.ui-accordion-header-active i').removeClass('fa-angle-down').addClass('fa-angle-up');
+    }else{
+      $('h3.ui-accordion-header-active i').removeClass('fa-angle-up').addClass('fa-angle-down');
+    }
+  });
+  
+});
+$(function(){
+   ymaps.ready(init);
+    var myMap,
+        myPlacemark;
+
+    function init(){     
+        myMap = new ymaps.Map("map", {
+            center: [55.76, 37.64],
+            zoom: 7,
+             controls: []
+        });
+
+        myPlacemark = new ymaps.Placemark([55.76, 37.64], { 
+            hintContent: 'Москва!', 
+            balloonContent: 'Столица России' 
+        });
+
+        myMap.geoObjects.add(myPlacemark);
+    }
+});

@@ -11,14 +11,7 @@
 		font-weight: 100;
 		border-bottom: 1px dashed #58595b;
 	}
-	ul.inline{
-		margin-bottom: 0;
-		padding-left: 0;
-	}
-	ul.inline li{
-		display: inline-block;
-		margin-bottom: 0;
-	}
+	
 	a.ui-tabs-anchor{
 		width: 344px;
 		padding: 10px 30px;
@@ -318,9 +311,9 @@
 										<h3 class="mt0">Клеевой состав для кладки блоков</h3>
 										<p>При условии покупки блоков, цена с доставкой: 175руб за мешок 25кг</p>
 										<form id='myform' class='display-block' method='POST' action='#'>
-											<input type='button' value='-' class='qtyminus' field='quantity' style='font-size: 20px'/>
-											<input type='text' name='quantity' value='0' class='qty' />
-											<input type='button' value='+' class='qtyplus' field='quantity' style='font-size: 20px'/>
+											<input type='button' value='-' class='qtyminus' field='quantity1' style='font-size: 20px'/>
+											<input type='text' name='quantity1' value='0' class='qty' />
+											<input type='button' value='+' class='qtyplus' field='quantity1' style='font-size: 20px'/>
 										</form>
 										<a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted add-to-cart">Добавить к заказу <i class="fa fa-long-arrow-right"></i></a>
 									</div>
@@ -335,9 +328,9 @@
 										<h3 class='mt0'>Клеевой состав для кладки блоков</h3>
 										<p>При условии покупки блоков, цена с доставкой: 175руб за мешок 25кг</p>
 										<form id='myform' class='display-block' method='POST' action='#'>
-											<input type='button' value='-' class='qtyminus' field='quantity' style='font-size: 20px'/>
-											<input type='text' name='quantity' value='0' class='qty' />
-											<input type='button' value='+' class='qtyplus' field='quantity' style='font-size: 20px'/>
+											<input type='button' value='-' class='qtyminus' field='quantity2' style='font-size: 20px'/>
+											<input type='text' name='quantity2' value='0' class='qty' />
+											<input type='button' value='+' class='qtyplus' field='quantity2' style='font-size: 20px'/>
 										</form>
 										<a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted add-to-cart">Добавить к заказу <i class="fa fa-long-arrow-right"></i></a>
 									</div>

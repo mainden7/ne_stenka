@@ -40,7 +40,7 @@ class User extends CI_Controller {
         $post = $this->input->post(NULL, TRUE);
 
 		$data = array();
-		$data['active'] = 1;
+		$data['active'] = 'blocks';
 		$data['main_settings'] = Settings::load_main_settings();		
 		$data['contact_settings'] = Settings::load_contact_settings();
 		// Data.
@@ -56,6 +56,123 @@ class User extends CI_Controller {
 		$this->load->view('user/footer', $data);
 	}
 
+	public function faq($user_id = NULL){
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+		$data = array();
+		$data['active'] = 'faq';
+		$data['main_settings'] = Settings::load_main_settings();		
+		$data['contact_settings'] = Settings::load_contact_settings();
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('user/header', $data);
+		$this->load->view('user/main_menu', $data);
+		$this->load->view('user/faq');
+		$this->load->view('user/seotext', $data);
+		$this->load->view('user/main_footer', $data);
+		$this->load->view('user/footer', $data);
+	}
+
+	public function about($user_id = NULL){
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+		$data = array();
+		$data['active'] = 'about';
+		$data['main_settings'] = Settings::load_main_settings();		
+		$data['contact_settings'] = Settings::load_contact_settings();
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('user/header', $data);
+		$this->load->view('user/main_menu', $data);
+		$this->load->view('user/about_header', $data);
+		$this->load->view('user/who_we_are', $data);
+
+		$this->load->view('user/consultation', $data);
+		$this->load->view('user/sertificates', $data);
+		$this->load->view('user/testimonials', $data);		
+		$this->load->view('user/contact_director2', $data);
+		$this->load->view('user/seotext', $data);
+		$this->load->view('user/main_footer', $data);
+		$this->load->view('user/footer', $data);
+	}
+
+	public function contacts($user_id = NULL){
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+		$data = array();
+		$data['active'] = 'contact';
+		$data['main_settings'] = Settings::load_main_settings();		
+		$data['contact_settings'] = Settings::load_contact_settings();
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('user/header', $data);
+		$this->load->view('user/main_menu', $data);
+		$this->load->view('user/contacts', $data);
+		$this->load->view('user/main_footer', $data);
+		$this->load->view('user/footer', $data);
+	}
+
+	public function product($user_id = NULL){
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+		$data = array();
+		$data['active'] = 'blocks';
+		$data['title'] = '';
+		$data['main_settings'] = Settings::load_main_settings();		
+		$data['contact_settings'] = Settings::load_contact_settings();
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('user/header', $data);
+		$this->load->view('user/main_menu', $data);
+		$this->load->view('user/product_main', $data);
+		$this->load->view('user/additional_proposal', $data);
+		$this->load->view('user/main_footer', $data);
+		$this->load->view('user/footer', $data);
+	}
+
+	public function instruments($user_id = NULL){
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+		$data = array();
+		$data['active'] = 'instruments';
+		$data['title'] = '';
+		$data['main_settings'] = Settings::load_main_settings();		
+		$data['contact_settings'] = Settings::load_contact_settings();
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('user/header', $data);
+		$this->load->view('user/main_menu', $data);
+		$this->load->view('user/instruments_main', $data);
+		$this->load->view('user/only_with_main', $data);
+		$this->load->view('user/do_not_find', $data);
+		$this->load->view('user/main_footer', $data);
+		$this->load->view('user/footer', $data);
+	}
 
 
 }

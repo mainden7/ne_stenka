@@ -18,8 +18,6 @@
 					<a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted btn-transparent">Написать директору</a>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
 </section>
