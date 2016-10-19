@@ -86,7 +86,7 @@
       <div class="column small-12 menu-centered clearfix">
         <ul class="menu">
           <li class='<?php echo $data['active'] == 'blocks' ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
-          <li class='<?php echo $data['active'] == 1 ? 'active' : ''; ?>'><a href="#">Плиты перекрытия</a></li>
+          <li class='<?php echo $data['active'] == 'slabs' ? 'active' : ''; ?>'><a href="/user/slabs">Плиты перекрытия</a></li>
           <li class='<?php echo $data['active'] == 'instruments' ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
           <li class='<?php echo $data['active'] == 'faq' ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
           <li class='<?php echo $data['active'] == 'about' ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
