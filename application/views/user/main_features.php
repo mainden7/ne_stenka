@@ -23,26 +23,22 @@
     margin-top: 0;
     font-size: 20px;
   }
-  .hot-proposals p.bold{
-    font-weight: bold;
-    margin-bottom: 0;
-  }
   img.family{
     width: 100%;
   }
 </style>
 <div class="row expanded small-12 medium-12 large-10 large-centered pb130 pt80 main-features"> 
-  <div class="column medium-8 small-centered text-center">
-    <h2 class="mb80 block-header">Оптовые цены при любом объеме поставки</h2>
+  <div class="column large-6 medium-8 small-centered text-center">
+    <h2 class="mb50 block-header">Оптовые цены при любом объеме поставки</h2>
   </div>
   <div class="row">
     <div id="tabs">
-      <div class="large-12 columns small-12 text-center">
+      <div class="large-12 columns small-12 text-center mb80">
         <ul class='inline'>
-          <li class="mb30"><a href="#tabs-1">Индивидуальным застройщикам</a></li>
-          <li class="mb30"><a href="#tabs-2">Бригадным подрядчикам</a></li>
-          <li class="mb30"><a href="#tabs-3">Магазинам и закупочным базам</a></li>
-          <li class="mb30"><a href="#tabs-4">Строительным компаниям</a></li>
+          <li class="mb30 class="no-border-bottom""><a href="#tabs-1" >Индивидуальным застройщикам</a></li>
+          <li class="mb30 class="no-border-bottom""><a href="#tabs-2" >Бригадным подрядчикам</a></li>
+          <li class="mb30 class="no-border-bottom""><a href="#tabs-3" >Магазинам и закупочным базам</a></li>
+          <li class="mb30 class="no-border-bottom""><a href="#tabs-4" >Строительным компаниям</a></li>
         </ul>
       </div>
       <div class="large-12 columns small-12 hot-proposals">

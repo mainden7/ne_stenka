@@ -19,5 +19,8 @@
           <img src="<?php echo site_url(); ?>/application/resources/user_resources/img/icon-1.png" alt="">
           <span>Более 10 000 <br>клиентов</span>
         </div>
+        <div class="column small-12 large-12 pl0 mt80">        	
+        	<span style='color: #0078ff'><a href="/user/about" class="btn-blue ">О кампании <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></span>
+        </div>
     </div>
   </div>

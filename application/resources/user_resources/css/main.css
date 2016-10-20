@@ -2246,7 +2246,8 @@ a {
   color: #0078ff;
   font-family: 'osb', sans-serif;
   -webkit-transition: .2s;
-  transition: .2s; }
+  transition: .2s;
+  text-decoration: none !important; }
 
 textarea {
   resize: none; }
@@ -2264,7 +2265,7 @@ body textarea:required:valid {
 
 body {
   font-size: 16px;
-  font-family: 'OSl', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   min-width: 320px;
   position: relative;
   line-height: 1.6;
@@ -2296,7 +2297,10 @@ h4 {
 
 .text-right {
   text-align: right; }
-
+p.bold{
+  color: #231f20;
+  font-weight: 800;
+}
 .label {
   position: relative;
   padding-left: 17px;

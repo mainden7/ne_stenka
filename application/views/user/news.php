@@ -14,7 +14,7 @@
 		</div>
 		<div class="row">
 			<div class="column small-12 medium-4">
-				<div class="">
+				<div class="hovered-block">
 					<div class="img text-left">
 						<img src="http://localhost/ne_stenka//application/resources/user_resources/img/block.png" alt="">
 					</div>

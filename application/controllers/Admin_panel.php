@@ -165,9 +165,17 @@ class Admin_panel extends CI_Controller {
         $data = array();
         if($post || $is_post){
         	/*print '<pre>' . print_r($post, true) . '</pre>'; die();*/
+        	//save logo
+            if ($_FILES['img']['name']) {
+                $uploaddir = base_url().'application/resources/upload/site/';
+                $uploadfile = $uploaddir . basename($_FILES['omg']['name']);
+                if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)) {
+                    $img = $_FILES['img']['name'];
+                }
+            }
         	$name = $post['name'];
         	$description = $post['description'];
-        	Product::add_product($name, $description);
+        	Product::add_product($name, $description, $img);
         	redirect('/admin_panel/categories');
         }
 		$data['main_settings'] = Settings::load_main_settings();
@@ -287,4 +295,50 @@ class Admin_panel extends CI_Controller {
 		$this->load->view('admin/testimonials', $data);
 		$this->load->view('admin/footer');
     }
+
+    public function news(){
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        $data = array();
+        if($post || $is_post){
+        	print '<pre>' . print_r($post, true) . '</pre>'; die();
+        	if ($_FILES['img']['name']) {
+                $uploaddir = base_url().'application/resources/img/';
+                $uploadfile = $uploaddir . basename($_FILES['img']['name']);
+                if (move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile)) {
+                    $img = $_FILES['img']['name'];
+                }
+            }
+        	$name = $post['name'];
+        	$content = $post['content'];
+        	if($post['status'] == 'on'){
+        		$status = 1;
+        	}else{
+        		$status = 0;
+        	}
+        	$post = $post['post'];
+        	Articles::add_article($name, $content, $status, $on_main, $post, $img);
+        	redirect('/admin_panel/categories');
+        }
+		$data['main_settings'] = Settings::load_main_settings();
+		$data['contact_settings'] = Settings::load_contact_settings();
+		$data['news'] = Product::load_products();
+		$data['categories'] = Product::load_categories();
+		/*print '<pre>' . print_r($data['categories'], true) . '</pre>'; die();*/
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('admin/header');
+		$this->load->view('admin/main_header', $data);
+		$this->load->view('admin/main_menu');
+		$this->load->view('admin/news', $data);
+		$this->load->view('admin/footer');
+	}
 }

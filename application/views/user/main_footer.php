@@ -14,6 +14,9 @@
 	p.grey > a{
 		color: #989898;
 	}
+	a.border-bottom-none:hover{
+		border-bottom: none;
+	}
 </style>
 <div class='row expanded large-12 main-footer'>
 	<div class="row expanded small-12 medium-12 large-12 large-centered pt80 pb80" style='background: #091c3a'> 
@@ -57,7 +60,7 @@
 				<img src="<?php echo base_url(); ?>application/resources/user_resources/img/visaMaestroMC.png">
 			</div>
 			<div class="column small-12 medium-4 text-right">
-				<p class='grey'>Разработка &#8212; <a href="http://jetmarketing.by" class="">JetMarketing</a></p>
+				<p class='grey'>Разработка &#8212; <a href="http://jetmarketing.by" class="border-bottom-none">JetMarketing</a></p>
 			</div>
 		</div>
 	</div>

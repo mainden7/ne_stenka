@@ -41,9 +41,9 @@
             </ul>
         </li>
         <li class="red">
-            <a href="#">
+            <a href="<?php echo site_url().'admin_panel/news'; ?>">
                 <i class="font-icon glyphicon glyphicon-send"></i>
-                <span class="lbl">1</span>
+                <span class="lbl">Новости</span>
             </a>
         </li>
     </ul>

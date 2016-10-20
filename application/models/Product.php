@@ -4,16 +4,16 @@ if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
 class Product extends CI_Model{
-	public static function add_product($name, $description){
+	public static function add_product($name, $description, $img, $price, $category){
 		$CI = & get_instance();
-		$sql = 'INSERT INTO `products` (`name`, `description`, `date`) VALUES (?, ?, ?)';
-		$CI->db->query($sql, array($name, $description, date('Y-m-d H:i:s')));
+		$sql = 'INSERT INTO `products` (`name`, `description`, `date`, `image`, `price`, `category`) VALUES (?, ?, ?, ?, ?, ?)';
+		$CI->db->query($sql, array($name, $description, date('Y-m-d H:i:s'), $img, $price, $category ));
 	}
 
-	public static function update_product($name, $description, $id) {
+	public static function update_product($name, $description, $img, $price, $category,  $id) {
         $CI = & get_instance();
-        $sql = "UPDATE `products` SET  `name` = ?, `description` = ?, `date` = ? WHERE `id` = ?";
-        $CI->db->query($sql, array($name, $description, date('Y-m-d H:i:s'), $id));
+        $sql = "UPDATE `products` SET  `name` = ?, `description` = ?, `img` = ?, `price` = ?, `category` = ? WHERE `id` = ?";
+        $CI->db->query($sql, array($name, $description, $img, $price, $category, $id));
     }
 
     public static function delete_product($id) {

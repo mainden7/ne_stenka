@@ -40,9 +40,9 @@
 		<div class="column products-title large-12 small-centered howToBg pb80">
 			<div class="row large-9">
 				<h2 class="text-white uppercase">Нужна помощь?</h2>
-				<p class="text-white">Наши специалисты бесплатно помогут вам <br>с подбором блоков. В разделе <a href="">справка</a> есть<br> ответы на популярные вопросы</p>
-				<p><span>по телефону:</span></p>
-				<h2 class="text-white">8 800 998-32-33</h2>
+				<p class="text-white mb50">Наши специалисты бесплатно помогут вам <br>с подбором блоков. В разделе <a href="">справка</a> есть<br> ответы на популярные вопросы</p>
+				<p class="mb0 text-white text-bold"><span>по телефону:</span></p>
+				<h2 class="text-white mt0">8 800 998-32-33</h2>
 				<p><span>Бесплатный звонок 24/7</span></p>
 				<p><span>Через форму:</span></p>
 				<a role="button" aria-label="submit form" href="#" class="button btn-blueLine question-btn">Задать вопрос</a>

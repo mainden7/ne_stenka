@@ -14,7 +14,8 @@
   <link rel="apple-touch-icon" href="<?php echo site_url(); ?>/application/resources/user_resources/img/favicon/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="72x72" href="<?php echo site_url(); ?>/application/resources/user_resources/img/favicon/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="<?php echo site_url(); ?>/application/resources/user_resources/img/favicon/apple-touch-icon-114x114.png">
-
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/css/bootstrap.css" >
   <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/libs/foundation/foundation.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/css/fonts.css">
   <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/css/main.css">
