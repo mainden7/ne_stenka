@@ -15,7 +15,7 @@
 		<h2 class="mb80 block-header">Гарантируем качество</h2>
 	</div>
 	<div class="row mb50">
-		<div class="column small-12 medium-4">
+		<div class="column small-12 medium-4 pl0">
 			<div class="column small-12 medium-4">
 				<img src="<?php echo base_url() ?>application/resources/user_resources/img/1.jpg">
 			</div>
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row border-row">
+	<div class="row border-row ml20">
 		<div class="column small-12 medium-12">
 			<h3 class="uppercase guarantee-header">Контроль качества</h3>
 		</div>

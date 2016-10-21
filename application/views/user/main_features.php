@@ -41,7 +41,7 @@
           <li class="mb30 class="no-border-bottom""><a href="#tabs-4" >Строительным компаниям</a></li>
         </ul>
       </div>
-      <div class="large-12 columns small-12 hot-proposals">
+      <div class="large-12 columns small-12 hot-proposals pl0">
 
         <div id="tabs-1">
           <div class="large-7 small-12 columns">

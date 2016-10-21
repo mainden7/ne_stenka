@@ -6,7 +6,7 @@
 </style>
 <section class="pb130 pt130" style='background: #f0f2f6'>
 	<div class="row expanded large-10">
-		<div class="row large-12 border-row">
+		<div class="row large-12 border-row ml10" style="margin-left: 10px;">
 			<div class="row small-12 medium-12">
 				<h3 class="uppercase guarantee-header">Контроль качества</h3>
 			</div>

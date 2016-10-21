@@ -1,6 +1,7 @@
 <!--15 лет на рынке-->
   <div class="row expanded market small-12 medium-12 large-10 large-centered">
-    <div class="market-left column hide-for-small-only medium-5 large-5">
+    <div class="column large-12">
+    	<div class="market-left column hide-for-small-only medium-5 large-5">
       <img src="<?php echo site_url(); ?>/application/resources/user_resources/img/block-2.jpg" alt="">
     </div>
     <div class="market-right column small-12 medium-7 large-7">
@@ -22,5 +23,6 @@
         <div class="column small-12 large-12 pl0 mt80">        	
         	<span style='color: #0078ff'><a href="/user/about" class="btn-blue ">О кампании <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></span>
         </div>
+    </div>
     </div>
   </div>

@@ -21,7 +21,7 @@
 		background: transparent;
 		text-decoration: none !important;
 	}
-	#chooseCity img.fa-times{
+	.modal img.fa-times{
 		position: absolute;
 		top: -13px;
 		right: -9px;
@@ -38,6 +38,7 @@
 	}
 	#chooseCity ul li a{
 		border-bottom: none;
+		color: #58595b;
 	}
 	#chooseCity ul li i.fa-check{
 		position: absolute;
@@ -50,6 +51,9 @@
 	}
 	#chooseCity ul li:hover i.fa-check{
 		display: inline;
+	}
+	#chooseCity ul li:hover a{
+		color: #0078ff;
 	}
 </style>
 <!--,блок с навигацией и корзиной-->
@@ -154,44 +158,88 @@
 			</div>
 			<!--Доставка и оплата-->
 			<div class="header-info_regions hide-for-small-only header-info_regions_pay column medium-4 large-2">
-				<a href="#">Доставка и оплата</a>
-			</div>
-			<!--корзина-->
-			<div class="header-info_cart column small-7 medium-5 large-3">
-				<a href="#" class="header-info_cart_wrapper float-center">
-					<div class="badge badge-gray">
-						<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-						<div class="badge secondary">3</div>
+				<a href="#" data-toggle='modal' data-target='#delivery'>Доставка и оплата</a>
+				<div class="modal fade bs-example-modal-lg" id="delivery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							
+							<div class="modal-body pb80">
+								<div class="row large-12">
+									<div class="column large-12">
+										<button type="button" class="" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="<?php echo base_url() ?>application/resources/user_resources/img/close-icon.png" alt="" class="fa-times"></span></button>
+										<h3 class="uppercase">Доставка</h3>
+									</div>
+									<div class="column large-12">
+										<p><span class='uppercase'>Бесплатно </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, temporibus!<a href="" class="btn-blue">Справка</a></p>
+										</div>
+										<div class="column large-6 small-12">
+											<h3 class="uppercase">Как оплатить</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											<a href="" class="btn-blue uppercase">Подробнее <i class="fa fa-long-arrow-right"></i></a>
+										</div>	
+										<div class="column large-6 small-12">
+											<h3 class="uppercase">Какой минимальный заказ</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
 					</div>
-					<span class="innerWrap clear">
-						<span class="hide-for-small-only">Ваш заказ на сумму</span>
-						<span class="hide-for-medium">Сумма заказа</span><br>
-						<b>9 895 руб.</b>
-					</span>
-				</a>
+				</div>
+				<!--корзина-->
+				<div class="header-info_cart column small-7 medium-5 large-3">
+					<a href="#" class="header-info_cart_wrapper float-center">
+						<div class="badge badge-gray">
+							<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+							<div class="badge secondary">3</div>
+						</div>
+						<span class="innerWrap clear">
+							<span class="hide-for-small-only">Ваш заказ на сумму</span>
+							<span class="hide-for-medium">Сумма заказа</span><br>
+							<b>9 895 руб.</b>
+						</span>
+					</a>
+				</div>
+
+				<!--позвонить нам спрятан на medium-->
+				<div class="header-info_regions column hide-for-small-only text-right hide-for-medium-only large-2">
+					<span>Бесплатный звонок <br class="hide-for-large">по РФ. 24/7</span>
+					<a class="header-info_regions_phone" href="tel:<?php echo $data['contact_settings']['tel_1'] ?>"><?php echo $data['contact_settings']['tel_1']; ?></a>
+				</div>
 			</div>
 
-			<!--позвонить нам спрятан на medium-->
-			<div class="header-info_regions column hide-for-small-only text-right hide-for-medium-only large-2">
-				<span>Бесплатный звонок <br class="hide-for-large">по РФ. 24/7</span>
-				<a class="header-info_regions_phone" href="tel:<?php echo $data['contact_settings']['tel_1'] ?>"><?php echo $data['contact_settings']['tel_1']; ?></a>
+		</div>
+
+		<!--навигация-->
+		<div class="row header-nav">
+			<div class="column small-12 menu-centered clearfix">
+				<ul class="menu">
+					<li class='<?php echo $data['active'] == 'blocks' ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
+					<li class='<?php echo $data['active'] == 'slabs' ? 'active' : ''; ?>'><a href="/user/slabs">Плиты перекрытия</a></li>
+					<li class='<?php echo $data['active'] == 'instruments' ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
+					<li class='<?php echo $data['active'] == 'faq' ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
+					<li class='<?php echo $data['active'] == 'about' ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
+					<li class='<?php echo $data['active'] == 'contact' ? 'active' : ''; ?>'><a href="/user/contacts">Контакты</a></li>
+				</ul>
 			</div>
 		</div>
 
 	</div>
-
-	<!--навигация-->
-	<div class="row header-nav">
-		<div class="column small-12 menu-centered clearfix">
-			<ul class="menu">
-				<li class='<?php echo $data['active'] == 'blocks' ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
-				<li class='<?php echo $data['active'] == 'slabs' ? 'active' : ''; ?>'><a href="/user/slabs">Плиты перекрытия</a></li>
-				<li class='<?php echo $data['active'] == 'instruments' ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
-				<li class='<?php echo $data['active'] == 'faq' ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
-				<li class='<?php echo $data['active'] == 'about' ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
-				<li class='<?php echo $data['active'] == 'contact' ? 'active' : ''; ?>'><a href="/user/contacts">Контакты</a></li>
-			</ul>
-		</div>
-	</div>
-
-</div>
