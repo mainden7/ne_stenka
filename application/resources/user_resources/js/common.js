@@ -111,22 +111,68 @@ $(function(){
   
 });
 $(function(){
-   ymaps.ready(init);
-    var myMap,
-        myPlacemark;
-
-    function init(){     
-        myMap = new ymaps.Map("map", {
-            center: [55.76, 37.64],
-            zoom: 7,
-             controls: []
-        });
-
-        myPlacemark = new ymaps.Placemark([55.76, 37.64], { 
-            hintContent: 'Москва!', 
-            balloonContent: 'Столица России' 
-        });
-
-        myMap.geoObjects.add(myPlacemark);
+  $("#lightSlider").lightSlider({
+    item:4,
+    loop:false,
+    slideMove:2,
+    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+    speed:600,
+    responsive : [
+    {
+      breakpoint:800,
+      settings: {
+        item:3,
+        slideMove:1,
+        slideMargin:6,
+      }
+    },
+    {
+      breakpoint:480,
+      settings: {
+        item:2,
+        slideMove:1
+      }
     }
+    ]
+  }); 
+});
+$(function(){
+  $('.controls i.next').click(function(){
+    var j = $('input#count').val();
+
+    var a = $(this).attr('data-count');     
+    $('.project_item.active').removeClass('active').hide();
+    $('div[data-number="' + (a) + '"]').show().addClass('active');    
+
+    
+  });
+
+  $('.controls i.prev').click(function(){
+    var a = $(this).attr('data-count');   
+    if(a >= 1){
+        $('.project_item.active').removeClass('active').hide();
+        $('div[data-number="' + (a) + '"]').show().addClass('active');
+      
+    }
+  });
+});
+$(function(){
+ ymaps.ready(init);
+ var myMap,
+ myPlacemark;
+
+ function init(){     
+  myMap = new ymaps.Map("map", {
+    center: [55.76, 37.64],
+    zoom: 7,
+    controls: []
+  });
+
+  myPlacemark = new ymaps.Placemark([55.76, 37.64], { 
+    hintContent: 'Москва!', 
+    balloonContent: 'Столица России' 
+  });
+
+  myMap.geoObjects.add(myPlacemark);
+}
 });

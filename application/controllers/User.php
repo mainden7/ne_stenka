@@ -96,7 +96,7 @@ class User extends CI_Controller {
 		$this->load->view('user/main_menu', $data);
 		$this->load->view('user/about_header', $data);
 		$this->load->view('user/who_we_are', $data);
-
+		$this->load->view('user/our_projects', $data);
 		$this->load->view('user/consultation', $data);
 		$this->load->view('user/sertificates', $data);
 		$this->load->view('user/testimonials', $data);		

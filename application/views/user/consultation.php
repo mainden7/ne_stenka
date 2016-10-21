@@ -10,7 +10,7 @@
 		padding: 15px 40px;
 	}
 </style>
-<section id='consultation' class=" pt50 pb50">
+<section id='consultation' class=" pt50 pb50 mb80">
 	<div class="row expanded large-12">
 		<div class="row large-6 text-center">
 			<p class='text-white'>Обращаясь к нам, вы получите профессиональную консультацию,<br> безупречную доставку, и высококачественные блоки <span class='text-bold'>без переплат</span> </p>
