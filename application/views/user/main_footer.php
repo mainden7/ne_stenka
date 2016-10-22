@@ -1,6 +1,6 @@
 <style type="text/css">
 	.main-footer h3,
-	.main-footer p,
+	
 	.main-footer ul li a{
 		color: #fff;
 	}
@@ -25,29 +25,29 @@
 				<h3 class="logo-white-header">
 					NeStenka
 				</h3>
-				<p>
+				<p class="text-white-60">
 					Высококачественные блоки<br>из ячеистого бетона
 				</p>
 			</div>
 			<div class="column small-12 medium-2">
 				<ul>
-					<li><a>Блоки</a></li>
-					<li><a>Плиты перекрытия</a></li>
-					<li><a>Клей и инструменты</a></li>
-					<li><a>Справка</a></li>
+					<li><a href='/user/blocks'>Блоки</a></li>
+					<li><a href='/user/slabs'>Плиты перекрытия</a></li>
+					<li><a href='/user/instruments'>Клей и инструменты</a></li>
+					<li><a href='/user/faq'>Справка</a></li>
 				</ul>
 			</div>
 			<div class="column small-12 medium-2">
 				<ul>
-					<li><a>О компании</a></li>
-					<li><a>Новости</a></li>
-					<li><a>Контакты</a></li>
+					<li><a href='/user/about'>О компании</a></li>
+					<li><a href='/user/news_article'>Новости</a></li>
+					<li><a href='/user/contacts'>Контакты</a></li>
 				</ul>
 			</div>
-			<div class="column small-12 medium-4 text-center">
-				<p><span class="grey">Остались вопросы ?</span></p>
-				<h3>8 800 998-32-33</h3>
-				<p><small><a href="">Бесплатный звонок 24/7</a></small></p>
+			<div class="column small-12 medium-3 text-left">
+				<p class="uppercase"><span class="grey">Остались вопросы ?</span></p>
+				<h3 style="font-size: 28px">8 800 998-32-33</h3>
+				<p class="uppercase"><a href="" class="dashed">Бесплатный звонок 24/7</a></p>
 			</div>
 		</div>
 	</div>

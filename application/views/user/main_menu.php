@@ -222,7 +222,7 @@
 				<!--позвонить нам спрятан на medium-->
 				<div class="header-info_regions column hide-for-small-only text-right hide-for-medium-only large-2">
 					<span>Бесплатный звонок <br class="hide-for-large">по РФ. 24/7</span>
-					<a class="header-info_regions_phone" href="tel:<?php echo $data['contact_settings']['tel_1'] ?>"><?php echo $data['contact_settings']['tel_1']; ?></a>
+					<a class="header-info_regions_phone" href="tel:<?php echo $data['contact_settings']['tel_1'] ?>" style='font-size: 17px !important'><?php echo $data['contact_settings']['tel_1']; ?></a>
 				</div>
 			</div>
 

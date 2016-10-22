@@ -8,7 +8,7 @@
 
 	}
 	.header-caption > p > a.email{
-		border-bottom: 1px dashed #0078ff;
+		border-bottom: 1px dotted #0078ff;
 	}
 	
 </style>
@@ -26,8 +26,8 @@
 						</div>
 						<div class="header-caption text-center">
 							<h3 class="mb0">Евгений Сергеевич</h3>
-							<p class="mt0"><span class="blin-grey">директор "БелСтройГрупп"</span></p>
-							<p><a class="email">example@example.com</a></p>
+							<p class="mt0" style='font-size: 13px'><span class="blin-grey">директор "БелСтройГрупп"</span></p>
+							<p style='font-size: 13px'><a class="email">example@example.com</a></p>
 						</div>
 						<div class="description">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa consequatur velit at fugit minus quod assumenda doloremque dignissimos quis saepe aspernatur, id nulla iusto mollitia! Porro aperiam perferendis provident fuga!</p>

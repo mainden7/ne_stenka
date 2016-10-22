@@ -157,6 +157,15 @@ $(function(){
   });
 });
 $(function(){
+  $('.tooltip').mouseover(function(){
+    $('.info').hide();
+    $(this).find('.info').show();
+  });
+  $('.tooltip').mouseleave(function(){
+    $('.info').hide();
+  });
+});
+$(function(){
  ymaps.ready(init);
  var myMap,
  myPlacemark;

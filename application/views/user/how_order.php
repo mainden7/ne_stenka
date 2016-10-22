@@ -11,10 +11,10 @@
 <div class='row expanded large-12'  style='background-color: #f0f2f6'>
 	<div class="large-7 columns pb80">
 		<div class="column products-title medium-6 small-centered text-center">
-			<h2 class='uppercase'>Как заказать</h2>
+			<h2 class='uppercase mt80' style="font-size: 44px">Как заказать</h2>
 		</div>
 		<div class="column medium-9">
-			<div class="row mb50">
+			<div class="row mb80">
 				<div class="large-6 columns text-left">
 					<img src="<?php echo base_url() ?>application/resources/user_resources/img/1.png">
 					<p class="text-left">Заказывайте через сайт или <br>по бесплатному телефону<br> в любое время суток</p>
@@ -39,14 +39,14 @@
 	<div class="large-5 columns pt80 pl0 pr0" style='background: #fff;'>
 		<div class="column products-title large-12 small-centered howToBg pb80">
 			<div class="row large-9">
-				<h2 class="text-white uppercase">Нужна помощь?</h2>
+				<h2 class="text-white uppercase mt80" style="font-size: 36px">Нужна помощь?</h2>
 				<p class="text-white mb50">Наши специалисты бесплатно помогут вам <br>с подбором блоков. В разделе <a href="">справка</a> есть<br> ответы на популярные вопросы</p>
-				<p class="mb0 text-white text-bold"><span>по телефону:</span></p>
+				<p class="mb0 text-white text-bold"><span class="uppercase">по телефону:</span></p>
 				<h2 class="text-white mt0">8 800 998-32-33</h2>
-				<p><span>Бесплатный звонок 24/7</span></p>
-				<p><span>Через форму:</span></p>
+				<p><span class="text-white-60">Бесплатный звонок 24/7</span></p>
+				<p><span class="uppercase text-white-60">Через форму:</span></p>
 				<a role="button" aria-label="submit form" href="#" class="button btn-blueLine question-btn">Задать вопрос</a>
-				<p><span>Подготовим комплексное предложение<br> в течение одного рабочего дня</span></p>
+				<p class="text-white-60"><span>Подготовим комплексное предложение<br> в течение одного рабочего дня</span></p>
 			</div>
 		</div>
 	</div>

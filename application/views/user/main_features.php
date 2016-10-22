@@ -21,7 +21,7 @@
   }
   .hot-proposals p{
     margin-top: 0;
-    font-size: 20px;
+    font-size: 16px;
   }
   img.family{
     width: 100%;

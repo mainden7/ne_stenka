@@ -12,7 +12,7 @@
 
 <div class="row expanded small-12 medium-12 large-10 large-centered pb130 pt130 guarantee"> 
 	<div class="column products-title medium-6 small-centered text-center">
-		<h2 class="mb80 block-header">Гарантируем качество</h2>
+		<h2 class="mb80 block-header mt0">Гарантируем качество</h2>
 	</div>
 	<div class="row mb50">
 		<div class="column small-12 medium-4 pl0">

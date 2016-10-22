@@ -19,7 +19,7 @@
 						<img src="http://localhost/ne_stenka//application/resources/user_resources/img/block.png" alt="">
 					</div>
 					<div class="">
-						<h3>Немного о качестве нашего бетона</h3>
+						<p class="text-bold" style='font-size: 16px'>Немного о качестве нашего бетона</p>
 					</div>
 				</div>
 			</div>
