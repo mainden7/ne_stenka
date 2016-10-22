@@ -302,7 +302,7 @@ class User extends CI_Controller {
 		if($post){
 			$id = $post['id'];
 			$get['path'] = $post['path'];
-			for($i = 1; $i <= $post['quantity']; $i++){
+			for($i = 1; $i <= $post['quantity'.$id]; $i++){
 				array_push($added_items,  $id);
 			}
 		}
