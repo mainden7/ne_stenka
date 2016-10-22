@@ -17,7 +17,7 @@
 						<label for="name" class="control-label">Название продукта</label>
 						<input type="text" class='form-control' name="name" value="" placeholder="имя">
 					</div>
-					<div class="form-group">
+					<div class="form-group" style="width: 200px">
 						<label for="name" class="control-label">Цена</label>
 						<input type="text" class='form-control' name="price" value="" placeholder="Цена">
 					</div>
@@ -28,6 +28,10 @@
 								<option><?php echo $category['name']; ?></option>
 								<?php } ?>
 							</select>
+						</div>
+						<div class="form-group" style="width: 200px">
+							<label for="name" class="control-label">Размеры</label>
+							<input type="text" class='form-control' name="size" value="" placeholder="Размеры">
 						</div>
 						<div class="form-group">
 							<label>Описание</label>
@@ -71,8 +75,8 @@
 									<th>№</th>
 									<th>Имя</th>
 									<th>Описание</th>
-									<th>Дата</th>
 									<th>Категория</th>
+									<th>Дата</th>									
 									<th class="table-icon-cell" style="width: 40px;"></th>
 									<th class="table-icon-cell" style="width: 40px;"></th>
 								</tr>
@@ -85,6 +89,7 @@
 										<td><?php echo $i; ?></td>
 										<td><?php echo $product['name']; ?></td>
 										<td class="color-blue-grey-lighter"><?php echo $product['description']; ?></td>
+										<td><?php echo $product['category']; ?></td>
 										<td class="table-date"><i class="font-icon font-icon-clock"></i> <?php echo date('Y-m-d', strtotime($product['date'])); ?> </td>
 										<td class="table-icon-cell">
 											<a data-toggle='modal' data-target='#editProduct<?php echo $product['id']; ?>'><i class="font-icon font-icon-pencil"></i></a>
@@ -92,6 +97,7 @@
 										<td class="table-icon-cell">
 											<a href="<?php echo site_url(); ?>admin_panel/delete_product/<?php echo $product['id']; ?>" onclick="return window.confirm('Вы уверены?')"><i class="font-icon font-icon-trash"></i></a>
 										</td>
+
 									</tr>
 									<div id="editProduct<?php echo $product['id']; ?>" class="modal fade" role="dialog">
 										<div class="modal-dialog">
@@ -108,52 +114,56 @@
 													<div class="modal-body">
 														<div class="form-group">
 															<label for="name" class="control-label">Имя продукта</label>
-															<input type="text" class='form-control' name="name" value="<?php echo $product['name'] ?>" placeholder="name">
+															<input type="text" class='form-control' name="name" value="<?php echo $product['name'] ?>">
 														</div>
-														<div class="form-group">
+														<div class="form-group" style='width: 200px'>
 															<label for="name" class="control-label">Цена</label>
-															<input type="text" class='form-control' name="price" value="<?php echo $product['price'] ?>" placeholder="Цена">
+															<input type="text" class='form-control' name="price" value="<?php echo $product['price'] ?>">
 														</div>
 														<div class="form-group">
-															<label>Категории</label>
+															<label>Категории</label>															
 															<select name='category' class="selectpicker">
 																<?php foreach ($data['categories'] as $category) { ?>
 																	<option <?php echo $product['category'] == $category['name'] ? 'selected' : '' ?>><?php echo $category['name']; ?></option>
 																	<?php } ?>
 																</select>
-															</div>
-															<div class="form-group">
-																<label>Описание</label>
-																<div class="summernote-theme-1">
+														</div>
+														<div class="form-group" style='width: 200px'>
+															<label for="name" class="control-label">Размеры</label>
+															<input type="text" class='form-control' name="size" value="<?php echo $product['size'] ?>">
+														</div>
+														<div class="form-group">
+															<label>Описание</label>
+															<div class="summernote-theme-1">
 																	<textarea class="summernote" name='description'><?php echo $product['description']; ?></textarea>
-																</div>
 															</div>
-															<div class="form-group">
+														</div>
+														<div class="form-group">
 																<label for="name" class="control-label">Изображение</label>
 																<input type="file" class='form-control' name="img" value="">
 																<input type='hidden' name='old_img' value='<?php echo $product['image']; ?>'>
-															</div>
 														</div>
-														<div class="modal-footer">
-															<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
-															<input type='hidden' name='id' value="<?php echo $product['id'] ?>">
-															<button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Закрыть</button>
-															<button type="submit" class="btn btn-rounded btn-primary">Сохранить</button>
-														</div>
-													</form>
-												</div>
-												<!-- modal content end -->
-
+													</div>
+													<div class="modal-footer">
+														<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+														<input type='hidden' name='id' value="<?php echo $product['id'] ?>">
+														<button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Закрыть</button>
+														<button type="submit" class="btn btn-rounded btn-primary">Сохранить</button>
+													</div>
+												</form>
 											</div>
+											<!-- modal content end -->
+
 										</div>
-										<?php
-										$i++;
-									} ?>
-								</tbody>
-							</table>
-						</div>
-					</div><!--.box-typical-body-->
-				</section><!--.box-typical-->
+									</div>
+									<?php
+									$i++;
+								} ?>
+							</tbody>
+						</table>
+					</div>
+				</div><!--.box-typical-body-->
+			</section><!--.box-typical-->
 
 			</div><!--.container-fluid-->
 		</div><!--.page-content-->

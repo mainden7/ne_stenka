@@ -56,6 +56,26 @@
 		color: #0078ff;
 	}
 </style>
+<?php 
+
+if(isset($this->session->userdata['items'])){
+	$items = $this->session->userdata['items'];
+	if(!empty($items)){
+		$items_count = count($items);
+	}else{
+		$items_count = 0;
+		
+	}
+	$price = 0;
+	foreach ($items as $item) {
+		$product = Product::load_products($item);
+		$price += $product['price'];
+	}
+}else{
+	$items_count = 0;
+	$price = 0;
+}
+?>
 <!--,блок с навигацией и корзиной-->
 <div class="row expanded small-12 medium-12 large-11 large-centered header">
 
@@ -131,22 +151,22 @@
 								<div class="row large-12">
 									<div class="column large-6 small-12">
 										<ul class="text-normal">
-											<li><i class="fa fa-check"></i><a href='/user/set_city/moscow'>Москва</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/sp'>Санкт-Петербург</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/bryansk'>Брянск</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/kaluga'>Калуга</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/vladimir'>Владимир</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/novgorod'>Новгород</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/moscow'?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>>Москва</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/sp?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Санкт-Петербург</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/bryansk?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Брянск</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/kaluga?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Калуга</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/vladimir?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Владимир</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/novgorod?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Новгород</a></li>
 										</ul>
 									</div>
 									<div class="column large-6 small-12">
 										<ul class="text-normal">
-											<li><i class="fa fa-check"></i><a href='/user/set_city/orel'>Орел</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/petrozavodsk'>Петрозаводск</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/pskov'>Псков</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/smolensk'>Смоленск</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/tver'>Тверь</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/tula'>Тула</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/orel?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Орел</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/petrozavodsk?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Петрозаводск</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/pskov?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Псков</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/smolensk?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Смоленск</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/tver?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Тверь</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/tula?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Тула</a></li>
 										</ul>
 									</div>
 								</div>
@@ -181,65 +201,67 @@
 										<div class="column large-6 small-12">
 											<h3 class="uppercase">Как оплатить</h3>
 											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-											<a href="" class="btn-blue uppercase">Подробнее <i class="fa fa-long-arrow-right"></i></a>
-										</div>	
-										<div class="column large-6 small-12">
-											<h3 class="uppercase">Какой минимальный заказ</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+												tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+												quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+												cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+												proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+												<a href="" class="btn-blue uppercase">Подробнее <i class="fa fa-long-arrow-right"></i></a>
+											</div>	
+											<div class="column large-6 small-12">
+												<h3 class="uppercase">Какой минимальный заказ</h3>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+													tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+													quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+													consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+													cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+													proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+												</div>
+											</div>
 										</div>
+
 									</div>
 								</div>
-
 							</div>
 						</div>
+						<!--корзина-->
+						<div class="header-info_cart column small-7 medium-5 large-3">
+							<a href="#" class="header-info_cart_wrapper float-center">
+								<div class="badge badge-gray">
+									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+									<div class="badge secondary">
+										<?php echo $items_count; ?>
+									</div>
+								</div>
+								<span class="innerWrap clear">
+									<span class="hide-for-small-only">Ваш заказ на сумму</span>
+									<span class="hide-for-medium">Сумма заказа</span><br>
+									<b><?php echo $price; ?> руб.</b>
+								</span>
+							</a>
+						</div>
+
+						<!--позвонить нам спрятан на medium-->
+						<div class="header-info_regions column hide-for-small-only text-right hide-for-medium-only large-2">
+							<span>Бесплатный звонок <br class="hide-for-large">по РФ. 24/7</span>
+							<a class="header-info_regions_phone" href="tel:<?php echo $data['contact_settings']['tel_1'] ?>" style='font-size: 17px !important'><?php echo $data['contact_settings']['tel_1']; ?></a>
+						</div>
+					</div>
+
+				</div>
+
+				<!--навигация-->
+				<div class="row header-nav">
+					<div class="column small-12 menu-centered clearfix">
+						<ul class="menu">
+							<li class='<?php echo $data['active'] == 'blocks' ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
+							<li class='<?php echo $data['active'] == 'slabs' ? 'active' : ''; ?>'><a href="/user/slabs">Плиты перекрытия</a></li>
+							<li class='<?php echo $data['active'] == 'instruments' ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
+							<li class='<?php echo $data['active'] == 'faq' ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
+							<li class='<?php echo $data['active'] == 'about' ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
+							<li class='<?php echo $data['active'] == 'contact' ? 'active' : ''; ?>'><a href="/user/contacts">Контакты</a></li>
+						</ul>
 					</div>
 				</div>
-				<!--корзина-->
-				<div class="header-info_cart column small-7 medium-5 large-3">
-					<a href="#" class="header-info_cart_wrapper float-center">
-						<div class="badge badge-gray">
-							<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-							<div class="badge secondary">3</div>
-						</div>
-						<span class="innerWrap clear">
-							<span class="hide-for-small-only">Ваш заказ на сумму</span>
-							<span class="hide-for-medium">Сумма заказа</span><br>
-							<b>9 895 руб.</b>
-						</span>
-					</a>
-				</div>
 
-				<!--позвонить нам спрятан на medium-->
-				<div class="header-info_regions column hide-for-small-only text-right hide-for-medium-only large-2">
-					<span>Бесплатный звонок <br class="hide-for-large">по РФ. 24/7</span>
-					<a class="header-info_regions_phone" href="tel:<?php echo $data['contact_settings']['tel_1'] ?>" style='font-size: 17px !important'><?php echo $data['contact_settings']['tel_1']; ?></a>
-				</div>
 			</div>
-
-		</div>
-
-		<!--навигация-->
-		<div class="row header-nav">
-			<div class="column small-12 menu-centered clearfix">
-				<ul class="menu">
-					<li class='<?php echo $data['active'] == 'blocks' ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
-					<li class='<?php echo $data['active'] == 'slabs' ? 'active' : ''; ?>'><a href="/user/slabs">Плиты перекрытия</a></li>
-					<li class='<?php echo $data['active'] == 'instruments' ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
-					<li class='<?php echo $data['active'] == 'faq' ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
-					<li class='<?php echo $data['active'] == 'about' ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
-					<li class='<?php echo $data['active'] == 'contact' ? 'active' : ''; ?>'><a href="/user/contacts">Контакты</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>

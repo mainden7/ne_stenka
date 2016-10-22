@@ -37,16 +37,16 @@ class Product extends CI_Model{
     	return $result;
     }
 
-	public static function add_product_category($name, $description){
+	public static function add_product_category($name, $description, $img, $price, $size, $category){
 		$CI = & get_instance();
-		$sql = 'INSERT INTO `product_category` (`name`, `description`, `date`) VALUES (?, ?, ?)';
-		$CI->db->query($sql, array($name, $description, date('Y-m-d H:i:s')));
+		$sql = 'INSERT INTO `product_category` (`name`, `description`, `image`, `date`, `price`, `size`, `category`) VALUES (?, ?, ?, ?, ?, ?, ?)';
+		$CI->db->query($sql, array($name, $description, $img, date('Y-m-d H:i:s'), $price, $size, $category));
 	}
 
-	public static function update_product_category($name, $description, $id) {
+	public static function update_product_category($name, $description, $img, $price, $size, $category, $id) {
         $CI = & get_instance();
-        $sql = "UPDATE `product_category` SET  `name` = ?, `description` = ?, `date` = ? WHERE `id` = ?";
-        $CI->db->query($sql, array($name, $description, date('Y-m-d H:i:s'), $id));
+        $sql = "UPDATE `product_category` SET  `name` = ?, `description` = ?, `img` = ?, `price` = ?, `size` = ?, `category` = ? WHERE `id` = ?";
+        $CI->db->query($sql, array($name, $description, $img, $price, $size, $category, $id));
     }
 
     public static function delete_product_category($id) {

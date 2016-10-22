@@ -11,7 +11,7 @@
 </style>
 <section id="contacts" style="background: #f2f5f8">
 	<div class="row expanded frontSlide large-12 pt80 mb80" style="background: #f2f5f8">
-		<div class="row large-10 text-center">
+		<div class="row large-10 small-12 text-center">
 			<div class="column large-12 mb50">
 				<h1 class='uppercase'>Контакты</h1>
 				<p>Вы можете связаться с нами любым удобным для вас способом. В рабочее время мы ответим или перезвоним в течение часа</p>

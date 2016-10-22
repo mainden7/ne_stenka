@@ -104,7 +104,7 @@
 												<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">
 													<i class="font-icon-close-2"></i>
 												</button>
-												<h3 class="modal-title text-center">Добавить отзыв</h3>
+												<h3 class="modal-title text-center">Изменить отзыв</h3>
 											</div>
 											<form class="form-horizontal mt25 ml50" action="<?php echo site_url(); ?>admin_panel/edit_testimonial" method="POST"   enctype="multipart/form-data">
 												<div class="modal-body">

@@ -60,6 +60,9 @@
 			</div>
 		</div>
 		<div class="large-10 row">
+		<?php foreach($data['products'] AS $product) { 
+			if($product['category'] == 'Instruments') { 
+				?>
 			<div class="column large-4 medium-4 small-12 mb30">
 				<div class="instrument_block">
 					<div class="inst_img text-center mb80">
@@ -82,118 +85,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="column large-4 medium-4 small-12 mb30">
-				<div class="instrument_block">
-					<div class="inst_img text-center mb80">
-						<img src="<?php echo base_url(); ?>application/resources/user_resources/img/instrument2.png">
-					</div>
-					<div class="inst_caption">
-						<div class="row large-12">
-							<div class="column large-8 small-6">
-								<h3 class='mt0 inst_title'>Каретка</h3>
-							</div>
-							<div class="column large-4 small-6">
-								<span class="price-amount">396 <small>p.</small></span>
-							</div>
-						</div>
-						<div class="row large-12">
-							<div class="column">
-								<a href="#" class="btn-blue uppercase not-decorated">Подробнее <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="column large-4 medium-4 small-12 mb30">
-				<div class="instrument_block">
-					<div class="inst_img text-center mb80">
-						<img src="<?php echo base_url(); ?>application/resources/user_resources/img/instrument3.png">
-					</div>
-					<div class="inst_caption">
-						<div class="row large-12">
-							<div class="column large-8 small-6">
-								<h3 class='mt0 inst_title'>Рубанок</h3>
-							</div>
-							<div class="column large-4 small-6">
-								<span class="price-amount">396 <small>p.</small></span>
-							</div>
-						</div>
-						<div class="row large-12">
-							<div class="column">
-								<a href="#" class="btn-blue uppercase not-decorated">Подробнее <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="large-10 row">
-			<div class="column large-4 medium-4 small-12 mb30">
-				<div class="instrument_block">
-					<div class="inst_img text-center mb80">
-						<img src="<?php echo base_url(); ?>application/resources/user_resources/img/shtroborez.png">
-					</div>
-					<div class="inst_caption">
-						<div class="row large-12">
-							<div class="column large-8 small-6">
-								<h3 class='mt0 inst_title'>Штроборез</h3>
-							</div>
-							<div class="column large-4 small-6">
-								<span class="price-amount">396 <small>p.</small></span>
-							</div>
-						</div>
-						<div class="row large-12">
-							<div class="column">
-								<a href="#" class="btn-blue uppercase not-decorated">Подробнее <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="column large-4 medium-4 small-12 mb30">
-				<div class="instrument_block">
-					<div class="inst_img text-center mb80">
-						<img src="<?php echo base_url(); ?>application/resources/user_resources/img/instrument2.png">
-					</div>
-					<div class="inst_caption">
-						<div class="row large-12">
-							<div class="column large-8 small-6">
-								<h3 class='mt0 inst_title'>Каретка</h3>
-							</div>
-							<div class="column large-4 small-6">
-								<span class="price-amount">396 <small>p.</small></span>
-							</div>
-						</div>
-						<div class="row large-12">
-							<div class="column">
-								<a href="#" class="btn-blue uppercase not-decorated">Подробнее <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="column large-4 medium-4 small-12 mb30">
-				<div class="instrument_block">
-					<div class="inst_img text-center mb80">
-						<img src="<?php echo base_url(); ?>application/resources/user_resources/img/instrument3.png">
-					</div>
-					<div class="inst_caption">
-						<div class="row large-12">
-							<div class="column large-8 small-6">
-								<h3 class='mt0 inst_title'>Рубанок</h3>
-							</div>
-							<div class="column large-4 small-6">
-								<span class="price-amount">396 <small>p.</small></span>
-							</div>
-						</div>
-						<div class="row large-12">
-							<div class="column">
-								<a href="#" class="btn-blue uppercase not-decorated">Подробнее <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php }
+		}
+		?>
 		</div>
 	</div>
 </section>

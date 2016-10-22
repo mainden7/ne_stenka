@@ -166,6 +166,9 @@ $(function(){
   });
 });
 $(function(){
+  
+});
+$(function(){
  ymaps.ready(init);
  var myMap,
  myPlacemark;

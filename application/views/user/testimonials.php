@@ -19,21 +19,23 @@
 				<h2 class="mb80 block-header mt0">Отзывы наших клиентов</h2>
 			</div>
 			<div class="row">
+			<?php foreach($data['testimonials'] AS $testimonial) { ?>
 				<div class="column small-12 medium-4">
 					<div class="white_block">
 						<div class="img text-center">
-							<img class="rounded" src="http://localhost/ne_stenka//application/resources/user_resources/img/block.png" alt="">
+							<img class="rounded" src="<?php echo base_url() ?>/application/resources/user_resources/img/<?php echo $testimonial['photo'] ?>" alt="">
 						</div>
 						<div class="header-caption text-center">
-							<h3 class="mb0">Евгений Сергеевич</h3>
-							<p class="mt0" style='font-size: 13px'><span class="blin-grey">директор "БелСтройГрупп"</span></p>
-							<p style='font-size: 13px'><a class="email">example@example.com</a></p>
+							<h3 class="mb0"><?php echo $testimonial['name'] ?></h3>
+							<p class="mt0" style='font-size: 13px'><span class="blin-grey"><?php echo $testimonial['position']; ?></span></p>
+							<p style='font-size: 13px'><a class="email"><?php echo $testimonial['email'] ?></a></p>
 						</div>
 						<div class="description">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa consequatur velit at fugit minus quod assumenda doloremque dignissimos quis saepe aspernatur, id nulla iusto mollitia! Porro aperiam perferendis provident fuga!</p>
+							<p><?php echo $testimonial['description'] ?></p>
 						</div>
 					</div>
 				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>

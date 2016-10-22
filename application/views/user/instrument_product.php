@@ -68,21 +68,16 @@
 	<div class="row expanded large-12 frontSlide pt80 pb130" style="background: #f2f5f8">
 		<div class="large-10 row bg_white">
 			<div class="column large-4 small-12">
-				<h2 class="mt0">Кельма</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, id!</h3>
+				<h2 class="mt0"><?php echo $data['product']['name']; ?></h2>
+				<p><?php echo $data['product']['description'] ?></p>
+					
 			</div>
 			<div class="column large-4 small-12">
-				<img src="<?php echo base_url() ?>application/resources/user_resources/img/kelma.png" alt="">
+				<img src="<?php echo base_url() ?>application/resources/user_resources/img/<?php echo $data['product']['image'] ?>" alt="">
 			</div>
 			<div class="column large-4 small-12 price_block pb50">
 				<div class="bg_white">
-					<span class="price-amount">396 <small>p.</small></span>
+					<span class="price-amount"><?php echo number_format($data['product']['price'], 0 ) ?> <small>p.</small></span>
 				</div>
 				<div class="bg_grey">
 					<div class="columns large-6 small-12">
@@ -99,12 +94,19 @@
 					<div class="columns large-6 small-12 text-center">
 						<form id='myform' class='display-inline-block' method='POST' action='#'>
 							<input type='button' value='-' class='qtyminus' field='quantity' style='font-size: 20px'/>
-							<input type='text' name='quantity' value='0' class='qty' />
+							<input type='text' name='quantity' value='1' class='qty' />
 							<input type='button' value='+' class='qtyplus' field='quantity' style='font-size: 20px'/>
 						</form>
 					</div>
 					<div class="column large-12 text-center">
-						<a href="" class="button btn-blueLine big-btn uppercase">Добавить к заказу</a>
+						<form action='/user/add_to_cart' method='post'>
+							<input type="hidden" name="id" value='<?php echo $data['product']['id'] ?>'>
+							<input type="hidden" name="quantity" value='1'>
+							<input type="hidden" name="path" value="<?php echo $_SERVER['PATH_INFO'] ?>">
+							<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+							<button class="button btn-blueLine big-btn uppercase" style='padding: 25px 50px'>Добавить к заказу</button>
+						</form>
+						
 					</div>
 				</div>
 			</div>
