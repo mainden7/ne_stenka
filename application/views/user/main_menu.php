@@ -151,22 +151,22 @@ if(isset($this->session->userdata['items'])){
 								<div class="row large-12">
 									<div class="column large-6 small-12">
 										<ul class="text-normal">
-											<li><i class="fa fa-check"></i><a href='/user/set_city/moscow'?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>>Москва</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/sp?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Санкт-Петербург</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/bryansk?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Брянск</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/kaluga?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Калуга</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/vladimir?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Владимир</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/novgorod?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Новгород</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/moscow'?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>>Москва</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/sp?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Санкт-Петербург</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/bryansk?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Брянск</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/kaluga?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Калуга</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/vladimir?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Владимир</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/novgorod?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Новгород</a></li>
 										</ul>
 									</div>
 									<div class="column large-6 small-12">
 										<ul class="text-normal">
-											<li><i class="fa fa-check"></i><a href='/user/set_city/orel?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Орел</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/petrozavodsk?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Петрозаводск</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/pskov?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Псков</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/smolensk?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Смоленск</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/tver?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Тверь</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/tula?path=<?php echo isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; ?>'>Тула</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/orel?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Орел</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/petrozavodsk?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Петрозаводск</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/pskov?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Псков</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/smolensk?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Смоленск</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/tver?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Тверь</a></li>
+											<li><i class="fa fa-check"></i><a href='/user/set_city/tula?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Тула</a></li>
 										</ul>
 									</div>
 								</div>

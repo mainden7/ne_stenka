@@ -40,6 +40,36 @@ INSERT INTO `admin_info` VALUES ('Admin','dd94709528bb1c83d08f3088d4043f4742891f
 UNLOCK TABLES;
 
 --
+-- Table structure for table `article`
+--
+
+DROP TABLE IF EXISTS `article`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(356) DEFAULT NULL,
+  `content` text,
+  `image` varchar(256) DEFAULT NULL,
+  `active` int(5) DEFAULT NULL,
+  `on_main` int(5) DEFAULT NULL,
+  `post` int(5) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `article`
+--
+
+LOCK TABLES `article` WRITE;
+/*!40000 ALTER TABLE `article` DISABLE KEYS */;
+INSERT INTO `article` VALUES (1,'1','<p>dwwww</p>','block.png',1,1,1,'2016-10-22 14:52:30');
+/*!40000 ALTER TABLE `article` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `contact_settings`
 --
 
@@ -104,8 +134,10 @@ CREATE TABLE `product_category` (
   `name` varchar(256) DEFAULT NULL,
   `description` text,
   `date` datetime DEFAULT NULL,
+  `link` varchar(256) DEFAULT NULL,
+  `image` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,7 +146,7 @@ CREATE TABLE `product_category` (
 
 LOCK TABLES `product_category` WRITE;
 /*!40000 ALTER TABLE `product_category` DISABLE KEYS */;
-INSERT INTO `product_category` VALUES (1,NULL,NULL,'2016-10-12 00:00:00'),(3,'1 4','<p>12</p>','2016-10-12 16:33:50'),(4,'1','<p>123</p>','2016-10-12 16:24:34'),(5,'1','<p>123</p>','2016-10-12 16:24:43'),(6,'1','<p>123</p>','2016-10-12 16:24:51'),(7,'1','<p>123</p>','2016-10-12 16:25:36');
+INSERT INTO `product_category` VALUES (1,'Blocks','blabla','2016-10-19 22:00:20','blocks','block.png'),(2,'Slabs','blabla','2016-10-19 22:00:20','slabs','block.png'),(3,'Instruments','blabla','2016-10-19 22:00:20','instruments','instrument2.png');
 /*!40000 ALTER TABLE `product_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,10 +162,12 @@ CREATE TABLE `products` (
   `name` varchar(256) DEFAULT NULL,
   `description` text,
   `image` varchar(256) DEFAULT NULL,
-  `price` decimal(11,10) DEFAULT NULL,
+  `price` decimal(65,30) DEFAULT NULL,
   `category` varchar(256) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `size` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,7 +176,37 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'im','desc12','block.png',200.000000000000000000000000000000,'Blocks',NULL,'200x100x35'),(2,'pr2','desc12','kelma.png',200.000000000000000000000000000000,'Instruments',NULL,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `testimonials`
+--
+
+DROP TABLE IF EXISTS `testimonials`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `testimonials` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) DEFAULT NULL,
+  `position` varchar(256) DEFAULT NULL,
+  `email` varchar(256) DEFAULT NULL,
+  `description` text,
+  `photo` varchar(256) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `testimonials`
+--
+
+LOCK TABLES `testimonials` WRITE;
+/*!40000 ALTER TABLE `testimonials` DISABLE KEYS */;
+INSERT INTO `testimonials` VALUES (1,'123','123','123@123','<p>123123</p>','block.png','2016-10-14 15:29:46');
+/*!40000 ALTER TABLE `testimonials` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -154,4 +218,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-13 13:14:56
+-- Dump completed on 2016-10-22 19:46:59

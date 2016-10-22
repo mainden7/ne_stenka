@@ -102,7 +102,7 @@
 						<form action='/user/add_to_cart' method='post'>
 							<input type="hidden" name="id" value='<?php echo $data['product']['id'] ?>'>
 							<input type="hidden" name="quantity" value='1'>
-							<input type="hidden" name="path" value="<?php echo $_SERVER['PATH_INFO'] ?>">
+							<input type="hidden" name="path" value="<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>">
 							<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
 							<button class="button btn-blueLine big-btn uppercase" style='padding: 25px 50px'>Добавить к заказу</button>
 						</form>
