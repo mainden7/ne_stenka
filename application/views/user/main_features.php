@@ -1,7 +1,6 @@
-<style type="text/css">
+ <style type="text/css">
   ul.inline li{
     display: inline-block;
-    padding: 20px 30px;
   }
   ul.inline li{
     border: 5px solid #f0f2f6;
@@ -9,7 +8,8 @@
   ul.inline li a{
     color: #000;
     text-decoration: none;
-    max-width: 200px;
+    max-width: 250px;
+    padding: 20px 30px;
   }
   ul.inline li a:hover{
     text-decoration: none;
@@ -35,25 +35,25 @@
     <div id="tabs">
       <div class="large-12 columns small-12 text-center mb80">
         <ul class='inline'>
-          <li class="mb30 class="no-border-bottom""><a href="#tabs-1" >Индивидуальным застройщикам</a></li>
-          <li class="mb30 class="no-border-bottom""><a href="#tabs-2" >Бригадным подрядчикам</a></li>
-          <li class="mb30 class="no-border-bottom""><a href="#tabs-3" >Магазинам и закупочным базам</a></li>
-          <li class="mb30 class="no-border-bottom""><a href="#tabs-4" >Строительным компаниям</a></li>
+          <li class="mb30 no-border-bottom"><a href="#tabs-1" >Индивидуальным застройщикам</a></li>
+          <li class="mb30 no-border-bottom"><a href="#tabs-2" >Бригадным подрядчикам</a></li>
+          <li class="mb30 no-border-bottom"><a href="#tabs-3" >Магазинам и закупочным базам</a></li>
+          <li class="mb30 no-border-bottom"><a href="#tabs-4" >Строительным компаниям</a></li>
         </ul>
       </div>
       <div class="large-12 columns small-12 hot-proposals pl0">
 
         <div id="tabs-1">
           <div class="large-7 small-12 columns">
-            <p class="bold">Бесплатная доставка</p>
+            <p class="bold mb0">Бесплатная доставка</p>
             <p>Бесплатно привезем блоки на ваш объект в Москве и Московской области</p>
-            <p class="bold">Без доплаты</p>
+            <p class="bold mb0">Без доплаты</p>
             <p>Оплата происходит наличными или банковкой картой по факту поставки</p>
-            <p class="bold">Доставка в любой день</p>
+            <p class="bold mb0">Доставка в любой день</p>
             <p>Привезем блоки в любой удобный для вас день. Даже в выходной</p>
-            <p class="bold">Сопутствующие товары</p>
+            <p class="bold mb0">Сопутствующие товары</p>
             <p>Поставим все необходимое для кладки блоков из ячеистого бетона(перемычки, клей, инструмент)</p>
-            <p class="bold">Индивидуальный подход</p>
+            <p class="bold mb0">Индивидуальный подход</p>
             <p>Довезем не полную машину, или обьеденим поставку блоков и плит в одной машине. Найдем выход из любой ситуации</p>
             
           </div>

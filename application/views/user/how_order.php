@@ -11,7 +11,7 @@
 <div class='row expanded large-12'  style='background-color: #f0f2f6'>
 	<div class="large-7 columns pb80">
 		<div class="column products-title medium-6 small-centered text-center">
-			<h2 class='uppercase mt80' style="font-size: 44px">Как заказать</h2>
+			<h2 class='uppercase mt80 mb100' style="font-size: 44px">Как заказать</h2>
 		</div>
 		<div class="column medium-9">
 			<div class="row mb80">
@@ -42,9 +42,9 @@
 				<h2 class="text-white uppercase mt80" style="font-size: 36px">Нужна помощь?</h2>
 				<p class="text-white mb50">Наши специалисты бесплатно помогут вам <br>с подбором блоков. В разделе <a href="">справка</a> есть<br> ответы на популярные вопросы</p>
 				<p class="mb0 text-white text-bold"><span class="uppercase">по телефону:</span></p>
-				<h2 class="text-white mt0">8 800 998-32-33</h2>
-				<p><span class="text-white-60">Бесплатный звонок 24/7</span></p>
-				<p><span class="uppercase text-white-60">Через форму:</span></p>
+				<h2 class="text-white mt0 mb0">8 800 998-32-33</h2>
+				<p class="mt0 mb50"><span class="text-white-60">Бесплатный звонок 24/7</span></p>
+				<p><span class="uppercase text-white-60 text-bold">Через форму:</span></p>
 				<a role="button" aria-label="submit form" href="#" class="button btn-blueLine question-btn">Задать вопрос</a>
 				<p class="text-white-60"><span>Подготовим комплексное предложение<br> в течение одного рабочего дня</span></p>
 			</div>

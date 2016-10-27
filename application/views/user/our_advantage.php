@@ -9,7 +9,7 @@
 		<div class="row large-12 work-adventege">
 				<div class="column small-12 medium-4">
 					<div class="work-adventege_image float-left">
-						<img src="<?php echo site_url(); ?>/application/resources/user_resources/img/icon-2.png" alt="">
+						<img src="<?php echo site_url(); ?>/application/resources/user_resources/img/about_1.png" alt="">
 					</div>
 					<div class="work-adventege_text clearfix">
 						<h4>Бесплатная доставка</h4>
@@ -19,7 +19,7 @@
 
 				<div class="column small-12 medium-4">
 					<div class="work-adventege_image float-left">
-						<img src="<?php echo site_url(); ?>/application/resources/user_resources/img/icon-3.png" alt="">
+						<img src="<?php echo site_url(); ?>/application/resources/user_resources/img/about_2.png" alt="">
 					</div>
 					<div class="work-adventege_text clearfix">
 						<h4>БЕЗ ПОСРЕДНИКОВ</h4>
@@ -29,7 +29,7 @@
 
 				<div class="column small-12 medium-4">
 					<div class="work-adventege_image float-left">
-						<img src="<?php echo site_url(); ?>/application/resources/user_resources/img/icon-4.png" alt="">
+						<img src="<?php echo site_url(); ?>/application/resources/user_resources/img/about_3.png" alt="">
 					</div>
 					<div class="work-adventege_text clearfix">
 						<h4>УДОБНАЯ ОПЛАТА</h4>

@@ -23,8 +23,8 @@
 	}
 	.modal img.fa-times{
 		position: absolute;
-		top: -13px;
-		right: -9px;
+		top: -25px;
+		right: -25px;
 		opacity: 1;
 		font-size: 2em;
 		cursor: pointer;
@@ -59,17 +59,16 @@
 <?php 
 
 if(isset($this->session->userdata['items'])){
-	$items = $this->session->userdata['items'];
-	if(!empty($items)){
-		$items_count = count($items);
-	}else{
-		$items_count = 0;
-		
-	}
+	$items = $this->session->userdata['items'];	
+	$items_count = 0;
 	$price = 0;
-	foreach ($items as $item) {
-		$product = Product::load_products($item);
-		$price += $product['price'];
+	foreach ($items as $item_id => $item_count) {
+		$items_count += $item_count;
+		if(!empty($item_id) AND !empty($item_count)){
+			$product = Product::load_products($item_id);
+			$price = $product['price'] * $item_count;			
+		}		
+		
 	}
 }else{
 	$items_count = 0;
@@ -226,7 +225,7 @@ if(isset($this->session->userdata['items'])){
 						</div>
 						<!--корзина-->
 						<div class="header-info_cart column small-7 medium-5 large-3">
-							<a href="#" class="header-info_cart_wrapper float-center">
+							<a href="/user/cart" class="header-info_cart_wrapper float-center">
 								<div class="badge badge-gray">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 									<div class="badge secondary">
@@ -254,12 +253,12 @@ if(isset($this->session->userdata['items'])){
 				<div class="row header-nav">
 					<div class="column small-12 menu-centered clearfix">
 						<ul class="menu">
-							<li class='<?php echo $data['active'] == 'blocks' ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
-							<li class='<?php echo $data['active'] == 'slabs' ? 'active' : ''; ?>'><a href="/user/slabs">Плиты перекрытия</a></li>
-							<li class='<?php echo $data['active'] == 'instruments' ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
-							<li class='<?php echo $data['active'] == 'faq' ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
-							<li class='<?php echo $data['active'] == 'about' ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
-							<li class='<?php echo $data['active'] == 'contact' ? 'active' : ''; ?>'><a href="/user/contacts">Контакты</a></li>
+							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'blocks') ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
+							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'slabs') ? 'active' : ''; ?>'><a href="/user/slabs">Плиты перекрытия</a></li>
+							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'instruments') ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
+							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'faq') ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
+							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'about') ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
+							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'contact') ? 'active' : ''; ?>'><a href="/user/contacts">Контакты</a></li>
 						</ul>
 					</div>
 				</div>

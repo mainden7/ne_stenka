@@ -13,22 +13,28 @@
 	<div class="row expanded frontSlide large-12 pt80 mb80" style="background: #f2f5f8">
 		<div class="row large-10 small-12 text-center">
 			<div class="column large-12 mb50">
-				<h1 class='uppercase'>Контакты</h1>
-				<p>Вы можете связаться с нами любым удобным для вас способом. В рабочее время мы ответим или перезвоним в течение часа</p>
+				<h1 class='uppercase mt30'>Контакты</h1>
+				<div class="row large-8">
+					<p class="text-18">Вы можете связаться с нами любым удобным для вас способом. В рабочее время мы ответим или перезвоним в течение часа</p>
+				</div>
 			</div>
 		</div>
-		<div class="row large-10 bg-white">
-			<div class="column large-4 medium-4 small-12">
+		<div class="row large-10 ">
+			<div class="column large-12">
+				<div class="row large-12  bg-white">
+					<div class="column large-4 medium-4 small-12">
 				<img src="<?php echo base_url() ?>application/resources/user_resources/img/contacts_phone.png">
-				<h3>8 800 100-20-30</h3>
+				<h3><a href='tel: <?php echo isset($data['contact_settings']['tel_1']) ? $data['contact_settings']['tel_1'] : '8 800 100-20-30' ?>'><?php echo isset($data['contact_settings']['tel_1']) ? $data['contact_settings']['tel_1'] : '8 800 100-20-30' ?></a></h3>
 			</div>
 			<div class="column large-4 medium-4 small-12">
 				<img src="<?php echo base_url() ?>application/resources/user_resources/img/contacts_mail.png">
-				<h3><a href='email:info@nestenka.com'>info@nestenka.com</a></h3>
+				<h3><a href='<?php echo isset($data['contact_settings']['main_email']) ? $data['contact_settings']['main_email'] : 'example@example.com' ?>'><?php echo isset($data['contact_settings']['main_email']) ? $data['contact_settings']['main_email'] : 'example@example.com' ?></a></h3>
 			</div>
 			<div class="column large-4 medium-4 small-12">
 				<img src="<?php echo base_url() ?>application/resources/user_resources/img/contacts_form.png">
 				<h3><a href="">Задать вопрос</a></h3>
+			</div>
+				</div>
 			</div>
 		</div>		
 	</div>
@@ -40,7 +46,7 @@
 			<h3>Время работы:</h3>
 			<p>пн.-сб.: 09.00-18.00</p>
 		</div>
-		<div class="column large-7 small-12 text-right pr0 mb130">
+		<div class="column large-7 small-12 text-right mb130">
 			<div id="map" style="width: 100%; height: 400px"></div>
 		</div>
 	</div>

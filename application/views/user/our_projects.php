@@ -15,6 +15,21 @@
 		position: relative;
 		display: block;
 	}
+	#our_projects h2{
+		font-size: 44px;
+	}
+	#our_projects h5{
+		font-size: 18px;
+		font-weight: 300;
+	}
+	#our_projects h3{
+		font-size: 24px;
+		font-family: 'Open Sans', sans-serif;
+	}
+	#our_projects p{
+		font-size: 16px;
+		font-weight: 100;
+	}
 </style>
 <section id="our_projects" style='background: #f0f2f6'>
 	<div class="row expanded large-12">
@@ -29,12 +44,12 @@
 					<div class="row large-12 project_item <?php echo $i == 1 ? 'active' : '' ?>" data-number='<?php echo $i; ?>'>
 						<div class="column small-12 large-5">
 							<div class="row large-12 controls mb50">
-								<i class="fa fa-2x fa-chevron-circle-left prev" data-count='<?php echo $i == 1 ? 1 : $i - 1; ?>'></i><span> <?php echo $i ?></span> из <span class="ltl">10 </span><i class="fa fa-2x fa-chevron-circle-right next" data-count='<?php echo $i == 10 ? 10 : $i + 1; ?>'></i>
+								<i class="fa fa-2x fa-chevron-circle-left prev" data-count='<?php echo $i == 1 ? 1 : $i - 1; ?>'></i><span style='margin-left: 5px'> <?php echo $i ?></span> из <span class="ltl" style='margin-right: 5px'>10 </span><i class="fa fa-2x fa-chevron-circle-right next" data-count='<?php echo $i == 10 ? 10 : $i + 1; ?>'></i>
 							</div>
 							<div class="row large-12 text-caption">
 								<h3>Жилой комплекс "Не солнечный квартал" №<?php echo $i ?></h3>
 								<p class="mb80">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos?</p>
-								<a href="">Читать отзыв клиента</a>
+								<a href="" class='dashed'>Читать отзыв клиента</a>
 							</div>				
 						</div>
 						<div class="column small-12 large-7 text-right">

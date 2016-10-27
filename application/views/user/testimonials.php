@@ -15,7 +15,7 @@
 <section id="testimonials">
 	<div class='row expanded large-12 pb80 pt80'  style='background-color: #f0f2f6'>
 		<div class="row expanded small-12 medium-12 large-10 large-centered"> 
-			<div class="column medium-6 small-centered text-center">
+			<div class="column medium-8 small-centered text-center">
 				<h2 class="mb80 block-header mt0">Отзывы наших клиентов</h2>
 			</div>
 			<div class="row">
@@ -27,7 +27,7 @@
 						</div>
 						<div class="header-caption text-center">
 							<h3 class="mb0"><?php echo $testimonial['name'] ?></h3>
-							<p class="mt0" style='font-size: 13px'><span class="blin-grey"><?php echo $testimonial['position']; ?></span></p>
+							<p class="mt0" style='font-size: 13px; color: #808285'><span class="blin-grey"><?php echo $testimonial['position']; ?></span></p>
 							<p style='font-size: 13px'><a class="email"><?php echo $testimonial['email'] ?></a></p>
 						</div>
 						<div class="description">

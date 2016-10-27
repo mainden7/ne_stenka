@@ -166,7 +166,35 @@ $(function(){
   });
 });
 $(function(){
-  
+  $('input.qt').click(function(){
+    var fieldName = $(this).attr('field');
+    var productTotalPricePrice = $(this).parent().parent().parent().find('td.product_total_price').text();
+    var productCount = $('input[name="' + fieldName +'"]').val();
+
+    var productPrice = $(this).parent().parent().parent().find('td.product_total_price').attr('data-price');
+    var totalPrice = Number(productCount) * Number(productPrice);
+    
+     $(this).parent().parent().parent().find('td.product_total_price').text(totalPrice);
+    
+   
+    /*var b = $(this).val() + $(this).parent().get(3).find('td.product_total_price').attr('data-price');
+    $(this).parent().get(3).find('td.product_total_price').text(a+b);*/
+
+  });
+});
+$(function(){
+  $('input.qty').keyup(function(){
+    var productCount = $(this).val();
+    var productPrice = $(this).parent().parent().parent().find('td.product_total_price').attr('data-price');
+    var totalPrice = Number(productCount) * Number(productPrice);
+    
+     $(this).parent().parent().parent().find('td.product_total_price').text(totalPrice);
+    
+   
+    /*var b = $(this).val() + $(this).parent().get(3).find('td.product_total_price').attr('data-price');
+    $(this).parent().get(3).find('td.product_total_price').text(a+b);*/
+
+  });
 });
 $(function(){
  ymaps.ready(init);

@@ -94,6 +94,7 @@ class User extends CI_Controller {
 		$data['active'] = 'about';
 		$data['main_settings'] = Settings::load_main_settings();		
 		$data['contact_settings'] = Settings::load_contact_settings();
+		$data['testimonials'] = Testimonial::load_all_testimonials();
 		// Data.
 		$data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
         //views
@@ -216,8 +217,27 @@ class User extends CI_Controller {
 		$data = array();
 		$data['active'] = '';
 		$data['title'] = '';
-		$data['main_settings'] = Settings::load_main_settings();		
+		$data['main_settings'] = Settings::load_main_settings();
 		$data['contact_settings'] = Settings::load_contact_settings();
+
+		if(isset($this->session->userdata['items'])){
+			$added_items = $this->session->userdata['items'];				
+		}else{
+			$added_items = array();
+		}
+		/*print '<pre>' . print_r($added_items, true) . '</pre>'; die();*/
+		$product_id = 0;
+		$product = array();
+		foreach ($added_items as $item_id => $item_count) {
+			
+			$product[$item_id] = Product::load_products($item_id);
+			$product[$item_id]['quantity'] = $item_count;
+		}
+		if(empty($product)){
+			$data['empty_cart_title'] = 'В корзине нет покупок';
+		}
+		$data['products'] = $product;
+		$data['categories'] = Product::load_categories();
 		// Data.
 		$data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
         //views
@@ -268,7 +288,7 @@ class User extends CI_Controller {
         //views
 		if($data['product']['category'] == 'Instruments'){
 			// Data.
-		$data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+			$data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
 
 			$this->load->view('user/header', $data);
 			$this->load->view('user/main_menu', $data);
@@ -286,32 +306,45 @@ class User extends CI_Controller {
 		$this->session->set_userdata('user_city', $city);
 		redirect($get['path']);
 	}
+
 	public function add_to_cart($id = NULL, $where = NULL){
+		
 		// CSRF protection arguments.
 		$csrf_token_name = $this->security->get_csrf_token_name();
 		$csrf_hash = $this->security->get_csrf_hash();
 		$is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
 		$post = $this->input->post(NULL, TRUE);
-		$get = $this->input->get(NULL, TRUE);
-
-		if(isset($this->session->userdata['items'])){
-			$added_items = $this->session->userdata['items'];
-		}else{
-			$added_items = array();
-		}
-		if($post){
-			$id = $post['id'];
-			$get['path'] = $post['path'];
-			for($i = 1; $i <= $post['quantity'.$id]; $i++){
-				array_push($added_items,  $id);
-			}
-		}
+		$get = $this->input->get(NULL, TRUE);		
 		
-		array_push($added_items,  $id);
+		if($post){
+			//if something is in cart - load from session and save to array, if no set and empty array
+			if(isset($this->session->userdata['items'])){
+				$added_items = $this->session->userdata['items'];				
+			}else{
+				$added_items = array();
+			}
+			//as there form with unique name we connect it with word 'quantity' and id of product
+			$quantity = 'quantity'.$post['id'];
+			if(isset($post[$quantity]) OR !empty($post[$quantity])){
+				$quantity = $post[$quantity];
+			}else{
+				$quantity = 1;
+			}
 
-		$this->session->set_userdata('items', $added_items);
-		/*
-		print '<pre>' . print_r($this->session, true) . '</pre>'; die();*/
-		redirect($get['path']);
+			$id = $post['id'];
+			//where to go after saving
+			$path = $post['path'];
+			//add to our array needed amount of current product
+			$added_items[$id] = $quantity;
+			$added_items[2] = 10;
+			//reset session before adding items
+			$this->session->set_userdata('items', null);
+			//add to session
+			$this->session->set_userdata('items', $added_items);
+			
+			redirect($path);
+		}else{
+			show_404();
+		}		
 	}
 }

@@ -1,3 +1,6 @@
+<?php 
+/*print '<pre>' . print_r($data, true) . '</pre>'; die();*/
+?>
 <style type="text/css">
 	#cart .cart_sub_header{
 		font-size: 24px;
@@ -64,6 +67,10 @@
 	.big-btn{
 		padding: 25px 90px;
 	}
+	h3.empty_title{
+		font-size: 24px;
+		font-weight: 800;
+	}
 </style>
 <section id='cart' style="background: #f2f5f8">
 	<div class="row expanded large-12 frontSlide" style="background: #f2f5f8">
@@ -76,10 +83,25 @@
 			</div>
 		</div>
 		<div class="row large-10 bg_white table-row pb50 pt50 mb50 step_1">
-			<table class="responsive mb50">
+			<?php
+				$all_cat = array(); 
+				foreach ($data['categories'] as $category) {
+					foreach ($data['products'] as $product) {
+						if($product['category'] == $category['name']){
+							$all_cat[$category['name']][] = $product;
+						}
+					}
+				}						
+			 ?>
+
+			 <?php
+			 $total_product_price = 0;
+			  if(!isset($data['empty_cart_title'])){
+			  foreach ($all_cat as $category_name => $products) {?>
+			<table class="responsive mb50">			
 				<thead class="table-header">
 					<tr class='row-1'>
-						<th><h3 class="text-left uppercase">Блоки</h3></th>
+						<th><h3 class="text-left uppercase"><?php echo $category_name ?></h3></th>
 						<th>Размер</th>
 						<th colspan="2" class="text-center">Кол-во</th>
 						<th colspan="2" class="text-center">Кол-во</th>
@@ -100,28 +122,43 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php 
+					
+					foreach($products AS $product) {
+						$total_product_price += $product['price'] * $product['quantity'];
+					 ?>
 					<tr>
-						<td class="pl10">Название</td>
-						<td class="text-center">200x209x290</td>
+						<td class="pl10"><?php echo $product['name'] ?></td>
+						<td class="text-center"><?php echo $product['size'] ?></td>
 						<td class="text-center br-none">60</td>
 						<td class="text-center">20</td>
 						<td class="text-center br-none">16</td>
 						<td class="text-center">15</td>
 						<td class='text-center'>
 							<form id='myform' class='display-inline-block' method='POST' action='#'>
-								<input type='button' value='-' class='qtyminus' field='quantity' style='font-size: 20px'/>
-								<input type='text' name='quantity' value='0' class='qty' />
-								<input type='button' value='+' class='qtyplus' field='quantity' style='font-size: 20px'/>
+								<input type='button' value='-' class='qt qtyminus' field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
+								<input type='text' name='quantity<?php echo $product['id'] ?>' value='<?php echo $product['quantity']; ?>' class='qty' />
+								<input type='button' value='+' class='qt qtyplus' field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
 							</form>
 						</td>
-						<td class="text-center">23</td>
+						<td class="text-center product_total_price"  data-quantity="<?php echo  $product['quantity'] ?>" data-price="<?php echo $product['price'] ?>"><?php echo $product['price'] * $product['quantity'] ?></td>
 						
 						<td class='br-none text-center pl20'><i class='fa fa-times'></i></td>
 					</tr>
+					<?php } ?>
 				</tbody>
 			</table>
-			<h3 class="text-right">Подитог <span>123</span> руб.</h3>
+			<h3 class="text-right">Подитог <span><?php echo $total_product_price ?></span> руб.</h3>
+			<?php 
+					} 
+				}else { ?>
+					<h3 class='empty_title'>Ваша корзина пуста</h3>
+					 <a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted add-to-cart">Перейти в каталог <i class="fa fa-long-arrow-right"></i></a>
+			<?php	}
+			?>
+			
 		</div>
+		<?php if(!isset($data['empty_cart_title'])){ ?>
 		<div class="row large-10 bg_white recomended table-row pb50 pt50 mb50 step_1">
 			<table class="responsive mb50">
 				<thead class="table-header">
@@ -149,9 +186,9 @@
 						<td class="text-center">60</td>						
 						<td class='text-center'>
 							<form id='myform' class='display-inline-block' method='POST' action='#'>
-								<input type='button' value='-' class='qtyminus' field='quantity1' style='font-size: 20px'/>
-								<input type='text' name='quantity1' value='0' class='qty' />
-								<input type='button' value='+' class='qtyplus' field='quantity1' style='font-size: 20px'/>
+								<input type='button' value='-' class='qtyminus' field='quantity' style='font-size: 20px'/>
+								<input type='text' name='quantity' value='0' class='qty' />
+								<input type='button' value='+' class='qtyplus' field='quantity' style='font-size: 20px'/>
 							</form>
 						</td>
 						<td class="text-center">15</td>
@@ -159,12 +196,13 @@
 					</tr>
 				</tbody>
 			</table>
+
 		</div>
 		<div class="row large-10 bg_white mb130 table-row step_1">
-			<h2 class="text-right">Cтоимость - <span>8910</span> руб.</h2>
+			<h2 class="text-right">Cтоимость - <span><?php ?></span> руб.</h2>
 			<p class="text-right"><a href="" class="button btn-blueLine question-btn">Оформить заказ</a></p>
 		</div>
-		
+		<?php } ?>
 		
 	</div>
 	

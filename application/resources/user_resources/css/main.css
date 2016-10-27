@@ -2293,7 +2293,7 @@ h2 {
   color: #231f20; }
 
 h4 {
-  font-family: 'osb', sans-serif; }
+  font-family: 'Open Sans', sans-serif; }
 
 .clear::after {
   clear: both;
@@ -2541,8 +2541,8 @@ p.bold{
     padding: 20px;
     width: 310px;
     position: absolute;
-    top: 0;
-    left: 0; 
+    bottom: 0;
+    right: 0; 
     display: none;
     z-index: 1000;
   }
@@ -2563,7 +2563,7 @@ p.bold{
       display: inline-block;
       border-bottom: 1px solid #0078ff; }
       .frontSlide-container_right .imagewrap .info a:hover {
-        border-bottom: 0px; }
+        border-bottom: 1px solid transparent; }
 
 .frontSlide-container_right .tooltip-1 {
   top: 30%;
@@ -2651,8 +2651,11 @@ p.bold{
 a.dashed{
   border-bottom: 1px dashed #0078ff;
 }
+a.dashed:hover{
+  border-bottom: 1px dashed transparent;
+}
 .btn-inverted{
-    padding: 20px 55px;
+    padding: 20px 30px;
     color: #0066d9;
     background: #fff;
     text-transform: none;
@@ -2755,6 +2758,9 @@ a.dashed{
   .pt80{
     padding-top: 80px;
   }
+  .mb100{
+    margin-bottom: 100px;
+  }
   .pt130{
     padding-top: 130px;
   }
@@ -2781,6 +2787,12 @@ a.dashed{
   }
   .text-white-60{
     color: rgba(255, 255, 255, 0.6);
+  }
+  .text-60{
+    opacity: 0.6;
+  }
+  .text-18{
+    font-size: 18px;
   }
   .uppercase{
     text-transform: uppercase;

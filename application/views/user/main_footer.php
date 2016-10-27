@@ -29,8 +29,8 @@
 					Высококачественные блоки<br>из ячеистого бетона
 				</p>
 			</div>
-			<div class="column small-12 medium-2">
-				<ul>
+			<div class="column small-12 medium-3">
+				<ul class="pl0">
 					<li><a href='/user/blocks'>Блоки</a></li>
 					<li><a href='/user/slabs'>Плиты перекрытия</a></li>
 					<li><a href='/user/instruments'>Клей и инструменты</a></li>
@@ -38,15 +38,15 @@
 				</ul>
 			</div>
 			<div class="column small-12 medium-2">
-				<ul>
+				<ul class="pl0">
 					<li><a href='/user/about'>О компании</a></li>
 					<li><a href='/user/news_article'>Новости</a></li>
 					<li><a href='/user/contacts'>Контакты</a></li>
 				</ul>
 			</div>
 			<div class="column small-12 medium-3 text-left">
-				<p class="uppercase"><span class="grey">Остались вопросы ?</span></p>
-				<h3 style="font-size: 28px">8 800 998-32-33</h3>
+				<p class="uppercase"><span class="text-white-60 text-bold">Остались вопросы ?</span></p>
+				<h3 class="mt0 mb0" style="font-size: 28px">8 800 998-32-33</h3>
 				<p class="uppercase"><a href="" class="dashed">Бесплатный звонок 24/7</a></p>
 			</div>
 		</div>

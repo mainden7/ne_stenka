@@ -14,16 +14,19 @@
 	#faq ul li{
 		font-size: 14px;
 		font-weight: bold;
+		padding: 10px 20px;
+	}
+	#faq ul li span{		
 		border-bottom: 1px dashed #383838;
-
 	}
 	#faq ul li:hover{
 		cursor: pointer;
-		border-bottom: 2px solid #fed536;
+	}
+	#faq ul li:hover span,
+	#faq ul li.active span{		
+		border-bottom: 1px dashed transparent;
 	}
 	#faq ul li.active{
-		border-bottom: none;
-		padding: 10px 20px;
 		background: #fed536;		
 		position: relative;
 	}
@@ -70,6 +73,7 @@
 	}
 	
 	.no_answer h2.slideTop{
+		font-size: 36px;
 		    margin-top: -35px;
     display: inline-block;
     padding: 0 30px;
@@ -88,10 +92,10 @@
 			<div class="column large-12 medium-12 small-12">
 				<h1 class="uppercase text-center">Справка</h1>
 				<ul class="inline text-center">
-					<li class="active" data-show='products'>Наша продукция</li>
-					<li data-show='how_to_order'>Как заказать</li>
-					<li data-show='delivery'>Доставка и оплата</li>
-					<li data-show='documents'>Документы</li>
+					<li class="active" data-show='products'><span>Наша продукция</span></li>
+					<li data-show='how_to_order'><span>Как заказать</span></li>
+					<li data-show='delivery'><span>Доставка и оплата</span></li>
+					<li data-show='documents'><span>Документы</span></li>
 				</ul>
 				<div id="accordion" class='tab active' data-filter='products'>
 					<h3>Где производятся ваши блоки? <i class="fa fa-angle-down fa-2x"></i></h3>
@@ -154,20 +158,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="row large-7 small-12 no_answer mb130">
+		<div class="row large-8 small-12 no_answer mb130">
 			<div class="row large-10 text-center">
 				<h2 class="uppercase slideTop">Не нашли ответ на вопрос?</h2>
-				<p class="text-center mt0">Расскажите нам о вашем проекте, и наш специалист бесплатно поможет вам выбрать нужные типы и количество блоков с учетом всех ваших потребностей.</p>
+				<p class="text-center mt0 text-18">Расскажите нам о вашем проекте, и наш специалист бесплатно поможет вам выбрать нужные типы и количество блоков с учетом всех ваших потребностей.</p>
 				<div class="row large-12 text-left">
 					<div class="column large-7 small-12">
-						<p class="text-bold mb5 uppercase">По телефону:</p>
-						<h2 class="tel-title mt0">8 800 998-32-33</h2>
-						<p><small>Бесплатный звонок 24/7</small></p>
+						<p class="text-bold bold mb5 uppercase">По телефону:</p>
+						<h2 class="tel-title mt0" style="margin-bottom: 17px;">8 800 998-32-33</h2>
+						<p class="text-60">Бесплатный звонок 24/7</p>
 					</div>
 					<div class="column large-5 small-12">
-						<p class="text-light uppercase">Через форму:</p>
+						<p class="text-bold uppercase">Через форму:</p>
 						<a role="button" aria-label="submit form" href="#" class="button btn-blueLine">Задать вопрос</a>
-						<p>Подготовим комплексное предложение в течение одного рабочего дня</p>
+						<p class="text-60">Подготовим комплексное предложение в течение одного рабочего дня</p>
 					</div>
 				</div>
 			</div>
