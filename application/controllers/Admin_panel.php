@@ -478,7 +478,7 @@ class Admin_panel extends CI_Controller {
 			redirect('/login/admin_login');
 		}
         
-        Articles::delete_article()($id);
+        Articles::delete_article($id);
         redirect(site_url() . '/admin_panel/news');
     }
 }
