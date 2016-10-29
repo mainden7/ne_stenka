@@ -14,10 +14,10 @@ class Settings extends CI_Model{
 		return $result;
 	}
 
-	public static function update_main_settings($logo, $favicon, $title){
+	public static function update_main_settings($logo, $favicon, $title, $main_name){
 		$CI = & get_instance();
-		$sql = 'UPDATE `main_settings` SET `logo` = ?, `favicon` = ?, `title` = ?';
-		$CI->db->query($sql, array($logo, $favicon, $title));
+		$sql = 'UPDATE `main_settings` SET `logo` = ?, `favicon` = ?, `title` = ?, `main_name` = ?';
+		$CI->db->query($sql, array($logo, $favicon, $title, $main_name));
 	}
 
 	public static function load_admin_settings(){

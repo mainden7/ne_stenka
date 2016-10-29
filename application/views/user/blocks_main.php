@@ -248,34 +248,10 @@
 							</ul>
 							<div class="table-info-1  proposal-row-2 mb80">
 								<h4>Цены указаны на марку блоков <b>d500</b> для города 
-									<a href='#' data-target='#chooseCity' data-toggle='modal'>
+									<a href='#' class='user-city' data-target='#chooseCity' data-toggle='modal'>
 										<?php
 										if(isset($this->session->userdata['user_city'])){
-											if($this->session->userdata['user_city'] == 'moscow') {
-												echo 'Москва';
-											}elseif($this->session->userdata['user_city'] == 'sp') {
-												echo 'Санкт-Петербург';
-											}elseif($this->session->userdata['user_city'] == 'bryansk') {
-												echo 'Брянск';
-											}elseif($this->session->userdata['user_city'] == 'kaluga') {
-												echo 'Калуга';
-											}elseif($this->session->userdata['user_city'] == 'vladimir') {
-												echo 'Владимир';
-											}elseif($this->session->userdata['user_city'] == 'novgorod') {
-												echo 'Новгород';
-											}elseif($this->session->userdata['user_city'] == 'orel') {
-												echo 'Орел';
-											}elseif($this->session->userdata['user_city'] == 'petrozavodsk') {
-												echo 'Петрозаводск';
-											}elseif($this->session->userdata['user_city'] == 'pskov') {
-												echo 'Псков';
-											}elseif($this->session->userdata['user_city'] == 'smolensk') {
-												echo 'Смоленск';
-											}elseif($this->session->userdata['user_city'] == 'tver') {
-												echo 'Тверь';
-											}elseif($this->session->userdata['user_city'] == 'tula') {
-												echo 'Тула';
-											}
+											echo $this->session->userdata['user_city'];
 										}else{
 											echo 'Москва';
 										}

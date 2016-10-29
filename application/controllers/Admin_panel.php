@@ -88,8 +88,9 @@ class Admin_panel extends CI_Controller {
                 $favicon = $post['old_favicon'];
             }
             $title = $post['main_title'];
+            $main_name = $psot['main_name'];
             //update settings
-            Settings::update_main_settings($logo, $favicon, $title);
+            Settings::update_main_settings($logo, $favicon, $title, $main_name);
             //update admin login and pass
             $admin_creds = Settings::load_admin_settings();
             $admin_pass = $admin_creds['password'];
@@ -172,19 +173,29 @@ class Admin_panel extends CI_Controller {
                 if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)) {
                     $img = $_FILES['img']['name'];
                 }
+            }else{
+            	$img = '';
             }
+            
         	$name = $post['name'];
         	$description = $post['description'];
-        	$price = $post['price'];
+        	
         	$size = $post['size'];
         	$category = $post['category'];
-        	Product::add_product($name, $description, $img, $price, $size, $category);
+        	$id = Product::add_product($name, $description, $img, NULL, $category, $size);
+        	$cities = City::load_cities();
+            foreach ($cities as $city) {
+
+            	Product::save_product_price($id, $city['name'], (isset($post[$city['name']]) ? (int)$post[$city['name']] : 0));
+            }
+
         	redirect('/admin_panel/products');
         }
 		$data['main_settings'] = Settings::load_main_settings();
 		$data['contact_settings'] = Settings::load_contact_settings();
 		$data['products'] = Product::load_products();
 		$data['categories'] = Product::load_categories();
+		$data['cities'] = City::load_cities();
 		/*print '<pre>' . print_r($data['categories'], true) . '</pre>'; die();*/
 		// Data.
         $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
@@ -218,12 +229,18 @@ class Admin_panel extends CI_Controller {
             }else{
             	$img = $post['old_img'];
             }
+            /*print '<pre>' . print_r($post, true) . '</pre>'; die();*/
             $name = $post['name'];
             $description = $post['description'];
             $category = $post['category'];
             $size = $post['size'];
             $id = $post['id'];
-            Product::update_product($name, $description, $img, $price, $size, $category, $id);
+            Product::update_product($name, $description, $img, NULL, $size, $category, $id);
+            $cities = City::load_cities();
+            foreach ($cities as $city) {
+
+            	Product::update_product_price($id, $city['name'], (isset($post[$city['name']]) ? (int)$post[$city['name']] : 0));
+            }
             redirect(site_url() . '/admin_panel/products');
         }
     }
@@ -454,21 +471,22 @@ class Admin_panel extends CI_Controller {
 
         // Data.
         if ($post || $is_post) {
-        	if ($_FILES['photo']['name']) {
+        	if ($_FILES['img']['name']) {
                 $uploaddir = base_url().'application/resources/upload/site/';
-                $uploadfile = $uploaddir . basename($_FILES['photo']['name']);
-                if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)) {
-                    $photo = $_FILES['photo']['name'];
+                $uploadfile = $uploaddir . basename($_FILES['img']['name']);
+                if (move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile)) {
+                    $img = $_FILES['img']['name'];
                 }
             }else{
-            	$photo = $post['old_photo'];
+            	$img = $post['old_img'];
             }
             $name = $post['name'];
-            $position = $post['postion'];
-            $email = $post['email'];
-            $description = $post['description'];
+            $content = $post['content'];
+            $status = $post['status'];
+            $on_main = $post['on_main'];
+            $post = $post['post'];
             $id = $post['id'];
-            Articles::edit_article($name, $positiont, $email, $description, $photo, $id);
+            Articles::edit_article($name, $content, $status, $on_main, $post, $img, $id);
             redirect(site_url() . '/admin_panel/news');
         }
     }
@@ -481,4 +499,135 @@ class Admin_panel extends CI_Controller {
         Articles::delete_article($id);
         redirect(site_url() . '/admin_panel/news');
     }
+
+    public function projects(){
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        $data = array();
+        if($post || $is_post){
+        	if ($_FILES['img']['name']) {
+                $uploaddir = base_url().'application/resources/img/upload/';
+                $uploadfile = $uploaddir . basename($_FILES['img']['name']);
+                if (move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile)) {
+                    $img = $_FILES['img']['name'];
+                }
+            }
+            $name = $post['name'];
+            $client_name = $post['client_name'];
+            $testimonial = $post['testimonial'];
+            $description = $post['description'];
+            Project::add_project($name, $client_name, $testimonial, $description, $img);
+            redirect(site_url() . '/admin_panel/projects');
+        }
+		$data['main_settings'] = Settings::load_main_settings();
+		$data['contact_settings'] = Settings::load_contact_settings();
+		$data['projects'] = Project::load_projects();
+		
+		/*print '<pre>' . print_r($data['projects'], true) . '</pre>'; die();*/
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('admin/header');
+		$this->load->view('admin/main_header', $data);
+		$this->load->view('admin/main_menu');
+		$this->load->view('admin/projects', $data);
+		$this->load->view('admin/footer');
+	}
+
+	public function edit_project() {
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+        // CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        // Data.
+        if ($post || $is_post) {
+        	if ($_FILES['img']['name']) {
+                $uploaddir = base_url().'application/resources/img/upload';
+                $uploadfile = $uploaddir . basename($_FILES['img']['name']);
+                if (move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile)) {
+                    $img = $_FILES['img']['name'];
+                }
+            }else{
+            	$img = $post['old_img'];
+            }
+            $name = $post['name'];
+            $client_name = $post['client_name'];
+            $testimonial = $post['testimonial'];
+            $description = $post['description'];
+            $id = $post['id'];
+            Project::update_project($name, $client_name, $testimonial, $description, $img, $id);
+            redirect(site_url() . '/admin_panel/projects');
+        }
+    }
+
+    public function project_post($id, $status){
+    	if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		Project::post_project($id, $status);
+        redirect(site_url() . '/admin_panel/projects');		
+    }
+
+    public function delete_project($id = NULL) {
+    	if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+        
+        Project::delete_project($id);
+        redirect(site_url() . '/admin_panel/projects');
+    }
+
+
+    public function cities(){
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        $data = array();
+        if($post || $is_post){
+        	$code = Translitor::str2url($post['name']);
+
+        	City::add_city($post['name'], $code);
+            redirect('/admin_panel/cities');
+        }
+		$data['main_settings'] = Settings::load_main_settings();
+		$data['contact_settings'] = Settings::load_contact_settings();
+		$data['cities'] = City::load_cities();
+		
+		/*print '<pre>' . print_r($data['projects'], true) . '</pre>'; die();*/
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('admin/header');
+		$this->load->view('admin/main_header', $data);
+		$this->load->view('admin/main_menu');
+		$this->load->view('admin/cities', $data);
+		$this->load->view('admin/footer');
+	}
+
+	public function delete_city($id = NULL){
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		City::delete_city($id);
+		redirect('/admin_panel/cities');
+	}
 }

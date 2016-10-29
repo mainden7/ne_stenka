@@ -21,6 +21,8 @@
 	<link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/libs/foundation/foundation.css">
 	<link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/css/fonts.css">
 	<link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/css/main.css">
+<script type="text/javascript" src='<?php echo base_url() ?>application/resources/user_resources/js/sweetalert-dev.js'></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>application/resources/user_resources/css/sweetalert.css">
 
 </head>
 

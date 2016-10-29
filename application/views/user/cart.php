@@ -97,7 +97,7 @@
 			 <?php
 			 $total_product_price = 0;
 			  if(!isset($data['empty_cart_title'])){
-			  foreach ($all_cat as $category_name => $products) {?>
+			  foreach ($all_cat as $category_name => $products) { ?>
 			<table class="responsive mb50">			
 				<thead class="table-header">
 					<tr class='row-1'>
@@ -139,11 +139,12 @@
 								<input type='button' value='-' class='qt qtyminus' field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
 								<input type='text' name='quantity<?php echo $product['id'] ?>' value='<?php echo $product['quantity']; ?>' class='qty' />
 								<input type='button' value='+' class='qt qtyplus' field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
+								<input type='hidden' class='serialize' name='<?php echo $product['id'] ?>' value='<?php echo $product['quantity']; ?>'>
 							</form>
 						</td>
 						<td class="text-center product_total_price"  data-quantity="<?php echo  $product['quantity'] ?>" data-price="<?php echo $product['price'] ?>"><?php echo $product['price'] * $product['quantity'] ?></td>
 						
-						<td class='br-none text-center pl20'><i class='fa fa-times'></i></td>
+						<td class='br-none text-center pl20'><a href='/ne_stenka/index.php/user/delete_from_cart/<?php echo $product['id'] ?>'><i class='fa fa-times'></i></a></td>
 					</tr>
 					<?php } ?>
 				</tbody>
@@ -189,6 +190,7 @@
 								<input type='button' value='-' class='qtyminus' field='quantity' style='font-size: 20px'/>
 								<input type='text' name='quantity' value='0' class='qty' />
 								<input type='button' value='+' class='qtyplus' field='quantity' style='font-size: 20px'/>
+								<input type='hidden' class='serialize' name='<?php echo 2 ?>' value='<?php echo 3 ?>'>
 							</form>
 						</td>
 						<td class="text-center">15</td>
@@ -200,7 +202,7 @@
 		</div>
 		<div class="row large-10 bg_white mb130 table-row step_1">
 			<h2 class="text-right">Cтоимость - <span><?php ?></span> руб.</h2>
-			<p class="text-right"><a href="" class="button btn-blueLine question-btn">Оформить заказ</a></p>
+			<p class="text-right"><a href="" class="button btn-blueLine question-btn submit-form">Оформить заказ</a></p>
 		</div>
 		<?php } ?>
 		

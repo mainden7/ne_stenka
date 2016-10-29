@@ -4,16 +4,20 @@ if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
 class Product extends CI_Model{
-	public static function add_product($name, $description, $img, $price, $category){
+
+	public static function add_product($name, $description, $img, $price, $category, $size){
 		$CI = & get_instance();
-		$sql = 'INSERT INTO `products` (`name`, `description`, `date`, `image`, `price`, `category`) VALUES (?, ?, ?, ?, ?, ?)';
-		$CI->db->query($sql, array($name, $description, date('Y-m-d H:i:s'), $img, $price, $category ));
+		$sql = 'INSERT INTO `products` (`name`, `description`, `date`, `image`, `price`, `category`, `size`) VALUES (?, ?, ?, ?, ?, ?, ?)';
+		$CI->db->query($sql, array($name, $description, date('Y-m-d H:i:s'), $img, $price, $category, $size));
+		$id = $CI->db->insert_id();
+
+		return $id;
 	}
 
-	public static function update_product($name, $description, $img, $price, $category,  $id) {
+	public static function update_product($name, $description, $img, $price, $size, $category,  $id) {
         $CI = & get_instance();
-        $sql = "UPDATE `products` SET  `name` = ?, `description` = ?, `img` = ?, `price` = ?, `category` = ? WHERE `id` = ?";
-        $CI->db->query($sql, array($name, $description, $img, $price, $category, $id));
+        $sql = "UPDATE `products` SET  `name` = ?, `description` = ?, `image` = ?, `price` = ?, `size` = ?,  `category` = ? WHERE `id` = ?";
+        $CI->db->query($sql, array($name, $description, $img, $price, $size, $category, $id));
     }
 
     public static function delete_product($id) {
@@ -70,6 +74,26 @@ class Product extends CI_Model{
     	return $result;
     }
 
+    public static function save_product_price($product_id, $city, $price){
+    	$CI = & get_instance();
+    	$sql = 'INSERT INTO `product_prices`(`product_id`, `city`, `price`) VALUES (?,?,?)';
+    	$CI->db->query($sql, array($product_id, $city, $price));
+    }
+
+    public static function load_price($product_id, $city){
+    	$CI = & get_instance();
+    	$sql = 'SELECT `price` FROM `product_prices` WHERE `product_id` = ? AND `city` = ?';
+    	$query = $CI->db->query($sql, array($product_id, $city));
+    	$result = $query->row_array();
+
+    	return $result;
+    }
+
+	public static function update_product_price($product_id, $city, $price){
+    	$CI = & get_instance();
+    	$sql = 'UPDATE `product_prices` SET `price` = ? WHERE `product_id` = ? AND `city` = ?';
+    	$CI->db->query($sql, array($price, $product_id, $city));
+    }
    
 
 

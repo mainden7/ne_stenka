@@ -150,8 +150,8 @@ $(function(){
   $('.controls i.prev').click(function(){
     var a = $(this).attr('data-count');   
     if(a >= 1){
-        $('.project_item.active').removeClass('active').hide();
-        $('div[data-number="' + (a) + '"]').show().addClass('active');
+      $('.project_item.active').removeClass('active').hide();
+      $('div[data-number="' + (a) + '"]').show().addClass('active');
       
     }
   });
@@ -174,9 +174,9 @@ $(function(){
     var productPrice = $(this).parent().parent().parent().find('td.product_total_price').attr('data-price');
     var totalPrice = Number(productCount) * Number(productPrice);
     
-     $(this).parent().parent().parent().find('td.product_total_price').text(totalPrice);
+    $(this).parent().parent().parent().find('td.product_total_price').text(totalPrice);
     
-   
+
     /*var b = $(this).val() + $(this).parent().get(3).find('td.product_total_price').attr('data-price');
     $(this).parent().get(3).find('td.product_total_price').text(a+b);*/
 
@@ -188,14 +188,101 @@ $(function(){
     var productPrice = $(this).parent().parent().parent().find('td.product_total_price').attr('data-price');
     var totalPrice = Number(productCount) * Number(productPrice);
     
-     $(this).parent().parent().parent().find('td.product_total_price').text(totalPrice);
+    $(this).parent().parent().parent().find('td.product_total_price').text(totalPrice);
     
-   
+
     /*var b = $(this).val() + $(this).parent().get(3).find('td.product_total_price').attr('data-price');
     $(this).parent().get(3).find('td.product_total_price').text(a+b);*/
 
   });
 });
+$(function(){
+  $('a.submit-form').click(function(e){
+    e.preventDefault();
+    var str = $('input.serialize').serialize();
+    window.location.replace("/ne_stenka/index.php/user/cart_next?"+str);
+    
+
+    /*$.ajax({
+      type: 'POST',
+      data: str,
+      utl: '/user/cart_next',
+      success: function(data){        
+        window.location.replace("/ne_stenka/index.php/user/cart_next?"+str);     
+      }
+      
+    }); */  
+  });
+});
+
+$(function(){
+  $('a.comment_link').click(function(e){
+    e.preventDefault();
+    $('div.hidden').show();
+  });
+});
+
+$(function(){
+  $('.swal-btn-success').click(function(e){
+    e.preventDefault();
+    var data = $('#cart-form').serialize();
+    $.ajax({
+      type: 'POST',
+      data: data,
+      url: '/ne_stenka/index.php/user/post_order',
+      success: function(){
+        swal({
+          title: "Ваша заявка отправлена!",
+          text: "В ближайшее время с вами свяжется наш менеджер для уточнения деталей",
+          type: "success",
+          timer: 2000,   
+          showConfirmButton: false
+        });
+      },
+      error: function(){
+       swal({
+         title: "Что-то пошло не так!",
+        type: "error",
+        timer: 2000,   
+        showConfirmButton: false
+       });
+      }
+    });
+    
+  });
+});
+
+$(function(){
+  $('a.city_choise').click(function(e){
+    e.preventDefault();
+    var a = $(this).text();
+   $.ajax({
+    type: 'POST',
+    url: '/user/set_city',
+    data: ({city: a}),
+    success: function(data){
+      $('a.user-city').text(a);
+      $('#chooseCity').modal('hide');
+      swal({
+          title: "Выбран город " + a,          
+          type: "success",
+          timer: 2000,   
+          showConfirmButton: false
+        });
+    },
+    error: function(){
+       swal({
+         title: "Что-то пошло не так!",
+        type: "error",
+        timer: 2000,   
+        showConfirmButton: false
+       });
+      }
+   });
+  });
+});
+
+
 $(function(){
  ymaps.ready(init);
  var myMap,

@@ -2651,6 +2651,9 @@ p.bold{
 a.dashed{
   border-bottom: 1px dashed #0078ff;
 }
+.border-bottom-transparent{
+  border-bottom: 1px solid transparent;
+}
 a.dashed:hover{
   border-bottom: 1px dashed transparent;
 }
@@ -2813,7 +2816,7 @@ a.dashed:hover{
     background: #fff;
   }
   a.btn-blue{
-    border-bottom: none !important;
+    border-bottom: 2px solid transparent;
   }
   a.btn-blue:hover{
     border-bottom: 2px solid rgba(0, 120, 255, 0.5) !important;

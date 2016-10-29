@@ -1,4 +1,8 @@
-
+<?php
+	$cities = City::load_cities();
+	$cities_count = count($cities);
+	/*print '<pre>' . print_r($cities, TRUE) . '</pre>'; die();*/
+?> 
 <style type="text/css">
 	.menu > li{
 		box-sizing: none;	
@@ -105,34 +109,10 @@ if(isset($this->session->userdata['items'])){
 			<!--выбор региона-->
 			<div class="header-info_regions header-info_regionsSelect column  small-5 medium-3 large-2">
 				<span>Регион доставки</span>
-				<a href="#" data-toggle='modal' data-target='#chooseCity'>
+				<a href="#" class='user-city' data-toggle='modal' data-target='#chooseCity'>
 					<?php
 					if(isset($this->session->userdata['user_city'])){
-						if($this->session->userdata['user_city'] == 'moscow') {
-							echo 'Москва';
-						}elseif($this->session->userdata['user_city'] == 'sp') {
-							echo 'Санкт-Петербург';
-						}elseif($this->session->userdata['user_city'] == 'bryansk') {
-							echo 'Брянск';
-						}elseif($this->session->userdata['user_city'] == 'kaluga') {
-							echo 'Калуга';
-						}elseif($this->session->userdata['user_city'] == 'vladimir') {
-							echo 'Владимир';
-						}elseif($this->session->userdata['user_city'] == 'novgorod') {
-							echo 'Новгород';
-						}elseif($this->session->userdata['user_city'] == 'orel') {
-							echo 'Орел';
-						}elseif($this->session->userdata['user_city'] == 'petrozavodsk') {
-							echo 'Петрозаводск';
-						}elseif($this->session->userdata['user_city'] == 'pskov') {
-							echo 'Псков';
-						}elseif($this->session->userdata['user_city'] == 'smolensk') {
-							echo 'Смоленск';
-						}elseif($this->session->userdata['user_city'] == 'tver') {
-							echo 'Тверь';
-						}elseif($this->session->userdata['user_city'] == 'tula') {
-							echo 'Тула';
-						}
+						echo $this->session->userdata['user_city'];
 					}else{
 						echo 'Москва';
 					}
@@ -150,22 +130,32 @@ if(isset($this->session->userdata['items'])){
 								<div class="row large-12">
 									<div class="column large-6 small-12">
 										<ul class="text-normal">
-											<li><i class="fa fa-check"></i><a href='/user/set_city/moscow'?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>>Москва</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/sp?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Санкт-Петербург</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/bryansk?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Брянск</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/kaluga?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Калуга</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/vladimir?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Владимир</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/novgorod?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Новгород</a></li>
+											 <?php 
+											 	$i = 0;
+											 	foreach ($cities as $city) { ?>
+											<li><i class="fa fa-check"></i><a href='#' class='city_choise'><?php echo $city['name'] ?></a></li>
+											<?php
+												$i++;
+												if($i == 6){
+													break;
+												}
+											 } ?>												
+											
 										</ul>
 									</div>
 									<div class="column large-6 small-12">
 										<ul class="text-normal">
-											<li><i class="fa fa-check"></i><a href='/user/set_city/orel?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Орел</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/petrozavodsk?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Петрозаводск</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/pskov?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Псков</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/smolensk?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Смоленск</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/tver?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Тверь</a></li>
-											<li><i class="fa fa-check"></i><a href='/user/set_city/tula?path=<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>'>Тула</a></li>
+											<?php 
+											 	$i = 0;
+											 	$cities = array_reverse($cities);
+											 	foreach ($cities as $city) { ?>
+											<li><i class="fa fa-check"></i><a href='#' class='city_choise'><?php echo $city['name'] ?></a></li>
+											<?php
+												$i++;
+												if($i == 6){
+													break;
+												}
+											 } ?>	
 										</ul>
 									</div>
 								</div>
@@ -205,7 +195,7 @@ if(isset($this->session->userdata['items'])){
 												consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 												cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 												proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-												<a href="" class="btn-blue uppercase">Подробнее <i class="fa fa-long-arrow-right"></i></a>
+												<a href="" class="btn-blue uppercase border-bottom-transparent">Подробнее <i class="fa fa-long-arrow-right"></i></a>
 											</div>	
 											<div class="column large-6 small-12">
 												<h3 class="uppercase">Какой минимальный заказ</h3>

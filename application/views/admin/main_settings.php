@@ -12,7 +12,7 @@
 
             <div class="box-typical box-typical-padding">
                 
-                <form method="post" action="<?php echo site_url() ?>index.php/admin_panel/main_settings" enctype='multipart/form-data'>
+                <form method="post" action="/admin_panel/main_settings" enctype='multipart/form-data'>
                     <h5 class="m-t-lg with-border">Логотип и др.</h5>
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label">Логотип</label>
@@ -25,19 +25,25 @@
                         <label class="col-sm-2 form-control-label">Favicon</label>
                         <div class="col-sm-4">
                             <p class="form-control-static"><input type="file" name='favicon' class="form-control"></p>
-                            <input type="hidden" name="favicon" value="<?php echo $data['main_settings']['favicon']; ?>">
+                            <input type="hidden" name="old_favicon" value="<?php echo $data['main_settings']['favicon']; ?>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label">Название сайта</label>
                         <div class="col-sm-10">
-                            <p class="form-control-static"><input type="text" name="main_title" class="form-control" placeholder="Введите название сайта" autocomplete="off"></p>
+                            <p class="form-control-static"><input type="text" name="main_title" class="form-control" placeholder="Введите название/title сайта. Пример: Нестенка - лучшие блоки для вашей стройки" autocomplete="off" value="<?php echo $data['main_settings']['title'] ?>"></p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 form-control-label">Имя сайта</label>
+                        <div class="col-sm-2">
+                            <p class="form-control-static"><input type="text" name="main_name" class="form-control" placeholder="Введите имя сайта" autocomplete="off" value="<?php echo $data['main_settings']['main_name'] ?>"></p>
                         </div>
                     </div>
                     <h5 class="m-t-lg with-border">Доступ к Административной панели</h5>
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label">Логин</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-2">
                             <p class="form-control-static"><input type="text" name="admin_login" class="form-control" placeholder="Логин" autocomplete="off"></p>
                         </div>
                     </div>
