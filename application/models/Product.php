@@ -40,6 +40,14 @@ class Product extends CI_Model{
 
     	return $result;
     }
+    public static function load_products_by_type($type, $city) {
+    	$CI = & get_instance();
+    	$sql = "SELECT *,(SELECT `price` FROM `product_prices` `pp` WHERE `pp`.`product_id` = `p`.`id` AND `city` = ?) FROM `products` `p` WHERE `category` = ?";
+    	$query = $CI->db->query($sql, array($city, $category));
+    	$result = $query->result_array();
+
+    	return $result;
+    }
 
 	public static function add_product_category($name, $description, $img, $price, $size, $category){
 		$CI = & get_instance();
@@ -85,6 +93,21 @@ class Product extends CI_Model{
     	$sql = 'SELECT `price` FROM `product_prices` WHERE `product_id` = ? AND `city` = ?';
     	$query = $CI->db->query($sql, array($product_id, $city));
     	$result = $query->row_array();
+
+    	return $result;
+    }
+
+     public static function load_product_prices($product_id, $user_city = NULL){
+    	$CI = & get_instance();
+    	if($user_city == NULL){
+	    	$sql = 'SELECT `price`, `city` FROM `product_prices` WHERE `product_id` = ?';
+	    	$query = $CI->db->query($sql, array($product_id));
+	    	$result = $query->result_array();
+	    }else{
+	    	$sql = 'SELECT `price`, `city` FROM `product_prices` WHERE `product_id` = ? AND `city` = ?';
+	    	$query = $CI->db->query($sql, array($product_id, $user_city));
+	    	$result = $query->row_array();
+	    }
 
     	return $result;
     }

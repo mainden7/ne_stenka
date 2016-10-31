@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/libs/foundation/responsive-tables.css">
 <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/libs/foundation/responsive-tables.js">
+
 <style type="text/css">
 	.blocks-header{
 		line-height: 1;
@@ -203,6 +204,9 @@
 		min-height: 267px;
 		max-height: 267px;
 	}
+	span.hidden{
+		display: none;
+	}
 </style>
 <section style='background-color: #f0f2f6'>
 	<div class="row frontSlide expanded small-12 medium-12 large-12 pt80" style='background-color: #f0f2f6'>
@@ -251,10 +255,11 @@
 									<a href='#' class='user-city' data-target='#chooseCity' data-toggle='modal'>
 										<?php
 										if(isset($this->session->userdata['user_city'])){
-											echo $this->session->userdata['user_city'];
+											$user_city = $this->session->userdata['user_city'];
 										}else{
-											echo 'Москва';
+											$user_city = 'Москва';
 										}
+										echo $user_city;
 										?> <i class='fa fa-sort-down'></i>
 									</a>, <a href="">Без упаковки на поддоне <i class='fa fa-sort-down'></i></a></h4>
 									<table class="responsive">
@@ -291,7 +296,19 @@
 														<td class="text-center br-none">16</td>
 														<td class="text-center">15</td>
 														<td class="text-center br-none">21</td>
-														<td class="text-center br-none">23</td>
+														<td class="text-center br-none">
+															<?php
+																$prices = Product::load_product_prices($product['id']);
+																if(!empty($prices)) {
+																foreach ($prices as $price) { ?>
+																	<span class='city-price <?php echo $price['city'] == $user_city ? '' : 'hidden' ?>' data-city-price='<?php echo $price['city'] ?>'>
+																		<?php echo number_format($price['price'], 2, '.', ','); ?>																	 	
+																	 </span>	
+															<?php
+															 }
+															}
+															?>
+														</td>
 														<td class="text-center">111</td>
 														<td class='text-center'>
 															<form id='myform' class='display-inline-block' method='POST' action='#'>

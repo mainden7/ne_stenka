@@ -69,8 +69,14 @@ if(isset($this->session->userdata['items'])){
 	foreach ($items as $item_id => $item_count) {
 		$items_count += $item_count;
 		if(!empty($item_id) AND !empty($item_count)){
-			$product = Product::load_products($item_id);
-			$price = $product['price'] * $item_count;			
+			if(isset($this->session->userdata['user_city'])){
+				$user_city = $this->session->userdata['user_city'];	
+			}else{
+				$user_city = 'Москва';
+			}
+			
+			$product_price = Product::load_product_prices($item_id, $user_city);
+			$price = $product_price['price'] * $item_count;			
 		}		
 		
 	}

@@ -47,7 +47,7 @@ class User extends CI_Controller {
 		$data['active'] = 'blocks';
 		$data['main_settings'] = Settings::load_main_settings();		
 		$data['contact_settings'] = Settings::load_contact_settings();
-		$data['products'] = Product::load_products();
+		$data['products'] = Product::load_products();		
 		// Data.
 		$data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
         //views

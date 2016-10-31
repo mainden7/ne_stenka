@@ -229,7 +229,7 @@ $(function(){
     $.ajax({
       type: 'POST',
       data: data,
-      url: '/ne_stenka/index.php/user/post_order',
+      url: '/user/post_order',
       success: function(){
         swal({
           title: "Ваша заявка отправлена!",
@@ -256,11 +256,14 @@ $(function(){
   $('a.city_choise').click(function(e){
     e.preventDefault();
     var a = $(this).text();
+
    $.ajax({
     type: 'POST',
     url: '/user/set_city',
     data: ({city: a}),
     success: function(data){
+      $('span.city-price').hide().addClass('hidden');
+    $('span[data-city-price="' + a + '"]').removeClass('hidden').show();
       $('a.user-city').text(a);
       $('#chooseCity').modal('hide');
       swal({
