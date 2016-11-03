@@ -17,6 +17,9 @@ class User extends CI_Controller {
 		$data['testimonials'] = Testimonial::load_all_testimonials();
 		$data['categories'] = Product::load_categories();
 		$data['products'] = Product::load_products();
+		$data['page'] = 'home';
+		$page_id = 1;
+		$data['seo_text'] = Seo_text::load_seo_text($page_id);
 		// Data.
 		$data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
         //views
@@ -48,6 +51,9 @@ class User extends CI_Controller {
 		$data['main_settings'] = Settings::load_main_settings();		
 		$data['contact_settings'] = Settings::load_contact_settings();
 		$data['products'] = Product::load_products();		
+		$data['page'] = 'blocks';
+		$page_id = 2;
+		$data['seo_text'] = Seo_text::load_seo_text($page_id);
 		// Data.
 		$data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
         //views
@@ -72,6 +78,10 @@ class User extends CI_Controller {
 		$data['active'] = 'faq';
 		$data['main_settings'] = Settings::load_main_settings();		
 		$data['contact_settings'] = Settings::load_contact_settings();
+		$data['page'] = 'faq';
+		$page_id = 3;
+		$data['seo_text'] = Seo_text::load_seo_text($page_id);
+		$data['faq'] = New_faq::load_all();
 		// Data.
 		$data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
         //views
@@ -95,6 +105,7 @@ class User extends CI_Controller {
 		$data['main_settings'] = Settings::load_main_settings();		
 		$data['contact_settings'] = Settings::load_contact_settings();
 		$data['testimonials'] = Testimonial::load_all_testimonials();
+		$data['projects'] = Project::load_projects();
 		// Data.
 		$data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
         //views

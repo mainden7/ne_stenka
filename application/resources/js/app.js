@@ -985,4 +985,13 @@ $(document).ready(function(){
 	});
 
 /* ========================================================================== */
+  $(function(){
+    $('#seo-tabs ul li').click(function(){
+      var target = $(this).find('a').attr('data-target');
+      $('div.tab-pane').hide();
+      $('div#'+target).show().addClass('in active');
+
+    });
+  });
+
 });

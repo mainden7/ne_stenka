@@ -630,4 +630,94 @@ class Admin_panel extends CI_Controller {
 		City::delete_city($id);
 		redirect('/admin_panel/cities');
 	}
+
+	public function seo(){
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        $data = array();
+        if($post || $is_post){
+        	Seo_text::update_seo_text($post['content'], $post['id']);
+        	redirect('/admin_panel/seo');
+        	/*print '<pre>' . print_r($post, true) . '</pre>'; die();*/
+        } 
+		$data['main_settings'] = Settings::load_main_settings();
+		$data['contact_settings'] = Settings::load_contact_settings();
+		$data['seo_texts'] = Seo_text::load_seo_texts();
+		
+		/*print '<pre>' . print_r($data['projects'], true) . '</pre>'; die();*/
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('admin/header');
+		$this->load->view('admin/main_header', $data);
+		$this->load->view('admin/main_menu');
+		$this->load->view('admin/seo', $data);
+		$this->load->view('admin/footer');
+	}
+
+	public function faq(){
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		// CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        $data = array();
+        if($post || $is_post){
+        	New_faq::add_question($post['question'], $post['category'], $post['answer']);
+        	redirect('/admin_panel/faq');
+        }
+        
+		$data['main_settings'] = Settings::load_main_settings();
+		$data['contact_settings'] = Settings::load_contact_settings();
+		$data['faq'] = New_faq::load_all();
+		
+		
+		/*print '<pre>' . print_r($data['projects'], true) . '</pre>'; die();*/
+		// Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+		$this->load->view('admin/header');
+		$this->load->view('admin/main_header', $data);
+		$this->load->view('admin/main_menu');
+		$this->load->view('admin/faq', $data);
+		$this->load->view('admin/footer');
+	}
+
+	public function edit_faq() {
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+        // CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        // Data.
+        if ($post || $is_post) {
+        	// print '<pre>' . print_r($post, true) . '</pre>'; die();
+            New_faq::update_faq($post['question'], $post['category'], $post['answer'], $post['id']);
+            redirect('/admin_panel/faq');
+        }
+    }
+
+    public function delete_faq($id = NULL){
+		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+			redirect('/login/admin_login');
+		}
+		New_faq::delete_faq($id);
+		redirect('/admin_panel/faq');
+	}
 }

@@ -98,63 +98,52 @@
 					<li data-show='documents'><span>Документы</span></li>
 				</ul>
 				<div id="accordion" class='tab active' data-filter='products'>
-					<h3>Где производятся ваши блоки? <i class="fa fa-angle-down fa-2x"></i></h3>
-					<div>
-						<p>
-							Вся продукция, которую мы продаем, выпускается в Республике Беларусь на заводе ЗАО"Могилевский КСИ", за исключением блоков, имеющих длину 599 мм, которые производятся на заводе "Газоселикатстрой" г. Могилев,  Республика Беларусь.
-						</p>
-					</div>
-					<h3>Какую продукцию вы продаете? <i class="fa fa-angle-down fa-2x"></i></h3>
-					<div>
-						<p>
-							Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-							purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-							velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-							suscipit faucibus urna.
-						</p>
-					</div>
-					<h3>Помогите расчитать нужынй объем блоков на мою стройку? <i class="fa fa-angle-down fa-2x"></i></h3>
-					<div>
-						<p>
-							Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-							Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-							ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-							lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-						</p>						
-					</div>
-					<h3>Чем отличаются блоки 1-й категории от блоков 2-й категории? <i class="fa fa-angle-down fa-2x"></i></h3>
-					<div>
-						<p>
-							Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-							et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-							faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-							mauris vel est.
-						</p>
-					</div>
+					<?php foreach ($data['faq'] as $faq) {
+                        if ($faq['category'] == 'Наша продукция') { ?>
+                            <h3><?php echo htmlspecialchars_decode($faq['question']) ?> <i class="fa fa-angle-down fa-2x"></i></h3>
+                            <div>
+                                <p>
+                                    <?php echo htmlspecialchars_decode($faq['answer']) ?>
+                                </p>
+                            </div>
+                        <?php }
+                    }?>
 				</div>
 				<div class="tab tab-2" data-filter="how_to_order">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <?php foreach ($data['faq'] as $faq) {
+                        if ($faq['category'] == 'Как заказать') { ?>
+                            <h3><?php echo htmlspecialchars_decode($faq['question']) ?> <i class="fa fa-angle-down fa-2x"></i></h3>
+                            <div>
+                                <p>
+                                    <?php echo htmlspecialchars_decode($faq['answer']) ?>
+                                </p>
+                            </div>
+                        <?php }
+                    }?>
 				</div>
 				<div class="tab tab-3" data-filter="delivery">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <?php foreach ($data['faq'] as $faq) {
+                        if ($faq['category'] == 'Доставка и оплата') { ?>
+                            <h3><?php echo htmlspecialchars_decode($faq['question']) ?> <i class="fa fa-angle-down fa-2x"></i></h3>
+                            <div>
+                                <p>
+                                    <?php echo htmlspecialchars_decode($faq['answer']) ?>
+                                </p>
+                            </div>
+                        <?php }
+                    }?>
 				</div>
 				<div class="tab tab-4" data-filter="documents">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <?php foreach ($data['faq'] as $faq) {
+                        if ($faq['category'] == 'Документы') { ?>
+                            <h3><?php echo htmlspecialchars_decode($faq['question']) ?> <i class="fa fa-angle-down fa-2x"></i></h3>
+                            <div>
+                                <p>
+                                    <?php echo htmlspecialchars_decode($faq['answer']) ?>
+                                </p>
+                            </div>
+                        <?php }
+                    }?>
 				</div>
 			</div>
 		</div>
@@ -165,7 +154,7 @@
 				<div class="row large-12 text-left">
 					<div class="column large-7 small-12">
 						<p class="text-bold bold mb5 uppercase">По телефону:</p>
-						<h2 class="tel-title mt0" style="margin-bottom: 17px;">8 800 998-32-33</h2>
+						<h2 class="tel-title mt0" style="margin-bottom: 17px;"><?php echo $data['contact_settings']['tel_1'] ?></h2>
 						<p class="text-60">Бесплатный звонок 24/7</p>
 					</div>
 					<div class="column large-5 small-12">

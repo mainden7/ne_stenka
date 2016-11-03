@@ -59,6 +59,12 @@
                 <span class="lbl">Сео</span>
             </a>
         </li>
+        <li class="red">
+            <a href="<?php echo site_url().'admin_panel/faq'; ?>">
+                <i class="font-icon font-icon-question"></i>
+                <span class="lbl">Справка</span>
+            </a>
+        </li>
     </ul>
 
     <section>

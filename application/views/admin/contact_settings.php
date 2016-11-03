@@ -75,6 +75,7 @@
 								<div class="form-group">
 									<input type="text" class="form-control" name="tel_2" <?php echo !isset($data['contact_settings']['tel_2']) ? 'placeholder="Доп. телефон"' : 'value="'.$data['contact_settings']['tel_2'].'"' ?>/>
 								</div>
+								 <input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
 								<button type="submit" class="btn btn-rounded">Сохранить</button>
 							</form>
 						</div><!--.contacts-page-col-right-->
@@ -144,6 +145,7 @@
 								<div class="form-group">
 									<textarea rows="4" class="form-control" placeholder="Message"></textarea>
 								</div>
+								 <input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
 								<button type="submit" class="btn btn-rounded">Send</button>
 							</form>
 							<section class="contacts-page-section">

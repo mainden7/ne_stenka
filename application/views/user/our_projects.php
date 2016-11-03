@@ -38,17 +38,19 @@
 			<h5 class="text-center mb80">Некоторые обьекты построенные, с применением наших блоков</h5>
 			<div class="row large-12" id="projects">
 				
-				<?php for($i = 1; $i <= 10; $i++) { 
+				<?php
+				$count = count($data['projects']);
+				for($i = 1; $i <= $count; $i++) {
 						$j = $i;
 					?>
 					<div class="row large-12 project_item <?php echo $i == 1 ? 'active' : '' ?>" data-number='<?php echo $i; ?>'>
 						<div class="column small-12 large-5">
 							<div class="row large-12 controls mb50">
-								<i class="fa fa-2x fa-chevron-circle-left prev" data-count='<?php echo $i == 1 ? 1 : $i - 1; ?>'></i><span style='margin-left: 5px'> <?php echo $i ?></span> из <span class="ltl" style='margin-right: 5px'>10 </span><i class="fa fa-2x fa-chevron-circle-right next" data-count='<?php echo $i == 10 ? 10 : $i + 1; ?>'></i>
+								<i class="fa fa-2x fa-chevron-circle-left prev" data-count='<?php echo $i == 1 ? 1 : $i - 1; ?>'></i><span style='margin-left: 5px'> <?php echo $i ?></span> из <span class="ltl" style='margin-right: 5px'><?php echo $count ?> </span><i class="fa fa-2x fa-chevron-circle-right next" data-count='<?php echo $i == $count ? $count : $i + 1; ?>'></i>
 							</div>
 							<div class="row large-12 text-caption">
-								<h3>Жилой комплекс "Не солнечный квартал" №<?php echo $i ?></h3>
-								<p class="mb80">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos?</p>
+								<h3><?php echo $data['projects'][$i-1]['name'] ?></h3>
+								<p class="mb80"><?php echo $data['projects'][$i-1]['description'] ?></p>
 								<a href="" class='dashed'>Читать отзыв клиента</a>
 							</div>				
 						</div>

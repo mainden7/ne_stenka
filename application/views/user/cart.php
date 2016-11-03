@@ -125,6 +125,13 @@
 					<?php 
 					
 					foreach($products AS $product) {
+						if(isset($this->session->userdata['user_city'])){
+							$user_city = $this->session->userdata['user_city'];	
+						}else{
+							$user_city = 'Москва';
+						}
+						$price =  Product::load_product_prices($product['id'], $user_city);
+						$product['price'] = $price['price'];
 						$total_product_price += $product['price'] * $product['quantity'];
 					 ?>
 					<tr>
@@ -144,7 +151,7 @@
 						</td>
 						<td class="text-center product_total_price"  data-quantity="<?php echo  $product['quantity'] ?>" data-price="<?php echo $product['price'] ?>"><?php echo $product['price'] * $product['quantity'] ?></td>
 						
-						<td class='br-none text-center pl20'><a href='/ne_stenka/index.php/user/delete_from_cart/<?php echo $product['id'] ?>'><i class='fa fa-times'></i></a></td>
+						<td class='br-none text-center pl20'><a href='/user/delete_from_cart/<?php echo $product['id'] ?>'><i class='fa fa-times'></i></a></td>
 					</tr>
 					<?php } ?>
 				</tbody>
