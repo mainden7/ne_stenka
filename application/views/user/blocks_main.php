@@ -18,7 +18,7 @@
 		padding: 10px 30px;
 		text-decoration: none;
 		color: #000;
-		border: 5px solid #fff;
+		border: 2px solid #fff;
 		border-bottom: none;
 	}
 	a.ui-tabs-anchor > p{
@@ -46,6 +46,9 @@
 	}
 	.ui-tabs-panel[aria-hidden='false']{
 		background: #fff;
+	}
+	i.fa-question-circle-o{
+		opacity: 0.5;
 	}
 	.price{
 		border: 5px solid #f0f2f6;
@@ -106,7 +109,7 @@
 		position: relative;
 	}
 	ul.new-inline{
-		border-bottom: 5px solid #f0f2f6;
+		border-bottom: 2px solid #f0f2f6;
 		padding-left: 40px;
 	}
 	ul.new-inline li{
@@ -118,7 +121,7 @@
 		cursor: pointer;
 	}
 	ul.new-inline li.tab-active{
-		border: 5px solid #f0f2f6;
+		border: 2px solid #f0f2f6;
 		border-bottom: 6px solid #fff;
 
 	}
@@ -128,8 +131,8 @@
 	table > thead > tr > th,
 	table > thead > tr > td,
 	table > tbody > tr > td{
-		border-right: 5px solid #efefef;
-		border-bottom: 5px solid #efefef;
+		border-right: 2px solid #efefef;
+		border-bottom: 2px solid #efefef;
 	}
 	table > thead > tr > th{
 		border-bottom: none;
@@ -137,6 +140,9 @@
 	table > thead > tr > td.br-none,
 	table > tbody > tr > td.br-none{
 		border-right: none;
+	}
+	table > thead > tr > td{
+		font-size: 13px;
 	}
 	table > tbody > tr:hover{
 		background: #f3f5f8;
@@ -207,7 +213,31 @@
 	span.hidden{
 		display: none;
 	}
+	a.dashed i{
+		border-bottom: none;
+	}
 </style>
+<div class="modal fade" id="info_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+
+			<div class="modal-body pb80">
+				<div class="row large-12">
+					<div class="column large-12">
+						<button type="button" class="" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="<?php echo base_url() ?>application/resources/user_resources/img/close-icon.png" alt="" class="fa-times"></span></button>
+						<h3 class="uppercase">Чем отличаются блоки 1-й и 2-й категории?</h3>
+					</div>
+					<div class="column large-12">
+						<p>Блоки 1-ой категории гладкие на ощупь, геометрическая точность размеров ±1 мм. Толщина шва при кладке на клей 1-3 мм (мостик холода - минимален).
+Блоки 2-й категории шершавые на ощупь, геометрическая точность размеров ±3 мм. Толщина шва при кладке на раствор 5-10 мм (мостик холода увеличивается в 5 раз).
+						</p>						
+					</div>					
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
 <section style='background-color: #f0f2f6'>
 	<div class="row frontSlide expanded small-12 medium-12 large-12 pt80" style='background-color: #f0f2f6'>
 		<div class="row large-10 ">
@@ -223,7 +253,7 @@
 							<div class="column large-8 small-12 pl40">
 								<div class="medium-6">
 									<h2 class='mt0 blocks-header'>Стеновые блоки<br>1-й категории</h2>
-									<p><i class="fa fa-question-circle-o"></i> <span class='grey-underline-href'>Чем отличаются блоки 1-й и 2-й категории?</span></p>
+									<p><i class="fa fa-question-circle-o"></i> <a data-target='#info_1' data-toggle='modal'><span class='grey-underline-href'>Чем отличаются блоки 1-й и 2-й категории?</span></a></p>
 									<p>Стеновые блоки из ячеистого бетона автоклавного твердения 1-й категории (для кладки на клей) используются для строительства несущих и ненесущих стен с толщиной шва 1-3мм</p>
 								</div>
 							</div>
@@ -247,12 +277,12 @@
 						</div>
 						<div class="row large-12">
 							<ul class="inline new-inline">
-								<li class="li-tab tab-active" data-show='table-info-1' data-hide='table-info-2'>Цены и размеры</li>
-								<li class='li-tab' data-show='table-info-2' data-hide='table-info-1'>Тех. характеристики</li>
+								<li class="li-tab tab-active text-18" data-show='table-info-1' data-hide='table-info-2'>Цены и размеры</li>
+								<li class='li-tab text-18' data-show='table-info-2' data-hide='table-info-1'>Тех. характеристики</li>
 							</ul>
 							<div class="table-info-1  proposal-row-2 mb80">
-								<h4>Цены указаны на марку блоков <b>d500</b> для города 
-									<a href='#' class='user-city' data-target='#chooseCity' data-toggle='modal'>
+								<h4 class="text-light text-18">Цены указаны на марку блоков <b>d500</b> для города 
+									<a href='#' class='user-city dashed' data-target='#chooseCity' data-toggle='modal'>
 										<?php
 										if(isset($this->session->userdata['user_city'])){
 											$user_city = $this->session->userdata['user_city'];
@@ -261,11 +291,12 @@
 										}
 										echo $user_city;
 										?> <i class='fa fa-sort-down'></i>
-									</a>, <a href="">Без упаковки на поддоне <i class='fa fa-sort-down'></i></a></h4>
+									</a>, <a class="dashed" href="">Без упаковки на поддоне <i class='fa fa-sort-down'></i></a></h4>
 									<table class="responsive">
 										<thead class="table-header">
 											<tr class='row-1'>
 												<th>Размер</th>
+												<th>Кол-во</th>
 												<th colspan="2" class="text-center">Кол-во на поддоне</th>
 												<th colspan="2" class="text-center">Кол-во на машине</th>
 												<th colspan="3" class="text-center">Цена руб.</th>
@@ -274,6 +305,7 @@
 											</tr>
 											<tr class="row-2">
 												<td>выс. шир. дл.</td>
+												<td>шт. в 1м3</td>
 												<td class='text-center br-none'>шт</td>
 												<td class='text-center'>м3</td>
 												<td class='text-center br-none'>шт</td>
@@ -291,6 +323,7 @@
 													?>
 													<tr>
 														<td><?php echo $product['size'] ?></td>
+														<td></td>
 														<td class="text-center br-none">60</td>
 														<td class="text-center">20</td>
 														<td class="text-center br-none">16</td>
@@ -402,8 +435,8 @@
 			</div>
 			<div class='row expanded large-12 pb130'  style='background-color: #f0f2f6'>
 				<div class="column products-title medium-6 small-centered text-center">
-					<h2 class='uppercase'>Другие виды блоков</h2>
-					<h5>У нас есть все виды блоков из ячеистого бетона</h5>
+					<h2 class='uppercase mb30'>Другие виды блоков</h2>
+					<h5 class="mb80">У нас есть все виды блоков из ячеистого бетона</h5>
 				</div>
 				<div class="row large-10">
 					<div class="column large-4 small-12 medium-4 mb30">

@@ -125,6 +125,33 @@ INSERT INTO `contact_settings` VALUES ('facebook.com','twitter.com','linkedin.co
 UNLOCK TABLES;
 
 --
+-- Table structure for table `faq`
+--
+
+DROP TABLE IF EXISTS `faq`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `faq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question` varchar(512) DEFAULT NULL,
+  `category` varchar(256) DEFAULT NULL,
+  `answer` mediumtext,
+  `date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `faq`
+--
+
+LOCK TABLES `faq` WRITE;
+/*!40000 ALTER TABLE `faq` DISABLE KEYS */;
+INSERT INTO `faq` VALUES (1,'Где производится ваша продукция?','Наша продукция','Вся продукция, которую мы продаем, выпускается в Республике Беларусь на заводе ЗАО\"Могилевский КСИ\", за исключением блоков, имеющих длину 599 мм, которые производятся на заводе \"Газоселикатстрой\" г. Могилев,  Республика Беларусь.','2016-11-03 14:13:16');
+/*!40000 ALTER TABLE `faq` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `main_settings`
 --
 
@@ -308,7 +335,7 @@ CREATE TABLE `projects` (
   `date` datetime DEFAULT NULL,
   `active` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -317,8 +344,33 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (1,'????','? ????','<p>? ????</p>','<p>????</p>','gall-img-1.jpg','2016-10-28 17:23:40',1);
+INSERT INTO `projects` VALUES (1,'Квартал №1','петя','хороший дом','да','gall-img-1.jpg','2016-10-28 22:22:22',1),(2,'Квартал №2','петя','хороший дом','да','gall-img-1.jpg','2016-10-28 22:22:22',1),(3,'Квартал №3','петя','хороший дом','да','gall-img-1.jpg','2016-10-28 22:22:22',1);
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `seo_texts`
+--
+
+DROP TABLE IF EXISTS `seo_texts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `seo_texts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` mediumtext,
+  `page_id` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `seo_texts`
+--
+
+LOCK TABLES `seo_texts` WRITE;
+/*!40000 ALTER TABLE `seo_texts` DISABLE KEYS */;
+INSERT INTO `seo_texts` VALUES (1,'<p>123123123</p>','home'),(2,'123 привет','blocks'),(3,'123','faq');
+/*!40000 ALTER TABLE `seo_texts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -359,4 +411,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-29 22:07:33
+-- Dump completed on 2016-11-03 18:15:02

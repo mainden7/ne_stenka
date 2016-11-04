@@ -2249,7 +2249,7 @@ a {
 a {
   display: inline-block;
   color: #0078ff;
-  font-family: 'osb', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-transition: .2s;
   transition: .2s;
   text-decoration: none !important; }
@@ -2289,8 +2289,11 @@ h1 {
   color: #231f20; }
 
 h2 {
-  font-size: 46px;
+  font-size: 44px;
   color: #231f20; }
+  h5{
+    font-size: 16px;
+  }
 
 h4 {
   font-family: 'Open Sans', sans-serif; }
@@ -2820,6 +2823,10 @@ a.dashed:hover{
   }
   a.btn-blue:hover{
     border-bottom: 2px solid rgba(0, 120, 255, 0.5) !important;
+  }
+  input.qtyminus:hover,
+  input.qtyplus:hover{
+    color: #0078ff;
   }
 @media screen and (max-width: 39.9375em) {
   .work-title {
