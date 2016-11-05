@@ -1,6 +1,6 @@
 <style type="text/css">
 	.blocks_row{
-		background: url(http://localhost/ne_stenka/application/resources/user_resources/img/blocks_bg.png) 0 0 no-repeat;
+		background: url(/application/resources/user_resources/img/blocks_bg.png) 0 0 no-repeat;
 		background-size: 100%;
 	}
 	ul.block_advantage{
