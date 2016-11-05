@@ -175,9 +175,9 @@
 		display: none;
 	}
 	.add-to-cart{
-		padding: 20px;
+		padding: 15px 20px;
 		text-transform: uppercase;
-		font-size: 16px;
+		font-size: 14px;
 	}
 	.proposal-product{
 		padding: 40px 20px;
@@ -216,6 +216,18 @@
 	a.dashed i{
 		border-bottom: none;
 	}
+	a.popover-a{
+		position: relative;
+	}
+	a.popover-a span.with{
+		position: absolute;
+		top: 42px;
+		background: #fff;
+		border: 5px solid #fdd537;
+		padding: 20px 25px;
+		white-space: nowrap;
+		left: -20px;
+	}
 </style>
 <div class="modal fade" id="info_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
@@ -250,12 +262,15 @@
 					</ul>
 					<div id="tabs-1" class="row large-12 pt80 pb80">
 						<div class="row large-12">
-							<div class="column large-8 small-12 pl40">
-								<div class="medium-6">
+							<div class="column large-4 small-12 pl40">
+								<div class="medium-12">
 									<h2 class='mt0 blocks-header'>Стеновые блоки<br>1-й категории</h2>
 									<p><i class="fa fa-question-circle-o"></i> <a data-target='#info_1' data-toggle='modal'><span class='grey-underline-href'>Чем отличаются блоки 1-й и 2-й категории?</span></a></p>
 									<p>Стеновые блоки из ячеистого бетона автоклавного твердения 1-й категории (для кладки на клей) используются для строительства несущих и ненесущих стен с толщиной шва 1-3мм</p>
 								</div>
+							</div>
+							<div class="column large-4">
+								<img src="/application/resources/user_resources/img/wall_blocks.png" alt="">
 							</div>
 							<div class="column large-4 small-12">
 								<div class='price'>
@@ -272,7 +287,7 @@
 										</ul>
 									</div>
 								</div>
-								<p class='pl20'>Бесплатная помощь в выборе блоков</p>
+								<p class='pl20'><a data-target="freeConsultation" data-toggle="modal"><span class="grey-underline-href">Бесплатная помощь в выборе блоков</span></a></p>
 							</div>
 						</div>
 						<div class="row large-12">
@@ -280,8 +295,8 @@
 								<li class="li-tab tab-active text-18" data-show='table-info-1' data-hide='table-info-2'>Цены и размеры</li>
 								<li class='li-tab text-18' data-show='table-info-2' data-hide='table-info-1'>Тех. характеристики</li>
 							</ul>
-							<div class="table-info-1  proposal-row-2 mb80">
-								<h4 class="text-light text-18">Цены указаны на марку блоков <b>d500</b> для города 
+							<div class="table-info-1  proposal-row-2 mb80 pt50">
+								<h4 class="text-light text-18 mb80 mt0">Цены указаны на марку блоков <b>d500</b> для города
 									<a href='#' class='user-city dashed' data-target='#chooseCity' data-toggle='modal'>
 										<?php
 										if(isset($this->session->userdata['user_city'])){
@@ -291,7 +306,10 @@
 										}
 										echo $user_city;
 										?> <i class='fa fa-sort-down'></i>
-									</a>, <a class="dashed" href="">Без упаковки на поддоне <i class='fa fa-sort-down'></i></a></h4>
+									</a>,
+									<a class="popover-a dashed ml10 with" href="" ><span class="without">Без упаковки на поддоне</span> <i class='fa fa-sort-down'></i> <span class="with">Упакованные на поддон</span></a>
+
+								</h4>
 									<table class="responsive">
 										<thead class="table-header">
 											<tr class='row-1'>
@@ -377,8 +395,8 @@
 									</div>
 								</div>
 								<div class="row large-12 proposal-row">
-									<h2 class="text-center"><i class="fa fa-plus"></i> С этими блоками также покупают</h2>
-									<div class="row large-12 proposal-hidden-row hidden">
+									<h2 class="text-center mb50" style="font-size: 24px;"><i class="fa fa-plus"></i> С этими блоками также покупают</h2>
+									<div class="row large-12 ">
 										<div class="column large-6 small-12 mb40">
 											<div class="column large-12 proposal-product">
 												<div class="column large-8 small-12">
@@ -436,7 +454,7 @@
 			<div class='row expanded large-12 pb130'  style='background-color: #f0f2f6'>
 				<div class="column products-title medium-6 small-centered text-center">
 					<h2 class='uppercase mb30'>Другие виды блоков</h2>
-					<h5 class="mb80">У нас есть все виды блоков из ячеистого бетона</h5>
+					<h5 class="mb80 text-light text-18">У нас есть все виды блоков из ячеистого бетона</h5>
 				</div>
 				<div class="row large-10">
 					<div class="column large-4 small-12 medium-4 mb30">

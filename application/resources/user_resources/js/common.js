@@ -285,6 +285,21 @@ $(function(){
   });
 });
 
+$(function () {
+   $('a.popover-a span.with').hide();
+
+    $('a.popover-a span.without, a.popover-a i').click(function (e) {
+       e.preventDefault();
+        $('a.popover-a span.with').show();
+    });
+    $('a.popover-a span.with').click(function (e) {
+        e.preventDefault();
+        var text = $(this).text();
+        var text_1 = $('a.popover-a span.without').text();
+        $('a.popover-a span.without').text(text);
+        $('a.popover-a span.with').hide().text(text_1);
+    });
+});
 
 $(function(){
  ymaps.ready(init);

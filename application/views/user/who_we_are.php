@@ -18,7 +18,7 @@
 <section id='who_we_are' class="mt50">
 	<div class="row expanded large-12 mb130">
 		<div class="row large-10">
-				<h3 class="text-center mb80 mt80 header">Мы являемся оффициальными дилерами завода-производителя и гарантируем<br> для наших покупателей наиболее выгодные условия</h3>
+				<h3 class="text-center mb80 mt50 header text-light">Мы являемся оффициальными дилерами завода-производителя и гарантируем<br> для наших покупателей наиболее выгодные условия</h3>
 				<div class="row large-12 mb30">
 					<div class="column large-4 medium-4 small-12">
 						<img src="<?php echo base_url() ?>application/resources/user_resources/img/about_1.png">

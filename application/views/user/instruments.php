@@ -1,6 +1,6 @@
 <style type="text/css">
 	.instrument_block{
-		border: 5px solid #efefef;
+		border: 2px solid #efefef;
 		padding: 50px 20px;
 	}
 	h3.inst_title{
@@ -40,7 +40,7 @@
 	<div class='row expanded large-12 mb50'>
 		<div class="column products-title medium-6 small-centered text-center">
 			<h2 class='uppercase'>Инструменыты для кладки</h2>
-			<h5>В нашем каталоге есть все необходимые для кладки инструменты</h5>
+			<h5 class="text-light text-18">В нашем каталоге есть все необходимые для кладки инструменты</h5>
 		</div>
 	</div>
 	<div class="row expanded large-10 mb50">

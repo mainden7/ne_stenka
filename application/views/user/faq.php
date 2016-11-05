@@ -9,12 +9,12 @@
 		margin-bottom: 50px;
 	}
 	#faq ul li:not(:first-child){
-		margin-left: 30px;
+		margin-left: 15px;
 	}
 	#faq ul li{
 		font-size: 14px;
 		font-weight: bold;
-		padding: 10px 20px;
+		padding: 10px 10px;
 	}
 	#faq ul li span{		
 		border-bottom: 1px dashed #383838;
@@ -150,14 +150,14 @@
 		<div class="row large-8 small-12 no_answer mb130">
 			<div class="row large-10 text-center">
 				<h2 class="uppercase slideTop">Не нашли ответ на вопрос?</h2>
-				<p class="text-center mt0 text-18">Расскажите нам о вашем проекте, и наш специалист бесплатно поможет вам выбрать нужные типы и количество блоков с учетом всех ваших потребностей.</p>
+				<p class="text-center mt0 text-18 mb50">Расскажите нам о вашем проекте, и наш специалист бесплатно поможет вам выбрать нужные типы и количество блоков с учетом всех ваших потребностей.</p>
 				<div class="row large-12 text-left">
 					<div class="column large-7 small-12">
 						<p class="text-bold bold mb5 uppercase">По телефону:</p>
 						<h2 class="tel-title mt0" style="margin-bottom: 17px;"><?php echo $data['contact_settings']['tel_1'] ?></h2>
 						<p class="text-60">Бесплатный звонок 24/7</p>
 					</div>
-					<div class="column large-5 small-12">
+					<div class="column large-5 small-12 pb50">
 						<p class="text-bold uppercase">Через форму:</p>
 						<a role="button" aria-label="submit form" href="#" class="button btn-blueLine">Задать вопрос</a>
 						<p class="text-60">Подготовим комплексное предложение в течение одного рабочего дня</p>
