@@ -2,7 +2,7 @@
 	.howToBg{
 	background-image: url('<?php echo base_url() ?>application/resources/user_resources/img/howtobg.png');
 	    background-position: 100% 80%;
-    background-size: 236%;
+    background-size: 300%;
 	}
 	.question-btn{
 		padding: 15px 50px;
@@ -11,9 +11,9 @@
 <div class='row expanded large-12'  style='background-color: #f0f2f6'>
 	<div class="large-7 columns pb80">
 		<div class="column products-title medium-6 small-centered text-center">
-			<h2 class='uppercase mt80 mb100' style="font-size: 44px">Как заказать</h2>
+			<h2 class='uppercase mt80 mb100'>Как заказать</h2>
 		</div>
-		<div class="column medium-9">
+		<div class="column large-9 medium-9">
 			<div class="row mb80">
 				<div class="large-6 columns text-left">
 					<img src="<?php echo base_url() ?>application/resources/user_resources/img/1.png">

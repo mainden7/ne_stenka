@@ -3,13 +3,29 @@
     display: inline-block;
   }
   ul.inline li{
-    border: 5px solid #f0f2f6;
+    position: relative;
+    border: 3px solid #f0f2f6;
+  }
+  ul.inline li:not(:first-child){
+    margin-left: 15px;
+  }
+  ul.inline li:after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: #f0f2f6 transparent transparent transparent;
+    bottom: -12px;
+    left: 45%;
   }
   ul.inline li a{
     color: #000;
     text-decoration: none;
-    max-width: 250px;
-    padding: 20px 30px;
+    min-width: 200px;
+    padding: 15px 20px;
+    font-weight: bold;
   }
   ul.inline li a:hover{
     text-decoration: none;
@@ -17,31 +33,54 @@
   
   ul.inline li.ui-state-active{
     background: #fed536;
-    border: 5px solid #fed536;
+    border: 3px solid #fed536;
   }
-  .hot-proposals p{
+  ul.inline li.ui-state-active:after{
+     content: '';
+     position: absolute;
+     width: 0;
+     height: 0;
+     border-style: solid;
+     border-width: 10px 10px 0 10px;
+     border-color: #fed536 transparent transparent transparent;
+     bottom: -12px;
+     left: 45%;
+   }  .hot-proposals p{
     margin-top: 0;
     font-size: 16px;
   }
   img.family{
     width: 100%;
   }
+   @media(max-width: 1600px) {
+
+   }
+   @media (max-width: 1200px) {
+     
+     ul.inline li{
+       min-width: 180px;
+     }
+     ul.inline li a{
+       font-size:12px;
+       min-width:180px;
+     }
+   }
 </style>
 <div class="row expanded small-12 medium-12 large-10 large-centered pb130 pt80 main-features"> 
-  <div class="column large-6 medium-8 small-centered text-center">
+  <div class="column large-6 medium-10 small-centered text-center">
     <h2 class="mb50 block-header">Оптовые цены при любом объеме поставки</h2>
   </div>
-  <div class="row">
+  <div class="row large-12">
     <div id="tabs">
       <div class="large-12 columns small-12 text-center mb80">
         <ul class='inline'>
-          <li class="mb30 no-border-bottom"><a href="#tabs-1" >Индивидуальным застройщикам</a></li>
-          <li class="mb30 no-border-bottom"><a href="#tabs-2" >Бригадным подрядчикам</a></li>
-          <li class="mb30 no-border-bottom"><a href="#tabs-3" >Магазинам и закупочным базам</a></li>
-          <li class="mb30 no-border-bottom"><a href="#tabs-4" >Строительным компаниям</a></li>
+          <li class="mb30 no-border-bottom"><a href="#tabs-1" >Индивидуальным <br>застройщикам</a></li>
+          <li class="mb30 no-border-bottom"><a href="#tabs-2" >Бригадным <br>подрядчикам</a></li>
+          <li class="mb30 no-border-bottom"><a href="#tabs-3" >Магазинам <br>и закупочным базам</a></li>
+          <li class="mb30 no-border-bottom"><a href="#tabs-4" >Строительным <br>компаниям</a></li>
         </ul>
       </div>
-      <div class="large-12 columns small-12 hot-proposals pl0">
+      <div class="large-12 row small-12 hot-proposals pl0">
 
         <div id="tabs-1">
           <div class="large-7 small-12 columns">

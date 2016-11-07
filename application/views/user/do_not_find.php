@@ -7,13 +7,21 @@
 		margin-top: -35px;
 		display: inline-block;
 		padding: 0 30px;
-		background: #f0f2f6;
+		background: #f2f5f8;
 	}
 	.no_answer a.button{
 		padding: 15px 50px;
 	}
 	.no_answer p.uppercase{
 		font-size: 14px;
+	}
+	.opacity-07{
+		opacity: 0.7;
+	}
+	@media(max-width: 1400px){
+		.slideTop{
+			font-size: 36px;
+		}
 	}
 </style>
 <div class="row expanded large-12 pt130 pb130" style='background: #f2f5f8'>
@@ -28,7 +36,7 @@
 					<p class="text-60 mt0">Бесплатный звонок 24/7</p>
 				</div>
 				<div class="column large-5 small-12">
-					<p class="text-light uppercase">Через форму:</p>
+					<p class="uppercase text-bold opacity-07">Через форму:</p>
 					<a role="button" aria-label="submit form" href="#" class="button btn-blueLine">Задать вопрос</a>
 					<p class="text-60">Подготовим комплексное предложение в течение одного рабочего дня</p>
 				</div>

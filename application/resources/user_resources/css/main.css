@@ -2336,7 +2336,7 @@ p.bold{
     margin-left: 10px; }
 
 .header-nav {
-  background-color: #231f20;
+  background-color: transparent;
   color: #fff;
   line-height: 0;
   position: relative;
@@ -2370,7 +2370,7 @@ p.bold{
     position: relative;
     padding: 15px;
     float: left;
-    margin-right: 15px;
+    margin-right: 5px;
     top: -2px; }
   .header-info_cart i {
     color: #231f20;
@@ -2395,7 +2395,7 @@ p.bold{
     border-bottom: 0; }
   .header-info_cart_wrapper .innerWrap {
     position: relative;
-    top: -7px; }
+    top: 0px; }
     .header-info_cart_wrapper .innerWrap span {
       display: inline-block;
       color: #808285;
@@ -2678,7 +2678,7 @@ a.dashed:hover{
 }
 .block-header{
   text-transform: uppercase;
-  font-size: 44px;
+
 }
 .not-decorated{
   text-decoration: none;
@@ -2965,8 +2965,8 @@ a.dashed:hover{
 
 @media screen and (min-width: 87.5rem) {
   .header, .frontSlide-container {
-    padding-left: 85px;
-    padding-right: 85px; } }
+    padding-left: 0px;
+    padding-right: 0px; } }
 
 @media screen and (max-width: 900px) {
   .work-adventege_image {
@@ -2977,3 +2977,10 @@ a.dashed:hover{
     margin: 0; }
   .work-adventege {
     text-align: center; } }
+@media (max-width: 1200px){
+  @media(max-width: 1024px){
+   h2{
+      font-size:31px;
+    }
+  }
+}

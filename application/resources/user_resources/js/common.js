@@ -175,7 +175,8 @@ $(function(){
     var totalPrice = Number(productCount) * Number(productPrice);
     
     $(this).parent().parent().parent().find('td.product_total_price').text(totalPrice);
-    
+      $(this).parent().find('.serialize').val(productCount);
+      $(this).parent().parent().parent().parent().parent().parent().find('#pre-price').text(totalPrice);
 
     /*var b = $(this).val() + $(this).parent().get(3).find('td.product_total_price').attr('data-price');
     $(this).parent().get(3).find('td.product_total_price').text(a+b);*/
@@ -189,6 +190,8 @@ $(function(){
     var totalPrice = Number(productCount) * Number(productPrice);
     
     $(this).parent().parent().parent().find('td.product_total_price').text(totalPrice);
+      $(this).parent().find('.serialize').val(productCount);
+      $(this).parent().parent().parent().parent().parent().parent().find('#pre-price').text(totalPrice);
     
 
     /*var b = $(this).val() + $(this).parent().get(3).find('td.product_total_price').attr('data-price');
@@ -196,11 +199,20 @@ $(function(){
 
   });
 });
+$(function () {
+    $('body').click(function () {
+        var price = 0;
+        $('.product_total_price').each(function () {
+            price += Number($(this).text());
+        });
+        $('#final-price').text(price);
+    });
+});
 $(function(){
   $('a.submit-form').click(function(e){
     e.preventDefault();
     var str = $('input.serialize').serialize();
-    window.location.replace("/ne_stenka/index.php/user/cart_next?"+str);
+    window.location.replace("/user/cart_next?"+str);
     
 
     /*$.ajax({
@@ -214,7 +226,15 @@ $(function(){
     }); */  
   });
 });
-
+$(function () {
+   $('.recomended input.qtyplus, .recomended input.qtyminus').click(function () {
+      if($(this).parent().find('.qty').val() > 0){
+          $('.recomended').css('opacity', '1');
+      } else{
+          $('.recomended').css('opacity', '0.5');
+      }
+   });
+});
 $(function(){
   $('a.comment_link').click(function(e){
     e.preventDefault();
@@ -299,6 +319,16 @@ $(function () {
         $('a.popover-a span.without').text(text);
         $('a.popover-a span.with').hide().text(text_1);
     });
+});
+
+$(function () {
+    var mq = window.matchMedia( "(max-width: 1024px)" );
+    if (mq.matches) {
+        // window width is at least 1024px
+        $('body > div:nth-child(13) > div.large-7.columns.pb80 > div.column.products-title.medium-6.small-centered.text-center').removeClass('medium-6').addClass('medium-8');
+        $('body > div:nth-child(13) > div.large-7.columns.pb80 > div.column.large-9.medium-9').removeClass('medium-9').addClass('medium-11 large-11').css('padding-left', '20px');
+        $('body > div.row.expanded.small-12.medium-12.large-10.large-centered.pb130.pt80.main-features > div.column.large-6.medium-10.small-centered.text-center').removeClass('large-6').addClass('large-8');
+    }
 });
 
 $(function(){

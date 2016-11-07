@@ -1,3 +1,11 @@
+<style>
+	@media (max-width: 1200px) {
+		.market-right_item img{
+			float: none;
+			margin-bottom: 5px;;
+		}
+	}
+</style>
 <!--15 лет на рынке-->
 <div class="row expanded market small-12 medium-12 large-10 large-centered">
 	<div class="column large-12">

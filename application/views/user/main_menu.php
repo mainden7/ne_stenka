@@ -59,6 +59,17 @@
 	#chooseCity ul li:hover a{
 		color: #0078ff;
 	}
+
+	@media(max-width: 1024px){
+		.header-info_regions span,
+		.header-info_cart_wrapper .innerWrap span{
+			font-size:10px;
+		}
+		.header-nav a{
+			font-size:12px;
+		}
+
+	}
 </style>
 <?php 
 
@@ -86,9 +97,9 @@ if(isset($this->session->userdata['items'])){
 }
 ?>
 <!--,блок с навигацией и корзиной-->
-<div class="row expanded small-12 medium-12 large-11 large-centered header">
+<div class="row expanded small-12 medium-12 large-12 large-centered header">
 
-	<div class="row header-info">
+	<div class="row large-10 header-info">
 
 		<div class="header-info-wrappertop clear hide-for-large">
 			<!--лого-->
@@ -246,16 +257,18 @@ if(isset($this->session->userdata['items'])){
 				</div>
 
 				<!--навигация-->
-				<div class="row header-nav">
+				<div class="row large-10 header-nav">
 					<div class="column small-12 menu-centered clearfix">
-						<ul class="menu">
-							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'blocks') ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
-							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'slabs') ? 'active' : ''; ?>'><a href="/user/slabs">Плиты перекрытия</a></li>
-							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'instruments') ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
-							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'faq') ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
-							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'about') ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
-							<li class='<?php echo (isset($data['active']) AND $data['active'] == 'contact') ? 'active' : ''; ?>'><a href="/user/contacts">Контакты</a></li>
-						</ul>
+						<div class="row large-12 text-center" style="background: #231f20">
+							<ul class="menu" style="display: inline-block">
+								<li class='<?php echo (isset($data['active']) AND $data['active'] == 'blocks') ? 'active' : ''; ?>'><a href="/user/blocks">Блоки</a></li>
+								<li class='<?php echo (isset($data['active']) AND $data['active'] == 'slabs') ? 'active' : ''; ?>'><a href="/user/slabs">Плиты перекрытия</a></li>
+								<li class='<?php echo (isset($data['active']) AND $data['active'] == 'instruments') ? 'active' : ''; ?>'><a href="/user/instruments">Клей и инструменты</a></li>
+								<li class='<?php echo (isset($data['active']) AND $data['active'] == 'faq') ? 'active' : ''; ?>'><a href="/user/faq">Справка</a></li>
+								<li class='<?php echo (isset($data['active']) AND $data['active'] == 'about') ? 'active' : ''; ?>'><a href="/user/about">О компании</a></li>
+								<li class='<?php echo (isset($data['active']) AND $data['active'] == 'contact') ? 'active' : ''; ?>'><a href="/user/contacts">Контакты</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 

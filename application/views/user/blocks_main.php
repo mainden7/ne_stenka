@@ -369,7 +369,7 @@
 															</form>
 														</td>
 														<td class='br-none text-center'>
-															<form action='/user/add_to_cart' method='post'>
+															<form action='/ne_stenka/index.php/user/add_to_cart' method='post'>
 																<input type="hidden" name="id" value='<?php echo $product['id'] ?>'>
 																<input type="hidden" name="quantity<?php echo $product['id'] ?>" value='1'>
 																<input type="hidden" name="path" value="<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>">

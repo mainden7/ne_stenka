@@ -1,3 +1,15 @@
+<style>
+@media (max-width: 1024px) {
+
+}
+	.work-title h2{
+		font-size:24px;
+	}
+	.work-adventege_text h4{
+		font-size:12px;
+	}
+}
+</style>
 <!--Подход к работе-->
 <div class="row expanded padding work small-12 medium-12 large-10 large-centered pb130">
 	<div class="column work-title small-8 medium-4 small-centered">

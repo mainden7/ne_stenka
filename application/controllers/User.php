@@ -164,6 +164,7 @@ class User extends CI_Controller {
 		$this->load->view('user/main_menu', $data);
 		$this->load->view('user/product_main', $data);
 		$this->load->view('user/additional_proposal', $data);
+		$this->load->view('user/do_not_find', $data);
 		$this->load->view('user/main_footer', $data);
 		$this->load->view('user/footer', $data);
 	}
