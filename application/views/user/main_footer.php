@@ -17,6 +17,16 @@
 	a.border-bottom-none:hover{
 		border-bottom: none;
 	}
+	@media(max-width: 1024px) and (min-width: 920px){
+		.freecall-nowrap{
+			white-space: nowrap;
+		}
+	}
+	@media(max-width: 768px){
+		.freecall-nowrap{
+			font-size: 11px;
+		}
+	}
 </style>
 <div class='row expanded large-12 main-footer'>
 	<div class="row expanded small-12 medium-12 large-12 large-centered pt80 pb80" style='background: #091c3a'> 
@@ -29,7 +39,7 @@
 					Высококачественные блоки<br>из ячеистого бетона
 				</p>
 			</div>
-			<div class="column small-12 medium-3">
+			<div class="column small-7 medium-3">
 				<ul class="pl0">
 					<li><a href='/user/blocks'>Блоки</a></li>
 					<li><a href='/user/slabs'>Плиты перекрытия</a></li>
@@ -37,7 +47,7 @@
 					<li><a href='/user/faq'>Справка</a></li>
 				</ul>
 			</div>
-			<div class="column small-12 medium-2">
+			<div class="column small-5 medium-2">
 				<ul class="pl0">
 					<li><a href='/user/about'>О компании</a></li>
 					<li><a href='/user/news_article'>Новости</a></li>
@@ -47,7 +57,7 @@
 			<div class="column small-12 medium-3 text-left">
 				<p class="uppercase"><span class="text-white-60 text-bold">Остались вопросы ?</span></p>
 				<h3 class="mt0 mb0" style="font-size: 28px"><?php echo $data['contact_settings']['tel_1'] ?></h3>
-				<p class="uppercase"><a href="" class="dashed">Бесплатный звонок 24/7</a></p>
+				<p class="uppercase freecall-nowrap"><a href="" class="dashed">Бесплатный звонок 24/7</a></p>
 			</div>
 		</div>
 	</div>

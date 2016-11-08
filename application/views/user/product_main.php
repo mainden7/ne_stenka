@@ -32,7 +32,7 @@
 	#product .advantage .border-white{
 		padding-top: 50px;
 		border: 5px solid #fff;
-		padding-bottom: 25px;
+		padding-bottom: 34px;
 	}
 	.proposal-product{
 		padding: 40px 20px;
@@ -66,34 +66,47 @@
 		line-height: 1.2;
 	}
 	.proposal_block > .img {
-		width: 252px;
-		height: 168px;;
+		width: 100%;
 	}
 	@media(min-width: 1400px){
 		p.text-12{
 			font-size: 13px;
 		}
 	}
-	@media(max-width: 1400px){
+	@media(max-width: 1440px){
 		.text-caption{
 			font-size:13px;
 			padding: 0;
 		}
 		#product h2.text-38{
-			font-size: 38px;
+			font-size: 36px;
+			line-height: 1;
 		}
 		p.mb50{
 			margin-bottom: 35px;
+		}
+	}
+	@media(max-width: 768px){
+		.proposal_block h2{
+			font-size: 21px;
+		}
+	}
+	@media(max-width: 360px){
+		#product h2.text-38{
+			font-size: 28px;
+		}
+		.text-18{
+			font-size: 14px;
 		}
 	}
 </style>
 <section id="product" style="background: #f2f5f8">
 	<div class="row expanded frontSlide large-12 pt80" style="background: #f2f5f8">
 		<div class="large-10 row pb50">
-			<div class="column large-9 small-12">
+			<div class="column large-9 medium-6 small-12">
 				<h2 class='uppercase mt0 mb0 '>Блоки</h2>
 			</div>
-			<div class="column large-3 small-12 pt20">
+			<div class="column large-3 medium-6 small-12 pt20">
 					<img class='alert' src="<?php echo base_url() ?>application/resources/user_resources/img/alert.png">
 					<p class="mt0 text-12">Товары нашего каталога всегда в наличие и готовы к отгрузке</p>
 			</div>
@@ -102,7 +115,7 @@
 			<div class="column large-9 small-12 ">
 				<div class="row large-12">
 					<div class="column large-12 bg_white pb50">
-						<div class="column large-6 small-12">
+						<div class="column large-6 medium-6 small-12">
 							<h2 class="text-38">Перегородочные блоки</h2>
 							<ul class="inline">
 								<li><i class="fa fa-check"></i>Для кладки на клей</li>
@@ -111,7 +124,7 @@
 							<p class="mb50">Стеновые блоки из ячеистого бетона автоклавного твердения 1-й категории(для кладки на клей) используются для строительства несущих и не несущих стен с толщиной шва 1-3 мм</p>
 							<a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted btn-transparent text-18">Размеры и цены <i class="fa fa-long-arrow-right"></i></a>
 						</div>
-						<div class="column large-6 small-12 text-center">
+						<div class="column large-6 medium-6 small-12 text-center">
 							<img src="<?php echo base_url() ?>application/resources/user_resources/img/wall_blocks.png">
 						</div>
 					</div>
@@ -119,7 +132,7 @@
 			</div>
 			<div class="column large-3 small-12 advantage">
 				<div class="column large-12 border-white">
-					<div class="row large-12 mb50">
+					<div class="row large-12 medium-4 mb30">
 						<div class="column large-4 small-12">
 							<img src="<?php echo base_url() ?>application/resources/user_resources/img/icon-2.png">
 						</div>
@@ -128,7 +141,7 @@
 							<p class='mt0'>В течение 2-3 дней, даже в выходные</p>
 						</div>
 					</div>
-					<div class="row large-12 mb50">
+					<div class="row large-12 medium-4 mb30">
 						<div class="column large-4 small-12">
 							<img src="<?php echo base_url() ?>application/resources/user_resources/img/icon-3.png">
 						</div>
@@ -137,7 +150,7 @@
 							<p class='mt0'>На 20% дешевле рыночной цены</p>
 						</div>
 					</div>
-					<div class="row large-12 mb50">
+					<div class="row large-12 medium-4 mb30">
 						<div class="column large-4 small-12">
 							<img src="<?php echo base_url() ?>application/resources/user_resources/img/icon-4.png">
 						</div>

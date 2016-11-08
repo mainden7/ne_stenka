@@ -1,7 +1,7 @@
 <style type="text/css">
 	.blocks_row{
-		background: url(/application/resources/user_resources/img/blocks_bg.png) 0 0 no-repeat;
-		background-size: 100%;
+		background: url(<?php echo base_url() ?>/application/resources/user_resources/img/blocks_bg.png) 0 0 no-repeat;
+		background-size: 100% 100%;
 	}
 	ul.block_advantage{
 		padding: 0;
@@ -40,11 +40,32 @@
 	.advantage_description i:before{
 		color: #fed536;
 	}
+	@media (max-width: 768px) {
+		#blocks_advantage h2{
+			font-size: 28px;
+		}
+		.advantage_description{
+			padding: 30px;
+		}
+	}
+	@media(max-width: 480px){
+		
+		.blocks_bg{
+			padding-top: 0;
+		}
+		.blocks_bg img{
+			display: none;
+		}
+		.advantage_description{
+			top: -200px;
+		}
+		
+	}
 </style>
-<section>
+<section id="blocks_advantage">
 	<div class="row blocks_row expanded large-12 pt130 pb80">
 		<div class="row large-10 small-12">
-			<div class="column large-6 small-12">
+			<div class="column large-6 small-12 medium-6">
 				<h2 class="uppercase text-white">Преимущества блоков<br> из ячеистого бетона</h2>
 				<ul class="block_advantage">
 					<li data-target=''><img src="<?php echo base_url() ?>application/resources/user_resources/img/icons/1.png" alt=""> <a>Звукоизоляция</a></li>
@@ -59,7 +80,7 @@
 					<li data-target=''><img src="<?php echo base_url() ?>application/resources/user_resources/img/icons/10.png" alt=""> <a>Универсальность</a></li>
 				</ul>
 			</div>
-			<div class="column large-6 small-12 blocks_bg">
+			<div class="column large-6 small-12 medium-6 blocks_bg">
 				<img class='hide-for-small' src="<?php echo base_url(); ?>application/resources/user_resources/img/blocks.png">			
 				<div class="advantage_description waterproof text-center">
 					<i class="fa fa-times-circle fa-3x"></i>

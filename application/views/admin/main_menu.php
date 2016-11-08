@@ -48,13 +48,13 @@
             </a>
         </li>
         <li class="red">
-            <a href="<?php echo site_url().'admin_panel/news'; ?>">
+            <a href="<?php echo site_url().'admin_panel/projects'; ?>">
                 <i class="font-icon font-icon-build"></i>
                 <span class="lbl">Обьекты</span>
             </a>
         </li>
         <li class="red">
-            <a href="<?php echo site_url().'admin_panel/news'; ?>">
+            <a href="<?php echo site_url().'admin_panel/seo'; ?>">
                 <i class="font-icon font-icon-zigzag"></i>
                 <span class="lbl">Сео</span>
             </a>

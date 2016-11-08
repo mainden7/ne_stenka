@@ -12,10 +12,19 @@
 	#consultation p{
 		font-weight: 100;
 	}
+	@media(max-width: 768px){
+		#consultation{
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		#consultation p{
+			font-size: 21px;
+		}
+	}
 </style>
 <section id='consultation' class=" pt50 pb50 mb80">
 	<div class="row expanded large-12">
-		<div class="row large-8 text-center">
+		<div class="row large-10 text-center">
 			<p class='text-white'>Обращаясь к нам, вы получите профессиональную консультацию,<br> безупречную доставку, и высококачественные блоки <span class='text-bold'>без переплат</span> </p>
 			<a role="button" aria-label="submit form" href="#" class="button btn-blueLine">Выбрать блоки <i class="fa fa-long-arrow-right"></i></a>
 		</div>

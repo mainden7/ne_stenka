@@ -88,6 +88,7 @@ class User extends CI_Controller {
 		$this->load->view('user/header', $data);
 		$this->load->view('user/main_menu', $data);
 		$this->load->view('user/faq');
+		$this->load->view('user/do_not_find');
 		$this->load->view('user/seotext', $data);
 		$this->load->view('user/main_footer', $data);
 		$this->load->view('user/footer', $data);

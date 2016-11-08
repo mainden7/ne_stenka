@@ -36,9 +36,9 @@
 		border-left: 20px solid #fff;
 	}
 </style>
-<section class="pb80 pt50">
+<section id="instruments_i" class="pb80 pt50">
 	<div class='row expanded large-12 mb50'>
-		<div class="column products-title medium-6 small-centered text-center">
+		<div class="column products-title medium-12 small-centered text-center">
 			<h2 class='uppercase'>Инструменыты для кладки</h2>
 			<h5 class="text-light text-18">В нашем каталоге есть все необходимые для кладки инструменты</h5>
 		</div>
@@ -51,10 +51,10 @@
 				</div>
 				<div class="inst_caption">
 					<div class="row large-12">
-						<div class="column large-8 small-6">
+						<div class="column large-8 medium-12 small-6">
 							<h3 class='mt0 inst_title'>Штроборез</h3>
 						</div>
-						<div class="column large-4 small-6">
+						<div class="column large-4 medium-12 small-6">
 							<span class="price-amount">396 <small>p.</small></span>
 						</div>
 					</div>
@@ -73,10 +73,10 @@
 				</div>
 				<div class="inst_caption">
 					<div class="row large-12">
-						<div class="column large-8 small-6">
+						<div class="column large-8 medium-12 small-6">
 							<h3 class='mt0 inst_title'>Каретка</h3>
 						</div>
-						<div class="column large-4 small-6">
+						<div class="column large-4 medium-12 small-6">
 							<span class="price-amount">396 <small>p.</small></span>
 						</div>
 					</div>
@@ -95,10 +95,10 @@
 				</div>
 				<div class="inst_caption">
 					<div class="row large-12">
-						<div class="column large-8 small-6">
+						<div class="column large-8 medium-12 small-6">
 							<h3 class='mt0 inst_title'>Рубанок</h3>
 						</div>
-						<div class="column large-4 small-6">
+						<div class="column large-4 medium-12 small-6">
 							<span class="price-amount">396 <small>p.</small></span>
 						</div>
 					</div>

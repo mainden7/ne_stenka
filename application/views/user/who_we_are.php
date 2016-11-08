@@ -14,6 +14,22 @@
 		font-size: 16px;
 		font-weight: 300;
 	}
+	@media(max-width: 1024px){
+		#who_we_are h3.header{
+			font-size:20px;
+		}
+	}
+	@media (max-width: 768px) {
+		#who_we_are h3.header{
+			font-size:18px;
+		}
+		#who_we_are p{
+			font-size:13px;
+		}
+		#who_we_are .mb130{
+			margin-bottom: 70px;
+		}
+	}
 </style>
 <section id='who_we_are' class="mt50">
 	<div class="row expanded large-12 mb130">

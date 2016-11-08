@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/libs/foundation/responsive-tables.css">
-<link rel="stylesheet" href="<?php echo site_url(); ?>/application/resources/user_resources/libs/foundation/responsive-tables.js">
+
 
 <style type="text/css">
 	.blocks-header{
@@ -228,6 +228,48 @@
 		white-space: nowrap;
 		left: -20px;
 	}
+	@media(max-width: 1440px){
+		.proposal_block h2{
+			font-size:36px;
+		}
+	}
+	@media(max-width: 1024px){
+		#tabs-1 > div:nth-child(2) > div.table-info-1.proposal-row-2.mb80.pt50 > h4{
+			font-size: 16px;
+		}
+		.proposal_block .img > img{
+			min-height: 100%;
+		}
+		.proposal_block h2{
+			font-size:25px;
+		}
+	}
+	@media(max-width: 768px){
+		#tabs-1 > div:nth-child(2) > div.table-info-1.proposal-row-2.mb80.pt50 > h4{
+			font-size: 14px;
+		}
+		.proposal_block h2{
+			font-size:18px;
+		}
+	}
+	@media (max-width: 480px){
+		#tabs > ul > li > a{
+			width: 100%;
+			padding: 10px 20px;
+			text-align: center;
+		}
+		#tabs > ul > li > a > span{
+			display: inline-block;
+			float: none;
+		}
+		ul.new-inline li{
+			font-size:12px;
+			font-weight: bold;
+		}
+		#tabs-1 > div.row.large-12.proposal-row > h2 > i{
+			display: block;
+		}
+	}
 </style>
 <div class="modal fade" id="info_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
@@ -250,7 +292,7 @@
 		</div>
 	</div>
 </div>
-<section style='background-color: #f0f2f6'>
+<section id="blocks_main" style='background-color: #f0f2f6'>
 	<div class="row frontSlide expanded small-12 medium-12 large-12 pt80" style='background-color: #f0f2f6'>
 		<div class="row large-10 ">
 			<div class="column large-12">
@@ -262,15 +304,15 @@
 					</ul>
 					<div id="tabs-1" class="row large-12 pt80 pb80">
 						<div class="row large-12">
-							<div class="column large-4 small-12 pl40">
+							<div class="column large-4  medium-6 small-12 pl40">
 								<div class="medium-12">
 									<h2 class='mt0 blocks-header'>Стеновые блоки<br>1-й категории</h2>
 									<p><i class="fa fa-question-circle-o"></i> <a data-target='#info_1' data-toggle='modal'><span class='grey-underline-href'>Чем отличаются блоки 1-й и 2-й категории?</span></a></p>
 									<p>Стеновые блоки из ячеистого бетона автоклавного твердения 1-й категории (для кладки на клей) используются для строительства несущих и ненесущих стен с толщиной шва 1-3мм</p>
 								</div>
 							</div>
-							<div class="column large-4">
-								<img src="/application/resources/user_resources/img/wall_blocks.png" alt="">
+							<div class="column large-4 medium-6 ">
+								<img src="<?php echo base_url() ?>/application/resources/user_resources/img/wall_blocks.png" alt="">
 							</div>
 							<div class="column large-4 small-12">
 								<div class='price'>
@@ -397,37 +439,56 @@
 								<div class="row large-12 proposal-row">
 									<h2 class="text-center mb50" style="font-size: 24px;"><i class="fa fa-plus"></i> С этими блоками также покупают</h2>
 									<div class="row large-12 ">
-										<div class="column large-6 small-12 mb40">
+										<div class="column large-6 small-12 mb50">
 											<div class="column large-12 proposal-product">
-												<div class="column large-8 small-12">
+												<div class="column large-8 medium-6 small-12">
 													<h3 class="mt0">Клеевой состав для кладки блоков</h3>
 													<p>При условии покупки блоков, цена с доставкой: 175руб за мешок 25кг</p>
 													<form id='myform' class='display-block' method='POST' action='#'>
-														<input type='button' value='-' class='qtyminus' field='quantity1' style='font-size: 20px'/>
-														<input type='text' name='quantity1' value='0' class='qty' />
-														<input type='button' value='+' class='qtyplus' field='quantity1' style='font-size: 20px'/>
+														<input type='button' value='-' class='qtyminus' field='quantity_1' style='font-size: 20px'/>
+														<input type='text' name='quantity_1' value='0' class='qty' />
+														<input type='button' value='+' class='qtyplus' field='quantity_1' style='font-size: 20px'/>
 													</form>
-													<a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted add-to-cart">Добавить к заказу <i class="fa fa-long-arrow-right"></i></a>
+
 												</div>
-												<div class="column large-4 small-12">
+												<div class="column large-4 medium-6 small-12">
 													<img src="<?php echo base_url() ?>application/resources/user_resources/img/glue.png">
+												</div>
+												<div class="column large-12">
+													<form action='/user/add_to_cart' method='post'>
+														<input type="hidden" name="id" value='31'>
+														<input type="hidden" name="quantity_1" value='1'>
+														<input type="hidden" name="path" value="<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>">
+														<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+														<button role="button" aria-label="submit form" type="submit" href="#" class="button btn-blueLine btn-inverted add-to-cart">Добавить к заказу <i class="fa fa-long-arrow-right"></i></button>
+													</form>
 												</div>
 											</div>
 										</div>
-										<div class="column large-6 small-12 mb40">
+										<div class="column large-6 small-12 mb50">
 											<div class="column large-12 proposal-product">
-												<div class="column large-8 small-12">
+												<div class="column large-8 medium-6 small-12">
 													<h3 class='mt0'>Клеевой состав для кладки блоков</h3>
 													<p>При условии покупки блоков, цена с доставкой: 175руб за мешок 25кг</p>
 													<form id='myform' class='display-block' method='POST' action='#'>
-														<input type='button' value='-' class='qtyminus' field='quantity2' style='font-size: 20px'/>
-														<input type='text' name='quantity2' value='0' class='qty' />
-														<input type='button' value='+' class='qtyplus' field='quantity2' style='font-size: 20px'/>
+														<input type='button' value='-' class='qtyminus' field='quantity_2' style='font-size: 20px'/>
+														<input type='text' name='quantity_2' value='0' class='qty' />
+														<input type='button' value='+' class='qtyplus' field='quantity_2' style='font-size: 20px'/>
 													</form>
-													<a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted add-to-cart">Добавить к заказу <i class="fa fa-long-arrow-right"></i></a>
+
 												</div>
-												<div class="column large-4 small-12">
+												<div class="column large-4 medium-6 small-12">
 													<img src="<?php echo base_url() ?>application/resources/user_resources/img/glue.png">
+												</div>
+												<div class="column large-12">
+													<form action='/user/add_to_cart' method='post'>
+														<input type="hidden" name="id" value='32'>
+														<input type="hidden" name="quantity_2" value='1'>
+														<input type="hidden" name="path" value="<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>">
+														<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+														<button role="button" aria-label="submit form" type="submit" href="#" class="button btn-blueLine btn-inverted add-to-cart">Добавить к заказу <i class="fa fa-long-arrow-right"></i></button>
+													</form>
+
 												</div>
 											</div>
 										</div>
@@ -452,7 +513,7 @@
 
 			</div>
 			<div class='row expanded large-12 pb130'  style='background-color: #f0f2f6'>
-				<div class="column products-title medium-6 small-centered text-center">
+				<div class="column products-title medium-12 small-centered text-center">
 					<h2 class='uppercase mb30'>Другие виды блоков</h2>
 					<h5 class="mb80 text-light text-18">У нас есть все виды блоков из ячеистого бетона</h5>
 				</div>

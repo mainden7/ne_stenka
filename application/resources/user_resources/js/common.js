@@ -328,6 +328,21 @@ $(function () {
         $('body > div:nth-child(13) > div.large-7.columns.pb80 > div.column.products-title.medium-6.small-centered.text-center').removeClass('medium-6').addClass('medium-8');
         $('body > div:nth-child(13) > div.large-7.columns.pb80 > div.column.large-9.medium-9').removeClass('medium-9').addClass('medium-11 large-11').css('padding-left', '20px');
         $('body > div.row.expanded.small-12.medium-12.large-10.large-centered.pb130.pt80.main-features > div.column.large-6.medium-10.small-centered.text-center').removeClass('large-6').addClass('large-8');
+        $('#product > div.row.expanded.frontSlide.large-12.pt80 > div:nth-child(2) > div:nth-child(1)').removeClass('large-9').addClass('large-12 mb30');
+        $('#product > div.row.expanded.frontSlide.large-12.pt80 > div:nth-child(2) > div.column.large-3.small-12.advantage').removeClass('large-3').addClass('large-12');
+        $('#product > div.row.expanded.frontSlide.large-12.pt80 > div:nth-child(2) > div.column.small-12.advantage.large-12 > div > div').removeClass('row large-12').addClass('column large-4');
+        $('#product > div.row.expanded.frontSlide.large-12.pt80 > div.large-10.row.pb50 > div.column.large-9.medium-6.small-12').removeClass('large-9').addClass('large-6');
+        $('#product > div.row.expanded.frontSlide.large-12.pt80 > div.large-10.row.pb50 > div.column.large-3.medium-6.small-12.pt20').removeClass('large-3').addClass('large-6');
+        $('#tabs-1 > div:nth-child(1) > div.column.large-4.small-12.pl40, #tabs-1 > div:nth-child(1) > div:nth-child(2)').removeClass('large-4').addClass('large-6');
+        $('#tabs-1 > div:nth-child(1) > div.column.large-4.small-12').removeClass('large-4').addClass('large-12 pl40').css('margin-bottom', '20px');
+        $('#instruments_i > div.row.expanded.large-10.mb50 > div > div > div.inst_caption > div > div').removeClass('large-8').addClass('large-12').css('margin-bottom', '20px');
+        $('#instruments_i > div.row.expanded.large-10.mb50 > div > div > div.inst_img.text-center.mb80').removeClass('mb80');
+        $('#faq > div > div').removeClass('large-6').addClass('large-8');
+        $('body > div.row.expanded.large-12.pt130.pb130 > div').removeClass('large-8').addClass('large-10');
+    }
+    var mq_480 = window.matchMedia('(max-width: 480px)');
+    if(mq_480.matches){
+        $('#product > div.row.expanded.large-12.pb130 > div > div > div > div').addClass('pl0 pr0');
     }
 });
 
