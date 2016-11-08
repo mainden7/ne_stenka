@@ -60,6 +60,24 @@
 
 
 	</div><!--.container-fluid-->
+	<div class="container-fluid">
+		<header class="section-header">
+			<div class="tbl">
+				<div class="tbl-row">
+					<div class="tbl-cell">
+						<h2>Meta</h2>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="meta">
+			<form action="/ne_stenka/index.php/admin_panel/add_meta" method="post">
+				<textarea name="meta" id="" cols="150" rows="10"><?php echo $data['meta']['meta'] ?></textarea><br><br>
+				<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+				<button type="submit"  class="btn btn-rounded btn-primary">Сохранить</button>
+			</form>
+		</section>
+	</div>
 </div><!--.page-content-->
 <script>
 	$(document).ready(function() {

@@ -650,7 +650,7 @@ class Admin_panel extends CI_Controller {
 		$data['main_settings'] = Settings::load_main_settings();
 		$data['contact_settings'] = Settings::load_contact_settings();
 		$data['seo_texts'] = Seo_text::load_seo_texts();
-		
+		$data['meta'] = Seo_text::load_meta_tags();
 		/*print '<pre>' . print_r($data['projects'], true) . '</pre>'; die();*/
 		// Data.
         $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
@@ -661,6 +661,22 @@ class Admin_panel extends CI_Controller {
 		$this->load->view('admin/seo', $data);
 		$this->load->view('admin/footer');
 	}
+
+    public function add_meta(){
+        if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+            redirect('/login/admin_login');
+        }
+        // CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        if($post || $is_post){
+            Seo_text::add_meta_tags($post['meta']);
+            redirect('/admin_panel/seo');
+        }
+    }
 
 	public function faq(){
 		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){

@@ -1,10 +1,15 @@
-<html class="no-js" lang="ru">
+<?php
+	$site_settings = Settings::load_main_settings();
+	$title = $site_settings['title'];
+	$meta = $site_settings['meta'];
 
+?>
+<html class="no-js" lang="ru">
 <head>
 
 	<meta charset="utf-8">
-	<title>Заголовок</title>
-	<meta name="description" content="">
+	<title><?php echo isset($title) ? $title : 'Заголовок' ?></title>
+	<?php echo isset($meta) ? $meta : '' ?>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">

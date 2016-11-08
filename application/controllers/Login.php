@@ -27,12 +27,12 @@ class Login extends CI_Controller {
                     $this->session->set_userdata('logged_in', TRUE);
                     $this->session->set_userdata('admin_status', TRUE);
 
-                    redirect('index.php/Admin_panel/index');
+                    redirect('/Admin_panel/index');
                 }else{
-                    redirect('index.php/Login/admin_login?error=confirm');
+                    redirect('/Login/admin_login?error=confirm');
                 }
             }else{
-                redirect('index.php/Login/admin_login?error=exist');
+                redirect('/Login/admin_login?error=exist');
             }
         }
 
@@ -61,9 +61,9 @@ class Login extends CI_Controller {
             if(isset($post['email']) AND !empty($post['email'])){
                 $is_email = Users::check_email($post['email']);
                 if($is_email == 'TRUE'){
-                    redirect('index.php/User/user_login?check=confirm');
+                    redirect('/User/user_login?check=confirm');
                 }else{
-                    redirect('index.php/User/user_login?check=error');
+                    redirect('/User/user_login?check=error');
                 }
             }
         }
