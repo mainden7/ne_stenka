@@ -55,6 +55,15 @@ $(function(){
             $('input[name='+fieldName+']').val(0);
           }
         });
+    $('input.qty').keyup(function () {
+       var quantity = $(this).val();
+        var fieldName = $(this).attr('name');
+        if(quantity > 0){
+            $('input[name='+fieldName+']').val(quantity);
+        }else{
+            $('input[name='+fieldName+']').val(1);
+        }
+    });
   });
 $(function(){
   $('.proposal-row h2').click(function(){
@@ -227,14 +236,23 @@ $(function(){
   });
 });
 $(function () {
-   $('.recomended input.qtyplus, .recomended input.qtyminus').click(function () {
-      if($(this).parent().find('.qty').val() > 0){
-          $('.recomended').css('opacity', '1');
-      } else{
-          $('.recomended').css('opacity', '0.5');
-      }
+   $('.recomended #add_glue').click(function () {
+        if($(this).hasClass('fa-plus-circle')) {
+            var price = $(this).parent().parent().find('.product_total_price').attr('data-price');
+            $('.recomended').css('opacity', '1');
+            $('.recomended #myform input.qty').val(1);
+            $('.recomended .product_total_price').text(price);
+            $(this).removeClass('fa-plus-circle').addClass('fa-times');
+        }else{
+            $('.recomended').css('opacity', '0.3');
+            $('.recomended #myform input.qty').val(0);
+            $(this).removeClass('fa-times').addClass('fa-plus-circle');
+            $('.recomended .product_total_price').text(0);
+        }
+
    });
 });
+
 $(function(){
   $('a.comment_link').click(function(e){
     e.preventDefault();
@@ -320,6 +338,84 @@ $(function () {
         $('a.popover-a span.with').hide().text(text_1);
     });
 });
+
+$(function () {
+    $('a.popover-a2 span.with').hide();
+
+    $('a.popover-a2 span.without, a.popover-a2 i').click(function (e) {
+        e.preventDefault();
+        $('a.popover-a2 span.with').show();
+    });
+    $('a.popover-a2 span.with').click(function (e) {
+        e.preventDefault();
+        var text = $(this).text();
+        var text_1 = $('a.popover-a2 span.without').text();
+        $('a.popover-a2 span.without').text(text);
+        $('a.popover-a2 span.with').hide().text(text_1);
+    });
+});
+
+$(function(){
+    $('a.show-text-modal').click(function (e) {
+        e.preventDefault();
+        $(this).parent().find('textarea').show().focus();
+        var styles = {
+            'color' : '#58595b',
+            'border-bottom' : '1px dashed transparent'
+        };
+        $(this).text('Ваш комментарий').css(styles);
+    });
+});
+$(function () {
+    $('form.ajax-form').submit(function (e) {
+        e.preventDefault();
+        var method = $(this).attr('method');
+        var path = $(this).attr('action');
+        var name = $(this).find('input.name').val();
+        var tel = $(this).find('input.tel').val();
+        if(name.length <= 2 || name == ''){
+            $('input.name').addClass('error');
+            $('.name_caption').show();
+            return false;
+        }else{
+            $('input.name').removeClass('error');
+            $('.name_caption').hide();
+        }
+        if(tel.length <= 0 || tel == ''){
+            $('input.tel').addClass('error');
+            $('.tel_caption').show();
+            return false;
+        }else{
+            $('input.tel').removeClass('error');
+            $('.tel_caption').hide();
+        }
+        var data = $(this).serialize();
+
+        $.ajax({
+            type : method,
+            data : data,
+            url: path,
+            success: function () {
+                $('.modal').modal('hide');
+                swal({
+                    title: "Выбран город " + a,
+                    type: "success",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            },
+            error: function () {
+                swal({
+                    title: "Что-то пошло не так!",
+                    type: "error",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            }
+
+        });
+    });
+})
 
 $(function () {
     var mq = window.matchMedia( "(max-width: 1024px)" );

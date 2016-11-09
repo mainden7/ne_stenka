@@ -45,7 +45,7 @@
 				<h2 class="text-white mt0 mb0">8 800 998-32-33</h2>
 				<p class="mt0 mb50"><span class="text-white-60">Бесплатный звонок 24/7</span></p>
 				<p><span class="uppercase text-white-60 text-bold">Через форму:</span></p>
-				<a role="button" aria-label="submit form" href="#" class="button btn-blueLine question-btn">Задать вопрос</a>
+				<a role="button" aria-label="submit form" href="#" data-target="#askQuestion" data-toggle="modal" class="button btn-blueLine question-btn">Задать вопрос</a>
 				<p class="text-white-60"><span>Подготовим комплексное предложение<br> в течение одного рабочего дня</span></p>
 			</div>
 		</div>

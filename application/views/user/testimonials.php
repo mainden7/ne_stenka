@@ -1,3 +1,4 @@
+<?php if(!empty($data['testimonials'])){ ?>
 <style type="text/css">
 	.img img.rounded{
 		max-width: 150px;
@@ -40,3 +41,4 @@
 		</div>
 	</div>
 </section>
+<?php } ?>

@@ -1,5 +1,6 @@
-<?php 
-/*print '<pre>' . print_r($data, true) . '</pre>'; die();*/
+<?php
+
+//print '<pre>' . print_r($data, true) . '</pre>'; die();
 ?>
 <style type="text/css">
 	#cart .cart_sub_header{
@@ -86,6 +87,12 @@
 	.recomended{
 		opacity: 0.5;
 	}
+	.recomended i{
+		color: blue;
+	}
+	.recomended i:hover{
+		cursor: pointer;
+	}
 </style>
 <section id='cart' style="background: #f2f5f8">
 	<div class="row expanded large-12 frontSlide" style="background: #f2f5f8">
@@ -163,7 +170,7 @@
 									<td class='text-center'>
 										<form id='myform' class='display-inline-block' method='POST' action='#'>
 											<input type='button' value='-' class='qt qtyminus' field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
-											<input type='text' name='quantity<?php echo $product['id'] ?>' value='1' class='qty' />
+											<input type='text' name='quantity<?php echo $product['id'] ?>' value='<?php echo $product['quantity'] ?>' class='qty' />
 											<input type='button' value='+' class='qt qtyplus' field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
 											<input type='hidden' class='serialize' name='<?php echo $product['id'] ?>' value='<?php echo $product['quantity']; ?>'>
 										</form>
@@ -224,8 +231,8 @@
 									<input type='hidden' class='serialize' name='<?php echo 2 ?>' value='<?php echo 3 ?>'>
 								</form>
 							</td>
-							<td class="text-center product_total_price" data-quantity="<?php echo  1 ?>" data-price="<?php echo 15 ?>">15</td>
-							<td class='br-none text-center'><i class='fa fa-plus-circle fa-2x'></i></td>
+							<td class="text-center product_total_price" data-quantity="<?php echo  1 ?>" data-price="<?php echo 15 ?>">0</td>
+							<td class='br-none text-center'><i class='fa fa-plus-circle fa-2x' id="add_glue"></i></td>
 						</tr>
 						</tbody>
 					</table>

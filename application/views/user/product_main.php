@@ -68,6 +68,10 @@
 	.proposal_block > .img {
 		width: 100%;
 	}
+	.proposal_block > .img img{
+		min-height:267px;
+		max-height:267px;
+	}
 	@media(min-width: 1400px){
 		p.text-12{
 			font-size: 13px;
@@ -114,18 +118,18 @@
 		<div class="row large-10">
 			<div class="column large-9 small-12 ">
 				<div class="row large-12">
-					<div class="column large-12 bg_white pb50">
+					<div class="column large-12 bg_white pb50  pt50">
 						<div class="column large-6 medium-6 small-12">
-							<h2 class="text-38">Перегородочные блоки</h2>
+							<h2 class="text-38 mt0"><?php echo $data['product']['name'] ?></h2>
 							<ul class="inline">
 								<li><i class="fa fa-check"></i>Для кладки на клей</li>
 								<li><i class="fa fa-check"></i>Для кладки на раствор</li>
 							</ul>
-							<p class="mb50">Стеновые блоки из ячеистого бетона автоклавного твердения 1-й категории(для кладки на клей) используются для строительства несущих и не несущих стен с толщиной шва 1-3 мм</p>
-							<a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted btn-transparent text-18">Размеры и цены <i class="fa fa-long-arrow-right"></i></a>
+							<p class="mb50"><?php echo $data['product']['description'] ?></p>
+							<a role="button" aria-label="submit form" href="/user/blocks" class="button btn-blueLine btn-inverted btn-transparent text-18">Размеры и цены <i class="fa fa-long-arrow-right"></i></a>
 						</div>
 						<div class="column large-6 medium-6 small-12 text-center">
-							<img src="<?php echo base_url() ?>application/resources/user_resources/img/wall_blocks.png">
+							<img src="<?php echo base_url() ?>application/resources/user_resources/img/<?php echo $data['product']['image'] ?>">
 						</div>
 					</div>
 				</div>

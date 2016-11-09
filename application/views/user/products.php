@@ -1,6 +1,18 @@
-<style type="text/css">	
-
-	
+<?php if(!empty($data['categories'])){ ?>
+<style type="text/css">
+#products h3.category_title {
+	font-size: 31px;
+	line-height: 1.2;
+}
+	#products .img{
+		width: 100%;
+		max-height: 267px;
+		overflow: hidden;
+	}
+#products .img img{
+	max-height:100%;
+	width: 100%;
+}
 </style>
 <section id="products">
 	<div class='row expanded large-12 pb130'  style='background-color: #f0f2f6'>
@@ -14,10 +26,10 @@
 				<div class="column small-12 medium-4">
 					<div class="white_block">
 						<div class="img text-center">
-							<img src="<?php echo base_url() ?>application/resources/user_resources/img/<?php echo $category['image'] ?>" alt="" width="460" height="306">
+							<img src="<?php echo base_url() ?>application/resources/user_resources/img/<?php echo $category['image'] ?>" alt="" >
 						</div>
-						<div class="">
-							<h3><?php echo $category['name'] ?></h3>
+						<div class="text_cap_2">
+							<h3 class="category_title"><?php echo $category['name'] ?></h3>
 						</div>
 
 						<a href="/user/<?php echo $category['link'] ?>" class="btn-blue uppercase">Размер и цены <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
@@ -29,3 +41,4 @@
 		</div>
 	</div>
 </section>
+<?php } ?>

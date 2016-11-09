@@ -5,7 +5,7 @@
 		<div class="row large-11">
 			<div class="column small-12 medium-6 large-8">
 				<h1>Стеновые блоки <br>из ячеистого бетона <br>без переплат</h1>
-				<a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted btn-transparent">В каталог<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+				<a role="button" aria-label="submit form" href="/user/blocks" class="button btn-blueLine btn-inverted btn-transparent">В каталог<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 			</div>
 			<div class="column frontSlide-container_right small-12 medium-6 large-4">
 				<div class="imagewrap">
@@ -15,7 +15,7 @@
 						<div class="info">
 							<h4>Влагостойкость</h4>
 							<p>Наши блоки «не боится» воды, так как состоят из водонерастворимого минерала. </p>
-							<a href="#">Подробнее о наших блоках</a>
+							<a href="/user/blocks">Подробнее о наших блоках</a>
 
 						</div>
 						<img class="" src="<?php echo site_url(); ?>/application/resources/user_resources/img/icons/index_hero_icon/1.png" alt="">
@@ -25,7 +25,7 @@
 						<div class="info">
 							<h4>Влагостойкость</h4>
 							<p>Наши блоки «не боится» воды, так как состоят из водонерастворимого минерала. </p>
-							<a href="#">Подробнее о наших блоках</a>
+							<a href="/user/blocks">Подробнее о наших блоках</a>
 
 						</div>
 						<img src="<?php echo site_url(); ?>/application/resources/user_resources/img/icons/index_hero_icon/2.png" alt="">
@@ -35,7 +35,7 @@
 						<div class="info">
 							<h4>Влагостойкость</h4>
 							<p>Наши блоки «не боится» воды, так как состоят из водонерастворимого минерала. </p>
-							<a href="#">Подробнее о наших блоках</a>
+							<a href="/user/blocks">Подробнее о наших блоках</a>
 
 						</div>
 						<img src="<?php echo site_url(); ?>/application/resources/user_resources/img/icons/index_hero_icon/3.png" alt="">
@@ -45,7 +45,7 @@
 						<div class="info">
 							<h4>Влагостойкость</h4>
 							<p>Наши блоки «не боится» воды, так как состоят из водонерастворимого минерала. </p>
-							<a href="#">Подробнее о наших блоках</a>
+							<a href="/user/blocks">Подробнее о наших блоках</a>
 
 						</div>
 						<img src="<?php echo site_url(); ?>/application/resources/user_resources/img/icons/index_hero_icon/4.png" alt="">

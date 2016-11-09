@@ -40,6 +40,14 @@ class Product extends CI_Model{
 
     	return $result;
     }
+	public static function load_block_by_category($category){
+		$CI = & get_instance();
+		$sql = "SELECT * FROM `products` WHERE `block_category` = ?";
+		$query = $CI->db->query($sql, $category);
+		$result = $query->result_array();
+
+		return $result;
+	}
     public static function load_products_by_type($type, $city) {
     	$CI = & get_instance();
     	$sql = "SELECT *,(SELECT `price` FROM `product_prices` `pp` WHERE `pp`.`product_id` = `p`.`id` AND `city` = ?) FROM `products` `p` WHERE `category` = ?";
