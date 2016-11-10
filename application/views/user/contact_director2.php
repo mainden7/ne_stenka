@@ -4,7 +4,7 @@
 		border: 10px solid #fff;
 	}
 </style>
-<section class="pb130" style='background: #f0f2f6'>
+<section class="pb130 pt130" style='background: #f0f2f6'>
 	<div class="row expanded large-10">
 		<div class="column large-12">
 			<div class="row large-12 border-row">

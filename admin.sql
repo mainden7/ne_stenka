@@ -56,7 +56,7 @@ CREATE TABLE `article` (
   `post` int(5) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,6 @@ CREATE TABLE `article` (
 
 LOCK TABLES `article` WRITE;
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` VALUES (1,'1','<p>dwwww</p>','block.png',1,1,1,'2016-10-22 14:52:30');
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +162,8 @@ CREATE TABLE `main_settings` (
   `logo` varchar(256) DEFAULT NULL,
   `favicon` varchar(256) DEFAULT NULL,
   `tel` varchar(256) DEFAULT NULL,
-  `main_name` varchar(256) DEFAULT NULL
+  `main_name` varchar(256) DEFAULT NULL,
+  `meta` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -173,6 +173,7 @@ CREATE TABLE `main_settings` (
 
 LOCK TABLES `main_settings` WRITE;
 /*!40000 ALTER TABLE `main_settings` DISABLE KEYS */;
+INSERT INTO `main_settings` VALUES (NULL,NULL,NULL,NULL,NULL,'<meta>');
 /*!40000 ALTER TABLE `main_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +259,7 @@ CREATE TABLE `product_category` (
 
 LOCK TABLES `product_category` WRITE;
 /*!40000 ALTER TABLE `product_category` DISABLE KEYS */;
-INSERT INTO `product_category` VALUES (1,'Blocks','blabla','2016-10-19 22:00:20','blocks','block.png'),(2,'Slabs','blabla','2016-10-19 22:00:20','slabs','block.png'),(3,'Instruments','blabla','2016-10-19 22:00:20','instruments','instrument2.png');
+INSERT INTO `product_category` VALUES (1,'Блоки','blabla','2016-10-19 22:00:20','blocks','wall_blocks.png'),(2,'Плиты','blabla','2016-10-19 22:00:20','slabs','slabs.png'),(3,'Инструменты','blabla','2016-10-19 22:00:20','instruments','glue.png');
 /*!40000 ALTER TABLE `product_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -275,7 +276,7 @@ CREATE TABLE `product_prices` (
   `city` varchar(256) DEFAULT NULL,
   `price` decimal(65,30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,7 +285,6 @@ CREATE TABLE `product_prices` (
 
 LOCK TABLES `product_prices` WRITE;
 /*!40000 ALTER TABLE `product_prices` DISABLE KEYS */;
-INSERT INTO `product_prices` VALUES (1,14,'Москва',323.000000000000000000000000000000),(2,14,'Санкт-Петербург',55.000000000000000000000000000000),(3,14,'Брянск',11.000000000000000000000000000000),(4,14,'Калуга',14.000000000000000000000000000000),(5,14,'Владимир',2.000000000000000000000000000000),(6,14,'Новгород',1.000000000000000000000000000000),(7,14,'Орел',0.000000000000000000000000000000),(8,14,'Петрозаводск',0.000000000000000000000000000000),(9,14,'Псков',0.000000000000000000000000000000),(10,14,'Смоленск',0.000000000000000000000000000000),(11,14,'Тверь',0.000000000000000000000000000000),(12,14,'Тула',0.000000000000000000000000000000);
 /*!40000 ALTER TABLE `product_prices` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -304,8 +304,10 @@ CREATE TABLE `products` (
   `category` varchar(256) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `size` varchar(256) DEFAULT NULL,
+  `block_category` varchar(256) DEFAULT NULL,
+  `recommended` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -314,7 +316,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'im','desc12','block.png',200.000000000000000000000000000000,'Blocks',NULL,'200x100x35'),(2,'pr2','desc12','kelma.png',200.000000000000000000000000000000,'Instruments',NULL,NULL),(14,'Продукт','<p>бла бла</p>','',NULL,'Blocks','2016-10-29 21:24:37','200x300x20');
+INSERT INTO `products` VALUES (1,'Стеновые блоки 1','123','blocks.png',NULL,'Блоки',NULL,NULL,'Стеновые блоки',1),(2,'Стеновые блоки 2','123 123 123','blocks.png',NULL,'Блоки',NULL,NULL,'Стеновые блоки',1),(3,'Пазогребневые блоки 1','22','blocks.png',NULL,'Блоки',NULL,NULL,'Пазогрбневые блоки',1),(4,'Пазогребневые блоки 2','22','blocks.png',NULL,'Блоки',NULL,NULL,'Пазогрбневые блоки',1),(5,'Брусовые перемычки 1','22','blocks.png',NULL,'Блоки',NULL,NULL,'Брусовые перемычки',1),(6,'Кельма','22 222 222 ','kelma.png',NULL,'Инструменты',NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -389,7 +391,7 @@ CREATE TABLE `testimonials` (
   `photo` varchar(256) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -398,7 +400,6 @@ CREATE TABLE `testimonials` (
 
 LOCK TABLES `testimonials` WRITE;
 /*!40000 ALTER TABLE `testimonials` DISABLE KEYS */;
-INSERT INTO `testimonials` VALUES (1,'123','123','123@123','<p>123123</p>','block.png','2016-10-14 15:29:46');
 /*!40000 ALTER TABLE `testimonials` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -411,4 +412,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-03 18:15:02
+-- Dump completed on 2016-11-10 18:22:39
