@@ -40,9 +40,9 @@
 		<div class="column products-title large-12 small-centered howToBg pb80">
 			<div class="row large-9">
 				<h2 class="text-white uppercase mt80" style="font-size: 36px">Нужна помощь?</h2>
-				<p class="text-white mb50">Наши специалисты бесплатно помогут вам <br>с подбором блоков. В разделе <a href="">справка</a> есть<br> ответы на популярные вопросы</p>
+				<p class="text-white mb50">Наши специалисты бесплатно помогут вам <br>с подбором блоков. В разделе <a href="/user/faq">справка</a> есть<br> ответы на популярные вопросы</p>
 				<p class="mb0 text-white text-bold"><span class="uppercase">по телефону:</span></p>
-				<h2 class="text-white mt0 mb0">8 800 998-32-33</h2>
+				<h2 class="text-white mt0 mb0"><a href="tel: <?php echo str_replace(' ', '', $data['contact_settings']['tel_1']); ?>"><?php echo $data['contact_settings']['tel_1'] ?></a></h2>
 				<p class="mt0 mb50"><span class="text-white-60">Бесплатный звонок 24/7</span></p>
 				<p><span class="uppercase text-white-60 text-bold">Через форму:</span></p>
 				<a role="button" aria-label="submit form" href="#" data-target="#askQuestion" data-toggle="modal" class="button btn-blueLine question-btn">Задать вопрос</a>

@@ -57,7 +57,7 @@
 			<div class="column small-12 medium-3 text-left">
 				<p class="uppercase"><span class="text-white-60 text-bold">Остались вопросы ?</span></p>
 				<h3 class="mt0 mb0" style="font-size: 28px"><?php echo $data['contact_settings']['tel_1'] ?></h3>
-				<p class="uppercase freecall-nowrap"><a href="" class="dashed">Бесплатный звонок 24/7</a></p>
+				<p class="uppercase freecall-nowrap"><a href="tel: <?php echo $data['contact_settings']['tel_1'] ?>" class="dashed">Бесплатный звонок 24/7</a></p>
 			</div>
 		</div>
 	</div>

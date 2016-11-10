@@ -49,6 +49,13 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<label>Рекомендовать к блокам?</label>
+								<div class="checkbox-toggle">
+									<input type="checkbox" id="check-toggle-1" name="recommended">
+									<label for="check-toggle-1"></label>
+								</div>
+							</div>
+							<div class="form-group">
 								<label for="name" class="control-label">Изображение</label>
 								<input type="file" class='form-control' name="img" value="">
 							</div>
@@ -157,6 +164,13 @@
 																		<label>Описание</label>
 																		<div class="summernote-theme-1">
 																			<textarea class="summernote" name='description'><?php echo $product['description']; ?></textarea>
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label>Рекомендовать к блокам?</label>
+																		<div class="checkbox-toggle">
+																			<input type="checkbox" id="check-toggle-1" name="recommended" value="<?php echo $product['recommended'] ?>" <?php echo $product['recommended'] == 1 ? 'checked' : '' ?>>
+																			<label for="check-toggle-1"></label>
 																		</div>
 																	</div>
 																	<div class="form-group">

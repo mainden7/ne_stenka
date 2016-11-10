@@ -273,7 +273,7 @@ $(function(){
           title: "Ваша заявка отправлена!",
           text: "В ближайшее время с вами свяжется наш менеджер для уточнения деталей",
           type: "success",
-          timer: 2000,   
+          timer: 2000,
           showConfirmButton: false
         });
       },
@@ -398,7 +398,8 @@ $(function () {
             success: function () {
                 $('.modal').modal('hide');
                 swal({
-                    title: "Выбран город " + a,
+                    title: "Ваша заявка отправлена!",
+                    text: "В ближайшее время с вами свяжется наш менеджер для уточнения деталей",
                     type: "success",
                     timer: 2000,
                     showConfirmButton: false

@@ -61,20 +61,31 @@
 		</div>
 		<div class="large-10 row">
 		<?php foreach($data['products'] AS $product) { 
-			if($product['category'] == 'Instruments') { 
+			if($product['category'] == 'Инструменты') {
 				?>
 			<div class="column large-4 medium-4 small-12 mb30">
 				<div class="instrument_block">
 					<div class="inst_img text-center mb80">
-						<img src="<?php echo base_url(); ?>application/resources/user_resources/img/shtroborez.png">
+						<img src="<?php echo base_url(); ?>application/resources/user_resources/img/<?php echo $product['image'] ?>">
 					</div>
 					<div class="inst_caption">
 						<div class="row large-12">
 							<div class="column large-8 small-6">
-								<h3 class='mt0 inst_title'>Штроборез</h3>
+								<h3 class='mt0 inst_title'><?php echo $product['name'] ?></h3>
 							</div>
 							<div class="column large-4 small-6">
-								<span class="price-amount">396 <small>p.</small></span>
+								<span class="price-amount">
+									<?php
+									if(isset($this->session->userdata['user_city'])){
+										$user_city = $this->session->userdata['user_city'];
+									}else{
+										$user_city = 'Москва';
+									}
+									$price =  Product::load_product_prices($product['id'], $user_city);
+									echo isset($price['price']) ? $price['price'] : 0;
+									?>
+									<small>p.</small>
+								</span>
 							</div>
 						</div>
 						<div class="row large-12">

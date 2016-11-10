@@ -42,12 +42,12 @@
 			<div class="row large-12 text-left pb50">
 				<div class="column large-7 medium-6 small-12">
 					<p class="text-bold mb5 uppercase">По телефону:</p>
-					<h2 class="tel-title mt0 " style="margin-bottom: 17px;"><?php echo $data['contact_settings']['tel_1'] ?></h2>
+					<h2 class="tel-title mt0 " style="margin-bottom: 17px;"><a href="tel: <?php echo $data['contact_settings']['tel_1'] ?>" style="color: #231f20" class="text-bold"><?php echo $data['contact_settings']['tel_1'] ?></a></h2>
 					<p class="text-60 mt0">Бесплатный звонок 24/7</p>
 				</div>
 				<div class="column large-5 medium-6 small-12">
 					<p class="uppercase text-bold opacity-07">Через форму:</p>
-					<a role="button" aria-label="submit form" href="#" class="button btn-blueLine">Задать вопрос</a>
+					<a role="button" aria-label="submit form" href="#" data-toggle='modal' data-target="#askQuestion" class="button btn-blueLine">Задать вопрос</a>
 					<p class="text-60">Подготовим комплексное предложение в течение одного рабочего дня</p>
 				</div>
 			</div>

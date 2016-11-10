@@ -296,7 +296,7 @@ if (isset($this->session->userdata['items'])) {
                                             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                         </p>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, temporibus!<a
-                                                href="" class="btn-blue">Справка</a></p>
+                                                href="/user/faq" class="btn-blue">Справка</a></p>
                                     </div>
                                     <div class="column large-6 small-12">
                                         <h3 class="uppercase">Как оплатить</h3>
@@ -393,6 +393,52 @@ if (isset($this->session->userdata['items'])) {
                             </span>
                         </button>
                         <h3 class="text-center bold">Задать вопрос</h3>
+                    </div>
+                    <div class="column large-12">
+                        <form class="ajax-form" method="post" action="/user/send_message">
+                            <div class="form-group">
+                                <label for="">Ваше имя</label>
+                                <input type="text" class='name' name="name" placeholder="Введите ваше имя">
+                                <small class="name_caption">введите имя</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Контактный телефон</label>
+                                <input type="text" name="tel" class="tel" placeholder="Телефон для связи">
+                                <small class="tel_caption">введите телефон</small>
+                            </div>
+                            <div class="show-textarea">
+                                <a href="#" class="show-text-modal">Добавить комментарий</a>
+                                <textarea name="comment" id="" cols="30" rows="5"></textarea>
+                            </div>
+                            <input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+                            <input type="hidden" name="subject" value="Новый вопрос">
+                            <button role="button" type="submit" class="button btn-blueLine question-btn full-width">Отправить</button>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-custom" id="contactDirector" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body pb80">
+                <div class="row large-12">
+                    <div class="column large-12">
+                        <button type="button" class="" data-dismiss="modal" aria-label="Close">
+                            <span
+                                aria-hidden="true">
+                                <img
+                                    src="<?php echo base_url() ?>application/resources/user_resources/img/close-icon.png"
+                                    alt="" class="fa-times">
+                            </span>
+                        </button>
+                        <h3 class="text-center bold">Написать директору</h3>
                     </div>
                     <div class="column large-12">
                         <form class="ajax-form" method="post" action="/user/send_message">

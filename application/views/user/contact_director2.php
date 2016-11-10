@@ -16,7 +16,7 @@
 						<p class="mt0">Мы тщательно следим за качеством нашей работы. Если у вас есть замечания или предложения по качеству обслуживания "НеСтенкаКом", вы можете написать письмо генеральному директору</p>
 					</div>
 					<div class="column small-12 medium-4">
-						<a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted btn-transparent text-18">Написать директору</a>
+						<a role="button" aria-label="submit form" href="#" data-toggle="modal" data-target="#contactDirector" class="button btn-blueLine btn-inverted btn-transparent text-18">Написать директору</a>
 					</div>
 				</div>
 			</div>

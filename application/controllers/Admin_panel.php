@@ -182,7 +182,12 @@ class Admin_panel extends CI_Controller {
         	
         	$size = $post['size'];
         	$category = $post['category'];
-        	$id = Product::add_product($name, $description, $img, NULL, $category, $size);
+            if(isset($post['recommended'])){
+                $recommended = 1;
+            }else{
+                $recommended = 1;
+            }
+        	$id = Product::add_product($name, $description, $img, NULL, $category, $size, $recommended);
         	$cities = City::load_cities();
             foreach ($cities as $city) {
 

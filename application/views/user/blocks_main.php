@@ -541,28 +541,25 @@
                                         <div class="column large-6 small-12 mb50">
                                             <div class="column large-12 proposal-product">
                                                 <div class="column large-8 medium-6 small-12">
-                                                    <h3 class="mt0">Клеевой состав для кладки блоков</h3>
-                                                    <p>При условии покупки блоков, цена с доставкой: 175руб за мешок
-                                                        25кг</p>
+                                                    <h3 class="mt0"><?php echo $product['name'] ?></h3>
+                                                    <p><?php echo $product['description'] ?></p>
                                                     <form id='myform' class='display-block' method='POST' action='#'>
                                                         <input type='button' value='-' class='qtyminus'
-                                                               field='quantity31'
-                                                               style='font-size: 20px'/>
-                                                        <input type='text' name='quantity31' value='0' class='qty'/>
+                                                               field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
+                                                        <input type='text' name='quantity<?php echo $product['id'] ?>' value='0' class='qty'/>
                                                         <input type='button' value='+' class='qtyplus'
-                                                               field='quantity31'
-                                                               style='font-size: 20px'/>
+                                                               field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
                                                     </form>
 
                                                 </div>
                                                 <div class="column large-4 medium-6 small-12">
                                                     <img
-                                                        src="<?php echo base_url() ?>application/resources/user_resources/img/glue.png">
+                                                        src="<?php echo base_url() ?>application/resources/user_resources/img/<?php echo $product['image'] ?>">
                                                 </div>
                                                 <div class="column large-12">
-                                                    <form action='/ne_stenka/index.php/user/add_to_cart' method='post'>
-                                                        <input type="hidden" name="id" value='31'>
-                                                        <input type="hidden" name="quantity31" value='1'>
+                                                    <form action='/user/add_to_cart' method='post'>
+                                                        <input type="hidden" name="id" value='<?php echo $product['id'] ?>'>
+                                                        <input type="hidden" name="quantity<?php echo $product['id'] ?>" value='1'>
                                                         <input type="hidden" name="path"
                                                                value="<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>">
                                                         <input id="<?php echo $csrf_token_name; ?>" type="hidden"
@@ -571,8 +568,8 @@
                                                         <button role="button" aria-label="submit form" type="submit"
                                                                 href="#"
                                                                 class="button btn-blueLine btn-inverted add-to-cart">
-                                                            Добавить к
-                                                            заказу <i class="fa fa-long-arrow-right"></i></button>
+                                                            Добавить к заказу <i class="fa fa-long-arrow-right"></i>
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -749,32 +746,32 @@
                         <div class="row large-12 proposal-row">
                             <h2 class="text-center mb50" style="font-size: 24px;"><i class="fa fa-plus"></i> С этими
                                 блоками также покупают</h2>
-                            <?php foreach ($data['products'] AS $product) {
-                            if ($product['recommended'] == 1) { ?>
+
                             <div class="row large-12 ">
+                                <?php foreach ($data['products'] AS $product) {
+                                    if ($product['recommended'] == 1) { ?>
                                 <div class="column large-6 small-12 mb50">
                                     <div class="column large-12 proposal-product">
                                         <div class="column large-8 medium-6 small-12">
-                                            <h3 class="mt0">Клеевой состав для кладки блоков</h3>
-                                            <p>При условии покупки блоков, цена с доставкой: 175руб за мешок
-                                                25кг</p>
+                                            <h3 class="mt0"><?php echo $product['name'] ?></h3>
+                                            <p><?php echo $product['description'] ?></p>
                                             <form id='myform' class='display-block' method='POST' action='#'>
                                                 <input type='button' value='-' class='qtyminus'
-                                                       field='quantity31' style='font-size: 20px'/>
-                                                <input type='text' name='quantity31' value='0' class='qty'/>
+                                                       field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
+                                                <input type='text' name='quantity<?php echo $product['id'] ?>' value='0' class='qty'/>
                                                 <input type='button' value='+' class='qtyplus'
-                                                       field='quantity31' style='font-size: 20px'/>
+                                                       field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
                                             </form>
 
                                         </div>
                                         <div class="column large-4 medium-6 small-12">
                                             <img
-                                                src="<?php echo base_url() ?>application/resources/user_resources/img/glue.png">
+                                                src="<?php echo base_url() ?>application/resources/user_resources/img/<?php echo $product['image'] ?>">
                                         </div>
                                         <div class="column large-12">
-                                            <form action='/ne_stenka/index.php/user/add_to_cart' method='post'>
-                                                <input type="hidden" name="id" value='31'>
-                                                <input type="hidden" name="quantity31" value='1'>
+                                            <form action='/user/add_to_cart' method='post'>
+                                                <input type="hidden" name="id" value='<?php echo $product['id'] ?>'>
+                                                <input type="hidden" name="quantity<?php echo $product['id'] ?>" value='1'>
                                                 <input type="hidden" name="path"
                                                        value="<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>">
                                                 <input id="<?php echo $csrf_token_name; ?>" type="hidden"
