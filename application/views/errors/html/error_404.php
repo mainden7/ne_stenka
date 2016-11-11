@@ -168,9 +168,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 </style>
 <!--,блок с навигацией и корзиной-->
-  <div class="row expanded small-12 medium-12 large-11 large-centered header">
+  <div class="row expanded small-12 medium-12 large-12 large-centered header">
 
-    <div class="row header-info">
+    <div class="row large-10 header-info">
 
       <div class="header-info-wrappertop clear hide-for-large">
         <!--лого-->
@@ -228,16 +228,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
     <!--навигация-->
-    <div class="row header-nav">
+    <div class="row large-10 header-nav">
       <div class="column small-12 menu-centered clearfix">
-        <ul class="menu">
-          <li class=''><a href="/user/blocks">Блоки</a></li>
-          <li class=''><a href="/user/slabs">Плиты перекрытия</a></li>
-          <li class=''><a href="/user/instruments">Клей и инструменты</a></li>
-          <li class=''><a href="/user/faq">Справка</a></li>
-          <li class=''><a href="/user/about">О компании</a></li>
-          <li class=''><a href="/user/contacts">Контакты</a></li>
-        </ul>
+        <div class="row large-12 text-center" style="background: #231f20">
+			<ul class="menu" style="display: inline-block">
+				<li class=''><a href="/user/blocks">Блоки</a></li>
+				<li class=''><a href="/user/slabs">Плиты перекрытия</a></li>
+				<li class=''><a href="/user/instruments">Клей и инструменты</a></li>
+				<li class=''><a href="/user/faq">Справка</a></li>
+				<li class=''><a href="/user/about">О компании</a></li>
+				<li class=''><a href="/user/contacts">Контакты</a></li>
+			</ul>
+		</div>
       </div>
     </div>
 
