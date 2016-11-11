@@ -24,27 +24,148 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<style type="text/css">
-.menu > li{
-	box-sizing: none;	
-}
-.menu > li{
-	border-bottom: 5px solid #231f20;
-}
-	.menu >li > a:hover{
-		text-decoration: none;
-	}
-	.menu > li:hover{
-		text-decoration: none !important;
-		border-bottom: 5px solid #fed536;
-	}
-	.menu > li.active{
+		.menu > li {
+			box-sizing: none;
+		}
 
-		border-bottom: 5px solid #fed536;
-	}
-	.menu > li.active a{
-		background: transparent;
-		text-decoration: none !important;
-	}
+		.menu > li {
+			border-bottom: 5px solid #231f20;
+		}
+
+		.menu > li > a:hover {
+			text-decoration: none;
+		}
+
+		.menu > li:hover {
+			text-decoration: none !important;
+			border-bottom: 5px solid #fed536;
+		}
+
+		.menu > li.active {
+
+			border-bottom: 5px solid #fed536;
+		}
+
+		.menu > li.active a {
+			background: transparent;
+			text-decoration: none !important;
+		}
+
+		.modal img.fa-times {
+			position: absolute;
+			top: -25px;
+			right: -25px;
+			opacity: 1;
+			font-size: 2em;
+			cursor: pointer;
+		}
+
+		#chooseCity i:before {
+			color: #fed536;
+		}
+
+		#chooseCity ul li {
+			position: relative;
+
+		}
+
+		#chooseCity ul li a {
+			border-bottom: none;
+			color: #58595b;
+		}
+
+		#chooseCity ul li i.fa-check {
+			position: absolute;
+			left: -20px;
+			display: none;
+		}
+
+		#chooseCity ul li:hover {
+			cursor: pointer;
+			color: #0078ff;
+		}
+
+		#chooseCity ul li:hover i.fa-check {
+			display: inline;
+		}
+
+		#chooseCity ul li:hover a {
+			color: #0078ff;
+		}
+
+		@media (max-width: 1024px) {
+			.header-info_regions span,
+			.header-info_cart_wrapper .innerWrap span {
+				font-size: 10px;
+			}
+
+			.header-nav a {
+				font-size: 12px;
+			}
+
+		}
+		.modal-custom .modal-body{
+			padding: 50px 30px;
+			padding-bottom: 20px;
+
+		}
+		.modal-custom .modal-dialog{
+			width:500px;
+		}
+		.modal-custom h3{
+			margin-top: 0;
+			font-size: 36px;
+		}
+		.modal-custom  .form-group{
+			margin-bottom: 25px;
+		}
+		.modal-custom label{
+			opacity: 0.8;
+			font-size:16px;
+			margin-bottom: 10px;
+		}
+		.modal-custom input{
+			margin-bottom: 0;
+			height:44px;
+		}
+		.modal-custom .show-textarea{
+			margin-bottom: 25px;
+			display: block;
+		}
+		.modal-custom a{
+			border-bottom:1px dashed;
+			margin-bottom: 15px;
+		}
+		.modal-custom a:hover{
+			border-bottom: 1px dashed transparent;
+		}
+		.modal-custom textarea{
+			display: none;
+		}
+		.modal-custom button.full-width{
+			width: 100%;
+			text-transform: uppercase;
+			padding: 20px 0;
+			font-size:18px;
+		}
+		.modal-custom [type='text']:focus{
+			border:1px solid #fed536;
+			box-shadow: 0 0 10px 0 rgba(254, 213, 54, 0.57);
+		}
+		.modal-custom input.error{
+			border:1px solid red;
+			box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.52);
+		}
+		.modal-custom .name_caption,
+		.modal-custom .tel_caption{
+
+			display: none;
+			color: red;
+			font-size: 14px;
+			margin-top: 10px;
+
+			opacity: 0.8;
+		}
 </style>
 <!--,блок с навигацией и корзиной-->
   <div class="row expanded small-12 medium-12 large-11 large-centered header">
@@ -87,12 +208,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <a href="#" class="header-info_cart_wrapper float-center">
             <div class="badge badge-gray">
               <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-              <div class="badge secondary">3</div>
+              <div class="badge secondary">0</div>
             </div>
             <span class="innerWrap clear">
           <span class="hide-for-small-only">Ваш заказ на сумму</span>
             <span class="hide-for-medium">Сумма заказа</span><br>
-            <b>9 895 руб.</b>
+            <b>0 руб.</b>
             </span>
           </a>
         </div>

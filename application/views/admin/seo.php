@@ -70,13 +70,120 @@
 				</div>
 			</div>
 		</header>
-		<section class="meta">
-			<form action="/ne_stenka/index.php/admin_panel/add_meta" method="post">
+		<section class="meta" style="margin-bottom: 50px">
+			<h4>Meta index</h4>
+			<form action="/admin_panel/add_meta" method="post">
 				<textarea name="meta" id="" cols="150" rows="10"><?php echo $data['meta']['meta'] ?></textarea><br><br>
 				<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
 				<button type="submit"  class="btn btn-rounded btn-primary">Сохранить</button>
 			</form>
 		</section>
+		<?php
+		$i = 1;
+		foreach ($data['products'] AS $product){ ?>
+			<?php if($i == 1) {
+				$i++;
+				?>
+				<div class="col-md-12"><h2>SEO продукты</h2></div>
+			<?php } ?>
+		<div class="col-md-6 col-sm-12" style="margin-bottom: 30px;">
+
+
+			<h4><?php echo $product['name'] ?></h4>
+			<form action="/admin_panel/add_meta" method="post">
+				<div class="form-group">
+					<label for="">Title</label>
+					<input class="form-control" type="text" name="title" id="" value="<?php echo $product['title'] ?>">
+				</div>
+				<label for="">Meta</label>
+				<textarea class='form-control' name="meta" id="" cols="150" rows="10"><?php echo $product['meta'] ?></textarea><br><br>
+				<input type="hidden" name="type" value="product">
+				<input type="hidden" name="id" value="<?php echo $product['id'] ?>">
+				<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+				<button type="submit"  class="btn btn-rounded btn-primary">Сохранить</button>
+			</form>
+		</div>
+		<?php } ?>
+		<?php
+		$i = 1;
+		foreach ($data['categories'] AS $category){ ?>
+			<?php if($i == 1) {
+				$i++;
+				?>
+				<div class="col-md-12"><h2>SEO категории</h2></div>
+			<?php } ?>
+			<div class="col-md-6 col-sm-12" style="margin-bottom: 30px;">
+
+
+				<h4><?php echo $category['name'] ?></h4>
+				<form action="/admin_panel/add_meta" method="post">
+					<div class="form-group">
+						<label for="">Title</label>
+						<input class="form-control" type="text" name="title" id="" value="<?php echo $category['title'] ?>">
+					</div>
+					<label for="">Meta</label>
+					<textarea class='form-control' name="meta" id="" cols="150" rows="10"><?php echo $category['meta'] ?></textarea><br><br>
+					<input type="hidden" name="type" value="category">
+					<input type="hidden" name="id" value="<?php echo $category['id'] ?>">
+					<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+					<button type="submit"  class="btn btn-rounded btn-primary">Сохранить</button>
+				</form>
+			</div>
+		<?php } ?>
+		<?php
+		$i = 1;
+		foreach ($data['news'] AS $article){ ?>
+			<?php if($i == 1) {
+				$i++;
+				?>
+				<div class="col-md-12"><h2>SEO новости</h2></div>
+			<?php } ?>
+			<div class="col-md-6 col-sm-12" style="margin-bottom: 30px;">
+
+
+				<h4><?php echo $article['name'] ?></h4>
+				<form action="/admin_panel/add_meta" method="post">
+					<div class="form-group">
+						<label for="">Title</label>
+						<input class="form-control" type="text" name="title" id="" value="<?php $article['meta_title'] ?>">
+					</div>
+					<label for="">Meta</label>
+					<textarea class='form-control' name="meta" id="" cols="150" rows="10"><?php echo $article['meta'] ?></textarea><br><br>
+					<input type="hidden" name="type" value="articles">
+					<input type="hidden" name="id" value="<?php echo $article['id'] ?>">
+					<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+					<button type="submit"  class="btn btn-rounded btn-primary">Сохранить</button>
+				</form>
+			</div>
+		<?php } ?>
+		<div class="col-md-12"><h2>SEO О нас</h2></div>
+		<div class="col-md-6 col-sm-12" style="margin-bottom: 30px;">
+			<form action="/admin_panel/add_meta" method="post">
+				<div class="form-group">
+					<label for="">Title</label>
+					<input class="form-control" type="text" name="title" id="" value="<?php echo $data['about']['title'] ?>">
+				</div>
+				<label for="">Meta</label>
+				<textarea class='form-control' name="meta" id="" cols="150" rows="10"><?php echo $data['about']['meta'] ?></textarea><br><br>
+				<input type="hidden" name="type" value="about">
+				<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+				<button type="submit"  class="btn btn-rounded btn-primary">Сохранить</button>
+			</form>
+		</div>
+		<div class="col-md-12"><h2>SEO Справка</h2></div>
+		<div class="col-md-6 col-sm-12" style="margin-bottom: 30px;">
+			<form action="/admin_panel/add_meta" method="post">
+				<div class="form-group">
+					<label for="">Title</label>
+					<input class="form-control" type="text" name="title" id="" value="<?php echo $data['faq']['title'] ?>">
+				</div>
+				<label for="">Meta</label>
+				<textarea class='form-control' name="meta" id="" cols="150" rows="10"><?php echo $data['faq']['meta'] ?></textarea><br><br>
+				<input type="hidden" name="type" value="faq">
+				<input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+				<button type="submit"  class="btn btn-rounded btn-primary">Сохранить</button>
+			</form>
+		</div>
 	</div>
 </div><!--.page-content-->
 <script>

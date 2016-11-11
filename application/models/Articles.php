@@ -38,4 +38,13 @@ class Articles extends CI_Model{
         $sql = "DELETE FROM `article` WHERE `id` = ?";
         $CI->db->query($sql, array($id));
     }
+
+	public static function update_meta_articles($title, $meta, $id){
+		$CI = & get_instance();
+		$sql = 'UPDATE `article` SET `title` = ?, `meta` = ? WHERE `id` = ?';
+		$CI->db->query($sql, array($title, $meta, $id));
+	}
+
+
+
 }

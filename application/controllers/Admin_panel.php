@@ -656,7 +656,12 @@ class Admin_panel extends CI_Controller {
 		$data['contact_settings'] = Settings::load_contact_settings();
 		$data['seo_texts'] = Seo_text::load_seo_texts();
 		$data['meta'] = Seo_text::load_meta_tags();
-		/*print '<pre>' . print_r($data['projects'], true) . '</pre>'; die();*/
+        $data['news'] = Articles::load_all();
+        $data['categories'] = Product::load_categories();
+        $data['products']  = Product::load_products();
+        $data['faq'] = Seo_text::load_seo_text(4);
+        $data['about'] = Seo_text::load_seo_text(5);
+//		print '<pre>' . print_r($data['seo_texts'], true) . '</pre>'; die();
 		// Data.
         $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
         //views
@@ -678,7 +683,27 @@ class Admin_panel extends CI_Controller {
         $post = $this->input->post(NULL, TRUE);
 
         if($post || $is_post){
-            Seo_text::add_meta_tags($post['meta']);
+            if(!isset($post['type'])) {
+                Seo_text::add_meta_tags($post['meta']);
+            }else{
+                switch ($post['type']){
+                    case 'product':
+                        Product::update_meta_product($post['title'], $post['meta'], $post['id']);
+                        break;
+                    case 'category':
+                        Product::update_meta_category($post['title'], $post['meta'], $post['id']);
+                        break;
+                    case 'articles':
+                        Articles::update_meta_articles($post['title'], $post['meta'], $post['id']);
+                        break;
+                    case 'faq':
+                        Seo_text::update_meta_pages($post['title'], $post['meta'], 'faq');
+                        break;
+                    case 'about':
+                        Seo_text::update_meta_pages($post['title'], $post['meta'], 'about');
+                        break;
+                }
+            }
             redirect('/admin_panel/seo');
         }
     }

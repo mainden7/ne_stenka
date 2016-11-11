@@ -42,4 +42,10 @@ class Seo_text extends CI_Model{
 
 		return $result;
 	}
+
+	public static function update_meta_pages($title, $meta, $type){
+		$CI = & get_instance();
+		$sql = 'UPDATE `seo_texts` SET `title` = ?, `meta` = ? WHERE `page_id` = ?';
+		$CI->db->query($sql, array($title, $meta, $type));
+	}
 }

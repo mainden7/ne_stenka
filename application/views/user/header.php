@@ -1,8 +1,17 @@
 <?php
-	$site_settings = Settings::load_main_settings();
-	$title = $site_settings['title'];
-	$meta = $site_settings['meta'];
-
+if(isset($data['title'])){
+	$title = $data['title'];
+}
+if(isset($data['meta'])){
+	$meta = $data['meta'];
+}
+if(isset($data['page'])){
+	if($data['page'] == 'home') {
+		$site_settings = Settings::load_main_settings();
+		$title = $site_settings['title'];
+		$meta = $site_settings['meta'];
+	}
+}
 ?>
 <html class="no-js" lang="ru">
 <head>

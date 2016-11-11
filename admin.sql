@@ -55,6 +55,8 @@ CREATE TABLE `article` (
   `on_main` int(5) DEFAULT NULL,
   `post` int(5) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
+  `meta_title` varchar(256) DEFAULT NULL,
+  `meta` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -249,6 +251,8 @@ CREATE TABLE `product_category` (
   `date` datetime DEFAULT NULL,
   `link` varchar(256) DEFAULT NULL,
   `image` varchar(256) DEFAULT NULL,
+  `meta` text,
+  `title` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -259,7 +263,7 @@ CREATE TABLE `product_category` (
 
 LOCK TABLES `product_category` WRITE;
 /*!40000 ALTER TABLE `product_category` DISABLE KEYS */;
-INSERT INTO `product_category` VALUES (1,'Блоки','blabla','2016-10-19 22:00:20','blocks','wall_blocks.png'),(2,'Плиты','blabla','2016-10-19 22:00:20','slabs','slabs.png'),(3,'Инструменты','blabla','2016-10-19 22:00:20','instruments','glue.png');
+INSERT INTO `product_category` VALUES (1,'Блоки','blabla','2016-10-19 22:00:20','blocks','wall_blocks.png',NULL,'Блоки'),(2,'Плиты','blabla','2016-10-19 22:00:20','slabs','slabs.png',NULL,'Плиты'),(3,'Инструменты','blabla','2016-10-19 22:00:20','instruments','glue.png',NULL,'Инструменты');
 /*!40000 ALTER TABLE `product_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -306,6 +310,8 @@ CREATE TABLE `products` (
   `size` varchar(256) DEFAULT NULL,
   `block_category` varchar(256) DEFAULT NULL,
   `recommended` int(11) DEFAULT NULL,
+  `title` varchar(256) DEFAULT NULL,
+  `meta` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -316,7 +322,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Стеновые блоки 1','123','blocks.png',NULL,'Блоки',NULL,NULL,'Стеновые блоки',1),(2,'Стеновые блоки 2','123 123 123','blocks.png',NULL,'Блоки',NULL,NULL,'Стеновые блоки',1),(3,'Пазогребневые блоки 1','22','blocks.png',NULL,'Блоки',NULL,NULL,'Пазогрбневые блоки',1),(4,'Пазогребневые блоки 2','22','blocks.png',NULL,'Блоки',NULL,NULL,'Пазогрбневые блоки',1),(5,'Брусовые перемычки 1','22','blocks.png',NULL,'Блоки',NULL,NULL,'Брусовые перемычки',1),(6,'Кельма','22 222 222 ','kelma.png',NULL,'Инструменты',NULL,NULL,NULL,1);
+INSERT INTO `products` VALUES (1,'Стеновые блоки 1','123','blocks.png',NULL,'Блоки',NULL,NULL,'Стеновые блоки',1,NULL,NULL),(2,'Стеновые блоки 2','123 123 123','blocks.png',NULL,'Блоки',NULL,NULL,'Стеновые блоки',1,NULL,NULL),(3,'Пазогребневые блоки 1','22','blocks.png',NULL,'Блоки',NULL,NULL,'Пазогрбневые блоки',1,NULL,NULL),(4,'Пазогребневые блоки 2','22','blocks.png',NULL,'Блоки',NULL,NULL,'Пазогрбневые блоки',1,NULL,NULL),(5,'Брусовые перемычки 1','22','blocks.png',NULL,'Блоки',NULL,NULL,'Брусовые перемычки',1,NULL,NULL),(6,'Кельма','22 222 222 ','kelma.png',NULL,'Инструменты',NULL,NULL,NULL,1,NULL,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,8 +367,10 @@ CREATE TABLE `seo_texts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` mediumtext,
   `page_id` varchar(256) DEFAULT NULL,
+  `title` varchar(256) DEFAULT NULL,
+  `meta` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -371,7 +379,7 @@ CREATE TABLE `seo_texts` (
 
 LOCK TABLES `seo_texts` WRITE;
 /*!40000 ALTER TABLE `seo_texts` DISABLE KEYS */;
-INSERT INTO `seo_texts` VALUES (1,'<p>123123123</p>','home'),(2,'123 привет','blocks'),(3,'123','faq');
+INSERT INTO `seo_texts` VALUES (1,'<p>123123123</p>','home','123','<meta>'),(2,'123 привет','blocks','123','<meta>'),(3,'123','faq','123','<meta>'),(4,'123','about','123','<meta>');
 /*!40000 ALTER TABLE `seo_texts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -412,4 +420,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-10 18:22:39
+-- Dump completed on 2016-11-11 16:29:10
