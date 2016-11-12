@@ -165,7 +165,7 @@ class Admin_panel extends CI_Controller {
 
         $data = array();
         if($post || $is_post){
-        	/*print '<pre>' . print_r($post, true) . '</pre>'; die();*/
+//        	print '<pre>' . print_r($post, true) . '</pre>'; die();
         	//save logo
             if ($_FILES['img']['name']) {
                 $uploaddir = base_url().'application/resources/upload/site/';
@@ -182,12 +182,15 @@ class Admin_panel extends CI_Controller {
         	
         	$size = $post['size'];
         	$category = $post['category'];
+            $sub_category = $post['block_category'];
             if(isset($post['recommended'])){
                 $recommended = 1;
             }else{
-                $recommended = 1;
+                $recommended = 0;
             }
-        	$id = Product::add_product($name, $description, $img, NULL, $category, $size, $recommended);
+            $pallet_amount = isset($post['pallet_amount']) ? $post['pallet_amount'] : 0;
+            $on_pallet_amount = isset($post['on_pallet_amount']) ? $post['on_pallet_amount'] : 0;
+        	$id = Product::add_product($name, $description, $img, NULL, $category, $sub_category, $size, $recommended, $pallet_amount, $on_pallet_amount);
         	$cities = City::load_cities();
             foreach ($cities as $city) {
 
@@ -238,9 +241,17 @@ class Admin_panel extends CI_Controller {
             $name = $post['name'];
             $description = $post['description'];
             $category = $post['category'];
+            $sub_category = $post['block_category'];
             $size = $post['size'];
             $id = $post['id'];
-            Product::update_product($name, $description, $img, NULL, $size, $category, $id);
+            if(isset($post['recommended'])){
+                $recommended = 1;
+            }else{
+                $recommended = 0;
+            }
+            $pallet_amount = isset($post['pallet_amount']) ? $post['pallet_amount'] : 0;
+            $on_pallet_amount = isset($post['on_pallet_amount']) ? $post['on_pallet_amount'] : 0;
+            Product::update_product($name, $description, $img, NULL, $size, $category, $sub_category, $recommended, $pallet_amount, $on_pallet_amount, $id);
             $cities = City::load_cities();
             foreach ($cities as $city) {
 

@@ -103,7 +103,7 @@
                         <?php }
                     }?>
 				</div>
-				<div class="tab tab-2" data-filter="how_to_order">
+				<div id='accordion' class="tab tab-2" data-filter="how_to_order">
                     <?php foreach ($data['faq'] as $faq) {
                         if ($faq['category'] == 'Как заказать') { ?>
                             <h3><?php echo htmlspecialchars_decode($faq['question']) ?> <i class="fa fa-angle-down fa-2x"></i></h3>
@@ -115,7 +115,7 @@
                         <?php }
                     }?>
 				</div>
-				<div class="tab tab-3" data-filter="delivery">
+				<div id='accordion' class="tab tab-3" data-filter="delivery">
                     <?php foreach ($data['faq'] as $faq) {
                         if ($faq['category'] == 'Доставка и оплата') { ?>
                             <h3><?php echo htmlspecialchars_decode($faq['question']) ?> <i class="fa fa-angle-down fa-2x"></i></h3>
@@ -127,7 +127,7 @@
                         <?php }
                     }?>
 				</div>
-				<div class="tab tab-4" data-filter="documents">
+				<div id='accordion' class="tab tab-4" data-filter="documents">
                     <?php foreach ($data['faq'] as $faq) {
                         if ($faq['category'] == 'Документы') { ?>
                             <h3><?php echo htmlspecialchars_decode($faq['question']) ?> <i class="fa fa-angle-down fa-2x"></i></h3>

@@ -26,35 +26,27 @@
 		<h2 class="text-center uppercase">Может пригодиться</h2>
 		<h5 class="text-center mb80 text-18 text-light">В нашем каталоге есть все необходимое для кладки блоков</h5>
 		<div class="row large-10">
-			<div class="column large-6 medium-6 small-12 mb30">
-				<div class="column large-12 proposal">
-					<div class="column large-8 small-12">
-						<h3 class="mt0">Клеевой состав для кладки блоков</h3>
-						<p class="mb50">При условии покупки блоков, цена с доставкой: 175 руб за за мешок 25 кг </p>
+			<?php foreach ($data['products'] AS $product) {
+				if ($product['recommended'] == 1) { ?>
+					<div class="column large-6 medium-6 small-12 mb30">
+						<div class="column large-12 proposal">
+							<div class="column large-8 small-12">
+								<h3 class="mt0"><?php echo $product['name']; ?></h3>
+								<p class="mb50"><?php echo $product['description']; ?></p>
+							</div>
+							<div class="column large-4 small-12 mb20-small">
+								<img
+									src="<?php echo base_url() ?>application/resources/user_resources/img/<?php echo $product['image'] ?>">
+							</div>
+							<div class="column large-12 center-on-small">
+								<a href="/user/product/<?php echo $product['id'] ?>"
+								   class="button btn-blueLine btn-inverted btn-transparent uppercase ">Подробнее <i
+										class="fa fa-long-arrow-right"></i></a>
+							</div>
+						</div>
 					</div>
-					<div class="column large-4 small-12 mb20-small">
-						<img src="<?php echo base_url() ?>application/resources/user_resources/img/glue.png">
-					</div>
-					<div class="column large-12 center-on-small">
-						<a href="" class="button btn-blueLine btn-inverted btn-transparent uppercase ">Подробнее <i class="fa fa-long-arrow-right"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="column large-6 medium-6 small-12">
-				<div class="column large-12 proposal">
-					<div class="column large-8 small-12">
-						<h3 class="mt0">Клеевой состав для кладки блоков</h3>
-						<p class="mb50">При условии покупки блоков, цена с доставкой: 175 руб за за мешок 25 кг </p>
-					</div>
-					<div class="column large-4 small-12 mb20-small">
-						<img src="<?php echo base_url() ?>application/resources/user_resources/img/glue.png">
-					</div>
-					<div class="column large-12 center-on-small">
-						<a href="" class="button btn-blueLine btn-inverted btn-transparent uppercase ">Подробнее <i class="fa fa-long-arrow-right"></i></a>
-					</div>
-				</div>
-
-			</div>
+				<?php }
+			}?>
 		</div>
 	</div>
 </section>

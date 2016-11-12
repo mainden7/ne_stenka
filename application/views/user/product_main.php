@@ -126,7 +126,7 @@
 								<li><i class="fa fa-check"></i>Для кладки на раствор</li>
 							</ul>
 							<p class="mb50"><?php echo $data['product']['description'] ?></p>
-							<a role="button" aria-label="submit form" href="/user/blocks" class="button btn-blueLine btn-inverted btn-transparent text-18">Размеры и цены <i class="fa fa-long-arrow-right"></i></a>
+							<a role="button" aria-label="submit form" href="/user/blocks/<?php echo $data['product']['id'] ?>" class="button btn-blueLine btn-inverted btn-transparent text-18">Размеры и цены <i class="fa fa-long-arrow-right"></i></a>
 						</div>
 						<div class="column large-6 medium-6 small-12 text-center">
 							<img src="<?php echo base_url() ?>application/resources/user_resources/img/<?php echo $data['product']['image'] ?>">

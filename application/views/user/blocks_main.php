@@ -14,7 +14,9 @@
         font-weight: 100;
         border-bottom: 1px dashed #58595b;
     }
-
+    .grey-underline-href:hover{
+        border-bottom: 1px dashed transparent;
+    }
     a.ui-tabs-anchor {
         width: 344px;
         padding: 10px 30px;
@@ -274,8 +276,16 @@
     }
 
     @media (max-width: 1440px) {
+        h2,
         .proposal_block h2 {
             font-size: 36px;
+        }
+        #tabs-1 > div:nth-child(1) > div.column.large-4.medium-6.small-12.pl40 > div > p:nth-child(2),
+        #tabs-2 > div:nth-child(1) > div.column.large-4.medium-6.small-12.pl40 > div > p:nth-child(2){
+            font-size:12px;
+        }
+        table{
+            font-size: 13px;
         }
     }
 
@@ -403,7 +413,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <p class='pl20'><a data-target="freeConsultation" data-toggle="modal"><span
+                                <p class='pl20'><a data-target="#askQuestion" data-toggle="modal"><span
                                             class="grey-underline-href">Бесплатная помощь в выборе блоков</span></a></p>
                             </div>
                         </div>
@@ -439,7 +449,7 @@
                                         <th>Размер</th>
                                         <th>Кол-во</th>
                                         <th colspan="2" class="text-center">Кол-во на поддоне</th>
-                                        <th colspan="2" class="text-center">Кол-во на машине</th>
+                                        <th colspan="3" class="text-center">Кол-во на машине</th>
                                         <th colspan="3" class="text-center">Цена руб.</th>
                                         <th class="text-center">Кол-во поддонов</th>
                                         <th class='br-none' style='border-right: none;'></th>
@@ -449,9 +459,10 @@
                                         <td>шт. в 1м3</td>
                                         <td class='text-center br-none'>шт</td>
                                         <td class='text-center'>м3</td>
+                                        <td class='text-center br-none'>под</td>
                                         <td class='text-center br-none'>шт</td>
                                         <td class='text-center'>м3</td>
-                                        <td class='text-center br-none'>шт</td>
+                                        <td class='text-center br-none'>под</td>
                                         <td class='text-center br-none'>м3</td>
                                         <td class='text-center'>машины</td>
                                         <td></td>
@@ -464,29 +475,66 @@
                                             ?>
                                             <tr>
                                                 <td><?php echo isset($product['size']) ? $product['size'] : 0; ?></td>
-                                                <td></td>
-                                                <td class="text-center br-none">60</td>
-                                                <td class="text-center">20</td>
-                                                <td class="text-center br-none">16</td>
-                                                <td class="text-center">15</td>
-                                                <td class="text-center br-none">21</td>
+                                                <td>
+                                                    <?php
+                                                        $product['size'] = isset($product['size']) ? $product['size'] : '290x100x599';
+                                                        $size = explode('x', $product['size']);
+                                                    $volume = 1;
+                                                    foreach ($size as $length) {
+                                                        $volume *= ($length*0.001);
+                                                    }
+                                                        echo number_format((1/$volume), 2, '.', ',');
+                                                    ?>
+                                                </td>
+                                                <td class="text-center br-none"><?php echo $on_pallet_amount = isset($product['on_pallet_amount']) ? $product['on_pallet_amount'] : 80 ?></td>
+                                                <td class="text-center">
+                                                    <?php
+                                                        $count = isset($product['on_pallet_amount']) ? $product['on_pallet_amount'] : 80;
+                                                        echo number_format(($count * $volume), 2, '.', ',');
+                                                    ?>
+                                                </td>
+                                                <td class="text-center br-none"><?php echo $pallet_amount = isset($product['pallet_amount']) ? $product['pallet_amount'] : 22 ?></td>
+                                                <td class="text-center br-none">
+                                                    <?php
+                                                        echo $pallet_amount * $on_pallet_amount;
+                                                    ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <?php
+                                                    echo number_format($volume * $pallet_amount * $on_pallet_amount, 3, '.', ',');
+                                                    ?>
+                                                </td>
+
                                                 <td class="text-center br-none">
                                                     <?php
                                                     $prices = Product::load_product_prices($product['id']);
                                                     if (!empty($prices)) {
+                                                        $price_pallet = 4500;
                                                         foreach ($prices as $price) { ?>
                                                             <span
                                                                 class='city-price <?php echo $price['city'] == $user_city ? '' : 'hidden' ?>'
                                                                 data-city-price='<?php echo $price['city'] ?>'>
-																		<?php echo isset($price['price']) ? number_format($price['price'], 2, '.', ',') : 0; ?>
+																		<?php echo isset($price['price']) ? number_format($price['price'], 2, '.', ',') : 0;
+                                                                            if($price['city'] == $user_city){
+                                                                                $price_pallet = $price['price'];
+                                                                            }
+                                                                        ?>
 																	 </span>
                                                             <?php
                                                         }
+                                                    }else{
+                                                        $price_pallet = 4500;
+                                                        echo $price_pallet;
                                                     }
-                                                    echo 0;
+
                                                     ?>
                                                 </td>
-                                                <td class="text-center">111</td>
+                                                <td class="text-center br-none"><?php echo $cube_price = number_format($price_pallet / ($count * $volume), 0, '.', ' ') ?></td>
+                                                <td class="text-center">
+                                                    <?php
+                                                    echo number_format($price_pallet * $pallet_amount, 0, '.', ' ');
+                                                    ?>
+                                                </td>
                                                 <td class='text-center'>
                                                     <form id='myform' class='display-inline-block' method='POST'
                                                           action='#'>
@@ -651,7 +699,7 @@
                                         <th>Размер</th>
                                         <th>Кол-во</th>
                                         <th colspan="2" class="text-center">Кол-во на поддоне</th>
-                                        <th colspan="2" class="text-center">Кол-во на машине</th>
+                                        <th colspan="3" class="text-center">Кол-во на машине</th>
                                         <th colspan="3" class="text-center">Цена руб.</th>
                                         <th class="text-center">Кол-во поддонов</th>
                                         <th class='br-none' style='border-right: none;'></th>
@@ -661,9 +709,10 @@
                                         <td>шт. в 1м3</td>
                                         <td class='text-center br-none'>шт</td>
                                         <td class='text-center'>м3</td>
+                                        <td class='text-center br-none'>под</td>
                                         <td class='text-center br-none'>шт</td>
                                         <td class='text-center'>м3</td>
-                                        <td class='text-center br-none'>шт</td>
+                                        <td class='text-center br-none'>под</td>
                                         <td class='text-center br-none'>м3</td>
                                         <td class='text-center'>машины</td>
                                         <td></td>
@@ -672,32 +721,70 @@
                                     </thead>
                                     <tbody>
                                     <?php foreach ($data['products'] AS $product) {
-                                        if ($product['category'] == 'Blocks') {
+                                        if ($product['category'] == 'Блоки') {
                                             ?>
                                             <tr>
-                                                <td><?php echo $product['size'] ?></td>
-                                                <td></td>
-                                                <td class="text-center br-none">60</td>
-                                                <td class="text-center">20</td>
-                                                <td class="text-center br-none">16</td>
-                                                <td class="text-center">15</td>
-                                                <td class="text-center br-none">21</td>
+                                                <td><?php echo isset($product['size']) ? $product['size'] : 0; ?></td>
+                                                <td>
+                                                    <?php
+                                                    $product['size'] = isset($product['size']) ? $product['size'] : '290x100x599';
+                                                    $size = explode('x', $product['size']);
+                                                    $volume = 1;
+                                                    foreach ($size as $length) {
+                                                        $volume *= ($length*0.001);
+                                                    }
+                                                    echo number_format((1/$volume), 2, '.', ',');
+                                                    ?>
+                                                </td>
+                                                <td class="text-center br-none"><?php echo $on_pallet_amount = isset($product['on_pallet_amount']) ? $product['on_pallet_amount'] : 80 ?></td>
+                                                <td class="text-center">
+                                                    <?php
+                                                    $count = isset($product['on_pallet_amount']) ? $product['on_pallet_amount'] : 80;
+                                                    echo number_format(($count * $volume), 2, '.', ',');
+                                                    ?>
+                                                </td>
+                                                <td class="text-center br-none"><?php echo $pallet_amount = isset($product['pallet_amount']) ? $product['pallet_amount'] : 22 ?></td>
+                                                <td class="text-center br-none">
+                                                    <?php
+                                                    echo $pallet_amount * $on_pallet_amount;
+                                                    ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <?php
+                                                    echo number_format($volume * $pallet_amount * $on_pallet_amount, 3, '.', ',');
+                                                    ?>
+                                                </td>
+
                                                 <td class="text-center br-none">
                                                     <?php
                                                     $prices = Product::load_product_prices($product['id']);
                                                     if (!empty($prices)) {
+                                                        $price_pallet = 4500;
                                                         foreach ($prices as $price) { ?>
                                                             <span
                                                                 class='city-price <?php echo $price['city'] == $user_city ? '' : 'hidden' ?>'
                                                                 data-city-price='<?php echo $price['city'] ?>'>
-																		<?php echo number_format($price['price'], 2, '.', ','); ?>
+																		<?php echo isset($price['price']) ? number_format($price['price'], 2, '.', ',') : 0;
+                                                                        if($price['city'] == $user_city){
+                                                                            $price_pallet = $price['price'];
+                                                                        }
+                                                                        ?>
 																	 </span>
                                                             <?php
                                                         }
+                                                    }else{
+                                                        $price_pallet = 4500;
+                                                        echo $price_pallet;
                                                     }
+
                                                     ?>
                                                 </td>
-                                                <td class="text-center">111</td>
+                                                <td class="text-center br-none"><?php echo $cube_price = number_format($price_pallet / ($count * $volume), 0, '.', ' ') ?></td>
+                                                <td class="text-center">
+                                                    <?php
+                                                    echo number_format($price_pallet * $pallet_amount, 0, '.', ' ');
+                                                    ?>
+                                                </td>
                                                 <td class='text-center'>
                                                     <form id='myform' class='display-inline-block' method='POST'
                                                           action='#'>

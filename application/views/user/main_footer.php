@@ -33,7 +33,7 @@
 		<div class="row large-10">
 			<div class="column small-12 medium-4">
 				<h3 class="logo-white-header">
-					NeStenka
+					<?php echo isset($data['main_settings']['main_name']) ?  $data['main_settings']['main_name']: 'NeStenka'?>
 				</h3>
 				<p class="text-white-60">
 					Высококачественные блоки<br>из ячеистого бетона
@@ -56,15 +56,15 @@
 			</div>
 			<div class="column small-12 medium-3 text-left">
 				<p class="uppercase"><span class="text-white-60 text-bold">Остались вопросы ?</span></p>
-				<h3 class="mt0 mb0" style="font-size: 28px"><?php echo $data['contact_settings']['tel_1'] ?></h3>
-				<p class="uppercase freecall-nowrap"><a href="tel: <?php echo $data['contact_settings']['tel_1'] ?>" class="dashed">Бесплатный звонок 24/7</a></p>
+				<h3 class="mt0 mb0" style="font-size: 28px"><a href="tel: <?php echo $data['contact_settings']['tel_1']; ?>" class="text-white"><?php echo $data['contact_settings']['tel_1'] ?></a></h3>
+				<p class="uppercase freecall-nowrap">Бесплатный звонок 24/7</p>
 			</div>
 		</div>
 	</div>
 	<div class="row expanded small-12 medium-12 large-12 large-centered pt20" style='background: #0b0e1d'> 
 		<div class="row large-10">
 			<div class="column small-12 medium-4">
-				<p>&copy<?php echo date('Y'); ?> NeStenka</p>
+				<p>&copy<?php echo date('Y'); ?> <?php echo isset($data['main_settings']['main_name']) ?  $data['main_settings']['main_name']: 'NeStenka'?></p>
 			</div>
 			<div class="column small-12 medium-4 text-right">
 				<img src="<?php echo base_url(); ?>application/resources/user_resources/img/visaMaestroMC.png">

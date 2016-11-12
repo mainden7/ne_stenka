@@ -237,7 +237,38 @@ class User extends CI_Controller
             $this->load->view('user/main_footer', $data);
             $this->load->view('user/footer', $data);
         } else {
-            show_404();
+            $id = 1;
+            // CSRF protection arguments.
+            $csrf_token_name = $this->security->get_csrf_token_name();
+            $csrf_hash = $this->security->get_csrf_hash();
+            $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+            $post = $this->input->post(NULL, TRUE);
+
+            $data = array();
+            $data['active'] = 'blocks';
+            $data['title'] = '';
+            $data['main_settings'] = Settings::load_main_settings();
+            $data['contact_settings'] = Settings::load_contact_settings();
+            $data['product'] = Product::load_products($id);
+            $data['products'] = Product::load_products();
+            $data['title'] = $data['product']['title'];
+            $data['meta'] = $data['product']['meta'];
+            if (!isset($data['product']) OR empty($data['product'])) {
+                show_404();
+            }
+            if ($data['product']['category'] != 'Блоки') {
+                show_404();
+            }
+            // Data.
+            $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+            //views
+            $this->load->view('user/header', $data);
+            $this->load->view('user/main_menu', $data);
+            $this->load->view('user/product_main', $data);
+            $this->load->view('user/additional_proposal', $data);
+            $this->load->view('user/do_not_find', $data);
+            $this->load->view('user/main_footer', $data);
+            $this->load->view('user/footer', $data);
         }
     }
 
@@ -270,33 +301,55 @@ class User extends CI_Controller
         $this->load->view('user/footer', $data);
     }
 
-    public function news_article($id = NULL)
-    {
-        // CSRF protection arguments.
-        $csrf_token_name = $this->security->get_csrf_token_name();
-        $csrf_hash = $this->security->get_csrf_hash();
-        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
-        $post = $this->input->post(NULL, TRUE);
+    public function news_article($id = NULL){
+        if(isset($id)) {
+            // CSRF protection arguments.
+            $csrf_token_name = $this->security->get_csrf_token_name();
+            $csrf_hash = $this->security->get_csrf_hash();
+            $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+            $post = $this->input->post(NULL, TRUE);
 
-        $data = array();
-        $data['active'] = '';
-        $data['title'] = '';
-        $data['main_settings'] = Settings::load_main_settings();
-        $data['contact_settings'] = Settings::load_contact_settings();
-        $data['articles'] = Articles::load_all();
-        $data['article'] = Articles::load_article($id);
-        $data['title'] = $data['article']['title'];
-        $data['meta'] = $data['article']['meta'];
-        $data['article_id'] = $id;
-        // Data.
-        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
-        //views
-        $this->load->view('user/header', $data);
-        $this->load->view('user/main_menu', $data);
-        $this->load->view('user/article_main', $data);
-        $this->load->view('user/other_articles', $data);
-        $this->load->view('user/main_footer', $data);
-        $this->load->view('user/footer', $data);
+            $data = array();
+            $data['active'] = '';
+            $data['title'] = '';
+            $data['main_settings'] = Settings::load_main_settings();
+            $data['contact_settings'] = Settings::load_contact_settings();
+            $data['articles'] = Articles::load_all();
+            $data['article'] = Articles::load_article($id);
+            $data['title'] = $data['article']['title'];
+            $data['meta'] = $data['article']['meta'];
+            $data['article_id'] = $id;
+            // Data.
+            $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+            //views
+            $this->load->view('user/header', $data);
+            $this->load->view('user/main_menu', $data);
+            $this->load->view('user/article_main', $data);
+            $this->load->view('user/other_articles', $data);
+            $this->load->view('user/main_footer', $data);
+            $this->load->view('user/footer', $data);
+        }else{
+            // CSRF protection arguments.
+            $csrf_token_name = $this->security->get_csrf_token_name();
+            $csrf_hash = $this->security->get_csrf_hash();
+            $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+            $post = $this->input->post(NULL, TRUE);
+            $data = array();
+            $data['active'] = '';
+            $data['title'] = '';
+            $data['main_settings'] = Settings::load_main_settings();
+            $data['contact_settings'] = Settings::load_contact_settings();
+            $data['articles'] = Articles::load_all();
+
+            // Data.
+            $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+            //views
+            $this->load->view('user/header', $data);
+            $this->load->view('user/main_menu', $data);
+            $this->load->view('user/articles', $data);
+            $this->load->view('user/main_footer', $data);
+            $this->load->view('user/footer', $data);
+        }
     }
 
     public function cart($user_id = NULL)

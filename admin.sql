@@ -139,7 +139,7 @@ CREATE TABLE `faq` (
   `answer` mediumtext,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +148,7 @@ CREATE TABLE `faq` (
 
 LOCK TABLES `faq` WRITE;
 /*!40000 ALTER TABLE `faq` DISABLE KEYS */;
-INSERT INTO `faq` VALUES (1,'Где производится ваша продукция?','Наша продукция','Вся продукция, которую мы продаем, выпускается в Республике Беларусь на заводе ЗАО\"Могилевский КСИ\", за исключением блоков, имеющих длину 599 мм, которые производятся на заводе \"Газоселикатстрой\" г. Могилев,  Республика Беларусь.','2016-11-03 14:13:16');
+INSERT INTO `faq` VALUES (1,'Где производится ваша продукция?','Наша продукция','Вся продукция, которую мы продаем, выпускается в Республике Беларусь на заводе ЗАО\"Могилевский КСИ\", за исключением блоков, имеющих длину 599 мм, которые производятся на заводе \"Газоселикатстрой\" г. Могилев,  Республика Беларусь.','2016-11-03 14:13:16'),(2,'123','Как заказать','123',NULL);
 /*!40000 ALTER TABLE `faq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -312,6 +312,8 @@ CREATE TABLE `products` (
   `recommended` int(11) DEFAULT NULL,
   `title` varchar(256) DEFAULT NULL,
   `meta` text,
+  `pallet_amount` int(11) DEFAULT NULL,
+  `on_pallet_amount` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -322,7 +324,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Стеновые блоки 1','123','blocks.png',NULL,'Блоки',NULL,NULL,'Стеновые блоки',1,NULL,NULL),(2,'Стеновые блоки 2','123 123 123','blocks.png',NULL,'Блоки',NULL,NULL,'Стеновые блоки',1,NULL,NULL),(3,'Пазогребневые блоки 1','22','blocks.png',NULL,'Блоки',NULL,NULL,'Пазогрбневые блоки',1,NULL,NULL),(4,'Пазогребневые блоки 2','22','blocks.png',NULL,'Блоки',NULL,NULL,'Пазогрбневые блоки',1,NULL,NULL),(5,'Брусовые перемычки 1','22','blocks.png',NULL,'Блоки',NULL,NULL,'Брусовые перемычки',1,NULL,NULL),(6,'Кельма','22 222 222 ','kelma.png',NULL,'Инструменты',NULL,NULL,NULL,1,NULL,NULL);
+INSERT INTO `products` VALUES (1,'Стеновые блоки 1','123','blocks.png',NULL,'Блоки',NULL,NULL,'Стеновые блоки',1,NULL,NULL,NULL,NULL),(2,'Стеновые блоки 2','123 123 123','blocks.png',NULL,'Блоки',NULL,NULL,'Стеновые блоки',1,NULL,NULL,NULL,NULL),(3,'Пазогребневые блоки 1','22','blocks.png',NULL,'Блоки',NULL,NULL,'Пазогрбневые блоки',1,NULL,NULL,NULL,NULL),(4,'Пазогребневые блоки 2','22','blocks.png',NULL,'Блоки',NULL,NULL,'Пазогрбневые блоки',1,NULL,NULL,NULL,NULL),(5,'Брусовые перемычки 1','22','blocks.png',NULL,'Блоки',NULL,NULL,'Брусовые перемычки',1,NULL,NULL,NULL,NULL),(6,'Кельма','22 222 222 ','kelma.png',NULL,'Инструменты',NULL,NULL,NULL,1,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -420,4 +422,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-11 16:29:10
+-- Dump completed on 2016-11-12 15:27:59

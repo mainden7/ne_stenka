@@ -6,21 +6,21 @@ if (!defined('BASEPATH'))
 class Product extends CI_Model
 {
 
-	public static function add_product($name, $description, $img, $price, $category, $size)
+	public static function add_product($name, $description, $img, $price, $category, $sub_category, $size, $recommended, $pallet_amount, $on_pallet_amount)
 	{
 		$CI = & get_instance();
-		$sql = 'INSERT INTO `products` (`name`, `description`, `date`, `image`, `price`, `category`, `size`) VALUES (?, ?, ?, ?, ?, ?, ?)';
-		$CI->db->query($sql, array($name, $description, date('Y-m-d H:i:s'), $img, $price, $category, $size));
+		$sql = 'INSERT INTO `products` (`name`, `description`, `date`, `image`, `price`, `category`, `block_category`, `size`, `recommended`, `pallet_amount`, `on_pallet_amount`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+		$CI->db->query($sql, array($name, $description, date('Y-m-d H:i:s'), $img, $price, $category, $sub_category,$size, $recommended, $pallet_amount, $on_pallet_amount));
 		$id = $CI->db->insert_id();
 
 		return $id;
 	}
 
-	public static function update_product($name, $description, $img, $price, $size, $category, $id)
+	public static function update_product($name, $description, $img, $price, $size, $category, $sub_category, $recommended, $pallet_amount, $on_pallet_amount, $id)
 	{
 		$CI = & get_instance();
-		$sql = "UPDATE `products` SET  `name` = ?, `description` = ?, `image` = ?, `price` = ?, `size` = ?,  `category` = ? WHERE `id` = ?";
-		$CI->db->query($sql, array($name, $description, $img, $price, $size, $category, $id));
+		$sql = "UPDATE `products` SET  `name` = ?, `description` = ?, `image` = ?, `price` = ?, `size` = ?, `block_category` = ?, `category` = ?, `recommended` = ?, `pallet_amount` = ?, `on_pallet_amount` = ? WHERE `id` = ?";
+		$CI->db->query($sql, array($name, $description, $img, $price, $size, $category, $sub_category, $recommended, $pallet_amount, $on_pallet_amount, $id));
 	}
 
 	public static function delete_product($id)
