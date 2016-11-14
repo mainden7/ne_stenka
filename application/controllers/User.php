@@ -55,6 +55,9 @@ class User extends CI_Controller
             $data['active'] = 'blocks';
             $data['main_settings'] = Settings::load_main_settings();
             $data['contact_settings'] = Settings::load_contact_settings();
+            if($block_category < 1 OR $block_category > 3){
+                show_404();
+            }
             if($block_category == 1){
                 $block_category = 'Стеновые блоки';
             }elseif($block_category == 2){
@@ -62,12 +65,16 @@ class User extends CI_Controller
             }elseif($block_category == 3){
                 $block_category = 'Брусовые перемычки';
             }
+
+            $data['categories'] = Product::load_categories(1);
+            $data['proposal_category'] = Product::load_categories(3);
             $data['blocks_category'] = $block_category;
             $data['products'] = Product::load_block_by_category($block_category);
-            $data['categories'] = Product::load_categories($block_category);
+            $data['proposal_products'] = Product::load_product_by_category($data['proposal_category']['name']);
             $data['title'] = $data['categories']['title'];
             $data['meta'] = $data['categories']['meta'];
             $data['page'] = 'blocks';
+            $data['oneclick'] = Product::load_oneclick();
             $page_id = 2;
             $data['seo_text'] = Seo_text::load_seo_text($page_id);
             // Data.
@@ -89,15 +96,18 @@ class User extends CI_Controller
 
             $data = array();
             $data['active'] = 'blocks';
+            $data['proposal_category'] = Product::load_categories(3);
+            $data['categories'] = Product::load_categories(1);
             $data['main_settings'] = Settings::load_main_settings();
             $data['contact_settings'] = Settings::load_contact_settings();
             $data['products'] = Product::load_products();
-            $data['blocks_category'] = 'Стеновые блоки';
-            $data['categories'] = Product::load_categories(1);
+            $data['blocks_category'] = $data['categories']['name'];
+            $data['oneclick'] = Product::load_oneclick();
             $data['title'] = $data['categories']['title'];
             $data['meta'] = $data['categories']['meta'];
-
+            $data['proposal_products'] = Product::load_product_by_category($data['proposal_category']['name']);
             $data['page'] = 'blocks';
+
             $page_id = 2;
             $data['seo_text'] = Seo_text::load_seo_text($page_id);
             // Data.
@@ -270,6 +280,43 @@ class User extends CI_Controller
             $this->load->view('user/main_footer', $data);
             $this->load->view('user/footer', $data);
         }
+    }
+    public function slabs($id = NULL)
+    {
+
+
+            // CSRF protection arguments.
+            $csrf_token_name = $this->security->get_csrf_token_name();
+            $csrf_hash = $this->security->get_csrf_hash();
+            $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+            $post = $this->input->post(NULL, TRUE);
+
+            $data = array();
+            $data['active'] = 'slabs';
+            $data['main_settings'] = Settings::load_main_settings();
+            $data['contact_settings'] = Settings::load_contact_settings();
+
+            $data['categories'] = Product::load_categories(2);
+        $data['proposal_category'] = Product::load_categories(3);
+        $data['blocks_category'] = $data['categories']['name'];
+            $data['products'] = Product::load_block_by_category($data['blocks_category']);
+        $data['proposal_products'] = Product::load_product_by_category($data['proposal_category']['name']);
+        $data['oneclick'] = Product::load_oneclick();
+//print '<pre>' . print_r($data['proposal_products'], true) . '</pre>'; die();
+            $data['title'] = $data['categories']['title'];
+            $data['meta'] = $data['categories']['meta'];
+            $data['page'] = 'slabs';
+            // Data.
+            $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+            //views
+            $this->load->view('user/header', $data);
+            $this->load->view('user/main_menu', $data);
+            $this->load->view('user/slabs_main', $data);
+            $this->load->view('user/instruments', $data);
+            $this->load->view('user/contact_director', $data);
+            $this->load->view('user/main_footer', $data);
+            $this->load->view('user/footer', $data);
+
     }
 
     public function instruments($user_id = NULL)
@@ -620,7 +667,7 @@ class User extends CI_Controller
                     	<h3>Главная информация</h3>
                         <p>Имя: ' . $post['name'] . '</p>
                         <p>Телефон: ' . $post['tel'] . '</p> 
-                        <p>Комментарий: ' . (isset($post['comments']) ? $post['commetns'] : '') . '</p> 
+                        <p>Комментарий: ' . (isset($post['comments']) ? $post['comments'] : '') . '</p> 
                     </body>
                 </html>';
 
@@ -630,6 +677,7 @@ class User extends CI_Controller
             $this->email->subject($subject);
             $this->email->message($msg);
             $this->email->send();
+            Message::save_message($post['name'], $post['tel'], $post['comments'], $subject);
         }else{
             show_404();
         }

@@ -30,4 +30,13 @@ class Order extends CI_Model{
 		$CI->db->query($sql, array($order_id, $product_id, $quantity));
 	}
 
+	public static function load_order_items($order_id){
+		$CI = & get_instance();
+		$sql = 'SELECT * FROM `order_items` `oi` LEFT JOIN products `p` ON `p`.`id` = `oi`.`product_id` WHERE `oi`.`id` = ?';
+		$query = $CI->db->query($sql, array($order_id));
+		$result = $query->result_array();
+
+		return $result;
+	}
+
 }

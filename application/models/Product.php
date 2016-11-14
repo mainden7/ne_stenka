@@ -55,6 +55,15 @@ class Product extends CI_Model
 
 		return $result;
 	}
+	public static function load_product_by_category($category)
+	{
+		$CI = &get_instance();
+		$sql = "SELECT * FROM `products` WHERE `category` = ?";
+		$query = $CI->db->query($sql, $category);
+		$result = $query->result_array();
+
+		return $result;
+	}
 
 	public static function load_products_by_type($type, $city)
 	{
@@ -155,6 +164,19 @@ class Product extends CI_Model
 		$CI->db->query($sql, array($title, $meta, $id));
 	}
 
+	public static function save_oneclick($block, $slab){
+		$CI = & get_instance();
+		$sql = 'UPDATE `oneclick` SET `block_price` = ?, `slab_price` = ?';
+		$CI->db->query($sql, array($block, $slab));
+	}
 
+	public static function load_oneclick(){
+		$CI = & get_instance();
+		$sql = 'SELECT * FROM `oneclick`';
+		$query = $CI->db->query($sql);
+		$result = $query->row_array();
+
+		return $result;
+	}
 
 }

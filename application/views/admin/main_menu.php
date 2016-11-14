@@ -29,6 +29,7 @@
             <ul>
                 <li><a href="<?php echo site_url().'admin_panel/categories'; ?>"><span class="lbl">Категории</span></a></li>
                 <li><a href="<?php echo site_url().'admin_panel/products'; ?>"><span class="lbl">Товары</span></a></li>
+                <li><a href="<?php echo site_url().'admin_panel/oneclick'; ?>"><span class="lbl">1 Клик</span></a></li>
                 <li><a href="<?php echo site_url().'admin_panel/cities'; ?>"><span class="lbl">Города поставки</span></a></li>
             </ul>
         </li>
@@ -67,10 +68,4 @@
         </li>
     </ul>
 
-    <section>
-        <header class="side-menu-title">еще</header>
-        <ul class="side-menu-list">
-            
-        </ul>
-    </section>
 </nav><!--.side-menu-->

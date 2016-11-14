@@ -39,13 +39,15 @@ class Admin_panel extends CI_Controller {
 		}
 		$data = array();
 		$data['main_settings'] = Settings::load_main_settings();
+        $data['orders'] = Order::load_all_orders();
+        $data['messages'] = Message::load_messages();
 		// Data.
         $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
 		//views
 		$this->load->view('admin/header');
 		$this->load->view('admin/main_header');
 		$this->load->view('admin/main_menu');
-		$this->load->view('admin/home');
+		$this->load->view('admin/home', $data);
 		$this->load->view('admin/footer');
 	
 	}
@@ -152,6 +154,37 @@ class Admin_panel extends CI_Controller {
 		$this->load->view('admin/contact_settings', $data);
 		$this->load->view('admin/footer');
 	}
+
+    public function oneclick(){
+        if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){
+            redirect('/login/admin_login');
+        }
+        // CSRF protection arguments.
+        $csrf_token_name = $this->security->get_csrf_token_name();
+        $csrf_hash = $this->security->get_csrf_hash();
+        $is_post = ($this->input->server('REQUEST_METHOD', TRUE) == 'POST');
+        $post = $this->input->post(NULL, TRUE);
+
+        $data = array();
+        if($post || $is_post){
+            /*print '<pre>' . print_r($post, true) . '</pre>'; die();*/
+
+            Product::save_oneclick($post['one_block'], $post['one_slabs']);
+            redirect('/admin_panel/oneclick');
+        }
+
+        $data['main_settings'] = Settings::load_main_settings();
+        $data['contact_settings'] = Settings::load_contact_settings();
+        $data['oneclick'] = Product::load_oneclick();
+        // Data.
+        $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
+        //views
+        $this->load->view('admin/header');
+        $this->load->view('admin/main_header', $data);
+        $this->load->view('admin/main_menu');
+        $this->load->view('admin/oneclick', $data);
+        $this->load->view('admin/footer');
+    }
 
 	public function products(){
 		if(!isset($this->session->userdata['admin_status']) OR $this->session->userdata['admin_status'] != TRUE){

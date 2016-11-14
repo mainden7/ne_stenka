@@ -400,10 +400,10 @@
                             <div class="column large-4 small-12">
                                 <div class='price'>
                                     <div class='price-inner white'>
-                                        <h4 class='price-amount mb0'><?php echo $data['oneclick']['block_price'] ?> руб/м3</h4>
+                                        <h4 class='price-amount mb0'><?php echo $data['oneclick']['slab_price'] ?> руб/м3</h4>
                                         <p>106 руб/шт</p>
-                                        <a role="button" aria-label="submit form" href="#"
-                                           class="button btn-blueLine mb-25" data-target="#oneClick" data-toggle="modal">Заказ в 1 клик</a>
+                                        <a role="button" aria-label="submit form" href="#" data-target="#oneClick" data-toggle="modal"
+                                           class="button btn-blueLine mb-25">Заказ в 1 клик</a>
                                     </div>
                                     <div class='price-inner grey'>
                                         <ul class="price-caption mb0 mt0">
@@ -477,26 +477,26 @@
                                                 <td><?php echo isset($product['size']) ? $product['size'] : 0; ?></td>
                                                 <td>
                                                     <?php
-                                                        $product['size'] = isset($product['size']) ? $product['size'] : '290x100x599';
-                                                        $size = explode('x', $product['size']);
+                                                    $product['size'] = isset($product['size']) ? $product['size'] : '290x100x599';
+                                                    $size = explode('x', $product['size']);
                                                     $volume = 1;
                                                     foreach ($size as $length) {
                                                         $volume *= ($length*0.001);
                                                     }
-                                                        echo number_format((1/$volume), 2, '.', ',');
+                                                    echo number_format((1/$volume), 2, '.', ',');
                                                     ?>
                                                 </td>
                                                 <td class="text-center br-none"><?php echo $on_pallet_amount = isset($product['on_pallet_amount']) ? $product['on_pallet_amount'] : 80 ?></td>
                                                 <td class="text-center">
                                                     <?php
-                                                        $count = isset($product['on_pallet_amount']) ? $product['on_pallet_amount'] : 80;
-                                                        echo number_format(($count * $volume), 2, '.', ',');
+                                                    $count = isset($product['on_pallet_amount']) ? $product['on_pallet_amount'] : 80;
+                                                    echo number_format(($count * $volume), 2, '.', ',');
                                                     ?>
                                                 </td>
                                                 <td class="text-center br-none"><?php echo $pallet_amount = isset($product['pallet_amount']) ? $product['pallet_amount'] : 22 ?></td>
                                                 <td class="text-center br-none">
                                                     <?php
-                                                        echo $pallet_amount * $on_pallet_amount;
+                                                    echo $pallet_amount * $on_pallet_amount;
                                                     ?>
                                                 </td>
                                                 <td class="text-center">
@@ -515,9 +515,9 @@
                                                                 class='city-price <?php echo $price['city'] == $user_city ? '' : 'hidden' ?>'
                                                                 data-city-price='<?php echo $price['city'] ?>'>
 																		<?php echo isset($price['price']) ? number_format($price['price'], 2, '.', ',') : 0;
-                                                                            if($price['city'] == $user_city){
-                                                                                $price_pallet = $price['price'];
-                                                                            }
+                                                                        if($price['city'] == $user_city){
+                                                                            $price_pallet = $price['price'];
+                                                                        }
                                                                         ?>
 																	 </span>
                                                             <?php
@@ -599,29 +599,28 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        
+
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <div class="row large-12 proposal-row">
-                            <h2 class="text-center mb50" style="font-size: 24px;"><i class="fa fa-plus"></i> С этими
-                                блоками также покупают</h2>
+                            <h2 class="text-center mb50" style="font-size: 24px;"><i class="fa fa-plus"></i> Рекомендуем к нашим плитам</h2>
                             <div class="row large-12 ">
                                 <?php foreach ($data['products'] AS $product) {
                                     if ($product['recommended'] == 1) { ?>
@@ -689,9 +688,9 @@
                             <div class="column large-4 small-12">
                                 <div class='price'>
                                     <div class='price-inner white'>
-                                        <h4 class='price-amount mb0'><?php echo $data['oneclick']['block_price'] ?> руб/м3</h4>
+                                        <h4 class='price-amount mb0'><?php echo $data['oneclick']['slab_price'] ?> руб/м3</h4>
                                         <p>106 руб/шт</p>
-                                        <a role="button" aria-label="submit form" href="#"  data-target="#oneClick" data-toggle="modal"
+                                        <a role="button" aria-label="submit form" href="#" data-target="#oneClick" data-toggle="modal"
                                            class="button btn-blueLine mb-25">Заказ в 1 клик</a>
                                     </div>
                                     <div class='price-inner grey'>
@@ -860,100 +859,97 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="table-info-2 proposal-row-2 mb80 pt50">
+                                <table class="responsive">
+                                    <thead class="table-header">
+                                    <tr class='row-1'>
+                                        <th>Размер</th>
+                                        <th>Кол-во</th>
+                                        <th colspan="2" class="text-center">Кол-во на поддоне</th>
+                                        <th colspan="3" class="text-center">Кол-во на машине</th>
+                                        <th colspan="3" class="text-center">Цена руб.</th>
+                                        <th class="text-center">Кол-во поддонов</th>
+                                        <th class='br-none' style='border-right: none;'></th>
+                                    </tr>
+                                    <tr class="row-2">
+                                        <td>выс. шир. дл.</td>
+                                        <td>шт. в 1м3</td>
+                                        <td class='text-center br-none'>шт</td>
+                                        <td class='text-center'>м3</td>
+                                        <td class='text-center br-none'>под</td>
+                                        <td class='text-center br-none'>шт</td>
+                                        <td class='text-center'>м3</td>
+                                        <td class='text-center br-none'>под</td>
+                                        <td class='text-center br-none'>м3</td>
+                                        <td class='text-center'>машины</td>
+                                        <td></td>
+                                        <td class='br-none'></td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                                <div class="table-info-2 proposal-row-2 mb80 pt50">
-                                    <table class="responsive">
-                                        <thead class="table-header">
-                                        <tr class='row-1'>
-                                            <th>Размер</th>
-                                            <th>Кол-во</th>
-                                            <th colspan="2" class="text-center">Кол-во на поддоне</th>
-                                            <th colspan="3" class="text-center">Кол-во на машине</th>
-                                            <th colspan="3" class="text-center">Цена руб.</th>
-                                            <th class="text-center">Кол-во поддонов</th>
-                                            <th class='br-none' style='border-right: none;'></th>
-                                        </tr>
-                                        <tr class="row-2">
-                                            <td>выс. шир. дл.</td>
-                                            <td>шт. в 1м3</td>
-                                            <td class='text-center br-none'>шт</td>
-                                            <td class='text-center'>м3</td>
-                                            <td class='text-center br-none'>под</td>
-                                            <td class='text-center br-none'>шт</td>
-                                            <td class='text-center'>м3</td>
-                                            <td class='text-center br-none'>под</td>
-                                            <td class='text-center br-none'>м3</td>
-                                            <td class='text-center'>машины</td>
-                                            <td></td>
-                                            <td class='br-none'></td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
 
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="row large-12 proposal-row">
-                            <h2 class="text-center mb50" style="font-size: 24px;"><i class="fa fa-plus"></i> С этими
-                                блоками также покупают</h2>
+                            <h2 class="text-center mb50" style="font-size: 24px;"><i class="fa fa-plus"></i> Рекомендуем к нашим плитам</h2>
 
                             <div class="row large-12 ">
                                 <?php foreach ($data['products'] AS $product) {
                                     if ($product['recommended'] == 1) { ?>
-                                <div class="column large-6 small-12 mb50">
-                                    <div class="column large-12 proposal-product">
-                                        <div class="column large-8 medium-6 small-12">
-                                            <h3 class="mt0"><?php echo $product['name'] ?></h3>
-                                            <p><?php echo $product['description'] ?></p>
-                                            <form id='myform' class='display-block' method='POST' action='#'>
-                                                <input type='button' value='-' class='qtyminus'
-                                                       field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
-                                                <input type='text' name='quantity<?php echo $product['id'] ?>' value='0' class='qty'/>
-                                                <input type='button' value='+' class='qtyplus'
-                                                       field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
-                                            </form>
+                                        <div class="column large-6 small-12 mb50">
+                                            <div class="column large-12 proposal-product">
+                                                <div class="column large-8 medium-6 small-12">
+                                                    <h3 class="mt0"><?php echo $product['name'] ?></h3>
+                                                    <p><?php echo $product['description'] ?></p>
+                                                    <form id='myform' class='display-block' method='POST' action='#'>
+                                                        <input type='button' value='-' class='qtyminus'
+                                                               field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
+                                                        <input type='text' name='quantity<?php echo $product['id'] ?>' value='0' class='qty'/>
+                                                        <input type='button' value='+' class='qtyplus'
+                                                               field='quantity<?php echo $product['id'] ?>' style='font-size: 20px'/>
+                                                    </form>
 
+                                                </div>
+                                                <div class="column large-4 medium-6 small-12">
+                                                    <img
+                                                        src="<?php echo base_url() ?>application/resources/user_resources/img/<?php echo $product['image'] ?>">
+                                                </div>
+                                                <div class="column large-12">
+                                                    <form action='/user/add_to_cart' method='post'>
+                                                        <input type="hidden" name="id" value='<?php echo $product['id'] ?>'>
+                                                        <input type="hidden" name="quantity<?php echo $product['id'] ?>" value='1'>
+                                                        <input type="hidden" name="path"
+                                                               value="<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>">
+                                                        <input id="<?php echo $csrf_token_name; ?>" type="hidden"
+                                                               value="<?php echo $csrf_hash; ?>"
+                                                               name="<?php echo $csrf_token_name; ?>">
+                                                        <button role="button" aria-label="submit form" type="submit"
+                                                                href="#"
+                                                                class="button btn-blueLine btn-inverted add-to-cart">
+                                                            Добавить к заказу <i class="fa fa-long-arrow-right"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="column large-4 medium-6 small-12">
-                                            <img
-                                                src="<?php echo base_url() ?>application/resources/user_resources/img/<?php echo $product['image'] ?>">
-                                        </div>
-                                        <div class="column large-12">
-                                            <form action='/user/add_to_cart' method='post'>
-                                                <input type="hidden" name="id" value='<?php echo $product['id'] ?>'>
-                                                <input type="hidden" name="quantity<?php echo $product['id'] ?>" value='1'>
-                                                <input type="hidden" name="path"
-                                                       value="<?php echo isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PATH_INFO'] ?>">
-                                                <input id="<?php echo $csrf_token_name; ?>" type="hidden"
-                                                       value="<?php echo $csrf_hash; ?>"
-                                                       name="<?php echo $csrf_token_name; ?>">
-                                                <button role="button" aria-label="submit form" type="submit"
-                                                        href="#"
-                                                        class="button btn-blueLine btn-inverted add-to-cart">
-                                                    Добавить к заказу <i class="fa fa-long-arrow-right"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php }
+                                    <?php }
                                 } ?>
                             </div>
                         </div>
@@ -967,7 +963,7 @@
     </div>
     <div class='row expanded large-12 pb130' style='background-color: #f0f2f6'>
         <div class="column products-title medium-12 small-centered text-center">
-            <h2 class='uppercase mb30'>Другие виды блоков</h2>
+            <h2 class='uppercase mb30'>Советуем купить к плитам и наши блоки</h2>
             <h5 class="mb80 text-light text-18">У нас есть все виды блоков из ячеистого бетона</h5>
         </div>
         <div class="row large-10">

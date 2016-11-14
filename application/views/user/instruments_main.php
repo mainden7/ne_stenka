@@ -1,7 +1,15 @@
 <style type="text/css">
+	p.text-12{
+		font-size:12px;
+		opacity: 0.7;
+
+	}
+
 	img.alert{
-		width: 50px !important;
-		max-width: 50px;
+		width: 35px !important;
+		max-width: 35px;
+		float: left;
+		margin-right:10px;
 	}
 
 	.instrument_block{
@@ -51,17 +59,13 @@
 				<h2 class='uppercase'>Клей и инструмент</h2>
 			</div>
 			<div class="column large-3 small-12 mt30">
-				<div class="column large-2 small-2">
-					<img class='alert' src="<?php echo base_url() ?>application/resources/user_resources/img/alert.png">
-				</div>
-				<div class="column large-10 small-10">
-					<p class="mt0">Товары нашего каталога всегда в наличие и готовы к отгрузке</p>
-				</div>
+				<img class='alert' src="<?php echo base_url() ?>application/resources/user_resources/img/alert.png">
+				<p class="mt0 text-12">Товары нашего каталога всегда в наличие и готовы к отгрузке</p>
 			</div>
 		</div>
 		<div class="large-10 row">
 		<?php foreach($data['products'] AS $product) { 
-			if($product['category'] == 'Инструменты') {
+			if($product['category'] == $data['categories']['name']) {
 				?>
 			<div class="column large-4 medium-4 small-12 mb30">
 				<div class="instrument_block">
@@ -90,7 +94,7 @@
 						</div>
 						<div class="row large-12">
 							<div class="column">
-								<a href="#" class="btn-blue uppercase not-decorated">Подробнее <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+								<a href="/user/instrument_product/<?php echo $product['id'] ?>" class="btn-blue uppercase not-decorated">Подробнее <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 							</div>
 						</div>
 					</div>

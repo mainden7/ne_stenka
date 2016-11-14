@@ -360,7 +360,7 @@ if (isset($this->session->userdata['items'])) {
             <div class="row large-12 text-center" style="background: #231f20">
                 <ul class="menu" style="display: inline-block">
                     <li class='<?php echo (isset($data['active']) AND $data['active'] == 'blocks') ? 'active' : ''; ?>'>
-                        <a href="/user/blocks">Блоки</a></li>
+                        <a href="/user/product">Блоки</a></li>
                     <li class='<?php echo (isset($data['active']) AND $data['active'] == 'slabs') ? 'active' : ''; ?>'>
                         <a href="/user/slabs">Плиты перекрытия</a></li>
                     <li class='<?php echo (isset($data['active']) AND $data['active'] == 'instruments') ? 'active' : ''; ?>'>
@@ -457,7 +457,53 @@ if (isset($this->session->userdata['items'])) {
                                 <textarea name="comment" id="" cols="30" rows="5"></textarea>
                             </div>
                             <input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
-                            <input type="hidden" name="subject" value="Новый вопрос">
+                            <input type="hidden" name="subject" value="Написать директору">
+                            <button role="button" type="submit" class="button btn-blueLine question-btn full-width">Отправить</button>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-custom" id="oneClick" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body pb80">
+                <div class="row large-12">
+                    <div class="column large-12">
+                        <button type="button" class="" data-dismiss="modal" aria-label="Close">
+                            <span
+                                aria-hidden="true">
+                                <img
+                                    src="<?php echo base_url() ?>application/resources/user_resources/img/close-icon.png"
+                                    alt="" class="fa-times">
+                            </span>
+                        </button>
+                        <h3 class="text-center bold">Заказать в 1 клик</h3>
+                    </div>
+                    <div class="column large-12">
+                        <form class="ajax-form" method="post" action="/user/send_message">
+                            <div class="form-group">
+                                <label for="">Ваше имя</label>
+                                <input type="text" class='name' name="name" placeholder="Введите ваше имя">
+                                <small class="name_caption">введите имя</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Контактный телефон</label>
+                                <input type="text" name="tel" class="tel" placeholder="Телефон для связи">
+                                <small class="tel_caption">введите телефон</small>
+                            </div>
+                            <div class="show-textarea">
+                                <a href="#" class="show-text-modal">Добавить комментарий</a>
+                                <textarea name="comment" id="" cols="30" rows="5"></textarea>
+                            </div>
+                            <input id="<?php echo $csrf_token_name; ?>" type="hidden" value="<?php echo $csrf_hash; ?>" name="<?php echo $csrf_token_name; ?>">
+                            <input type="hidden" name="subject" value="Заказ в 1 клик">
                             <button role="button" type="submit" class="button btn-blueLine question-btn full-width">Отправить</button>
                         </form>
 

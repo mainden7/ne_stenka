@@ -1,3 +1,4 @@
+<?php if(!empty($data['proposal_category'])){ ?>
 <style type="text/css">
     .instrument_block {
         border: 2px solid #efefef;
@@ -48,8 +49,8 @@
         </div>
     </div>
     <div class="row expanded large-10 mb50">
-        <?php foreach ($data['products'] as $product) {
-            if ($product['category'] == 'Инструменты') {
+        <?php foreach ($data['proposal_products'] as $product) {
+            if ($product['category'] == $data['proposal_category']['name']) {
                 if(isset($this->session->userdata['user_city'])){
                     $user_city = $this->session->userdata['user_city'];
                 }else{
@@ -73,7 +74,7 @@
                             </div>
                             <div class="row large-12">
                                 <div class="column">
-                                    <a href="/user/product/<?php echo $product['id'] ?>" class="btn-blue uppercase not-decorated">Подробнее <i
+                                    <a href="/user/instrument_product/<?php echo $product['id'] ?>" class="btn-blue uppercase not-decorated">Подробнее <i
                                             class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -86,7 +87,8 @@
         <div class="column large-4 medium-4 small-12"></div>
     </div>
     <div class="row large-10 text-center">
-        <a role="button" aria-label="submit form" href="#" class="button btn-blueLine btn-inverted add-to-cart">Перейти
+        <a role="button" aria-label="submit form" href="/user/intruments" class="button btn-blueLine btn-inverted add-to-cart">Перейти
             в каталог <i class="fa fa-long-arrow-right"></i></a>
     </div>
 </section>
+<?php } ?>
