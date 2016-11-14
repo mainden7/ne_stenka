@@ -1,8 +1,8 @@
 
 <!--Блок с товаром из каталога (Стеновые блоки из ячеестого бетона)-->
 <div class="row  frontSlide expanded small-12 medium-12 large-12">
-	<div class="frontSlide-container row expanded small-12 medium-12 large-11 large-centered" style='padding-left: 6px;'>
-		<div class="row large-11">
+	<div class="frontSlide-container row expanded small-12 medium-12 large-12 large-centered">
+		<div class="row large-10">
 			<div class="column small-12 medium-6 large-8">
 				<h1>Стеновые блоки <br>из ячеистого бетона <br>без переплат</h1>
 				<a role="button" aria-label="submit form" href="/user/blocks" class="button btn-blueLine btn-inverted btn-transparent">В каталог<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
