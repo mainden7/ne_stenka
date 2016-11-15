@@ -91,7 +91,9 @@ $(function(){
   });
 });
 $( function() {
-  $( "#accordion" ).accordion();
+  $( "#faq .tab" ).each(function(){
+     $(this).accordion();
+  });
 });
 //FAQ tabs
 $(function(){
