@@ -263,6 +263,7 @@ class User extends CI_Controller
             $data['main_settings'] = Settings::load_main_settings();
             $data['contact_settings'] = Settings::load_contact_settings();
             $data['product'] = Product::load_product_by_category('Блоки');
+            $data['additional_products'] = Product::load_products();
             $data['products'] = Product::load_products();
             $data['title'] = $data['product'][0]['title'];
             $data['meta'] = $data['product'][0]['meta'];
