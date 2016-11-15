@@ -56,9 +56,9 @@
 	<div class="row expanded frontSlide large-12 pt80 mb30" style="background: #f2f5f8">
 		<div class="large-10 row">
 			<div class="column large-9 small-12">
-				<h2 class='uppercase'>Клей и инструмент</h2>
+				<h2 class='uppercase mt0'>Клей и инструмент</h2>
 			</div>
-			<div class="column large-3 small-12 mt30">
+			<div class="column large-3 small-12 pt20">
 				<img class='alert' src="<?php echo base_url() ?>application/resources/user_resources/img/alert.png">
 				<p class="mt0 text-12">Товары нашего каталога всегда в наличие и готовы к отгрузке</p>
 			</div>
