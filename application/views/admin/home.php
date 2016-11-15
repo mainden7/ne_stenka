@@ -97,7 +97,7 @@
 	</div><!--.page-content-->
 	<?php foreach ($data['orders'] as $order) { ?>
 
-		<div class="modal fade bd-example-modal-lg in" id='order<?php echo $order['id'] ?>' tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: block;">
+		<div class="modal fade bd-example-modal-lg" id='order<?php echo $order['id'] ?>' tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
