@@ -41,7 +41,8 @@
 										<td><?php echo $order['id'] ?></td>
 										<td><a href="" data-target="#order<?php echo $order['id'] ?>" data-toggle="modal">Заказ</a></td>
 										<td><?php echo $order['name'] ?></td>
-										<td><?php echo $order['tel'] . $order['email'] . $order['region'] . $order['district'] . $order['city'] . $order['house'] . $order['corp'] ?></td>
+										<td><?php echo 'Тел: ' . $order['tel'] . ' E-mail: ' . $order['email'] ?></td>
+										<td><?php echo 'Регион: ' . $order['region'] . 'Район: ' . $order['district'] . ' Город: '  . $order['city'] . ', '  . $order['house'] . '/' . $order['corp'] ?></td>
 										<td><?php echo $order['comments'] ?></td>
 										<td><?php echo $order['delivery_date'] ?></td>
 										<td><?php echo $order['order_date'] ?></td>
@@ -95,35 +96,29 @@
 	    </div><!--.container-fluid-->
 	</div><!--.page-content-->
 	<?php foreach ($data['orders'] as $order) { ?>
-		<div class="modal fade modal-custom" id="order<?php echo $order['id'] ?>" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
 
-					<div class="modal-body pb80">
-						<div class="row large-12">
-							<div class="column large-12">
-								<button type="button" class="" data-dismiss="modal" aria-label="Close">
-                            <span
-								aria-hidden="true">
-                                <img
-									src="<?php echo base_url() ?>application/resources/user_resources/img/close-icon.png"
-									alt="" class="fa-times">
-                            </span>
-								</button>
-								<h3 class="text-center bold">Ордер #<?php echo $order['id'] ?></h3>
-							</div>
-							<div class="column large-12">
-								<table>
-									<tr>
-										<th>#</th>
-										<th>Продукт</th>
-										<th>Категория</th>
-										<th>Количество</th>
-										<th>Количество</th>
-									</tr>
+		<div class="modal fade bd-example-modal-lg in" id='order<?php echo $order['id'] ?>' tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: block;">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">
+							<i class="font-icon-close-2"></i>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Ордер #<?php echo $order['id'] ?></h4>
+					</div>
+					<div class="modal-body">
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<tr>
+									<th>#</th>
+									<th>Продукт</th>
+									<th>Категория</th>
+									<th>Количество</th>
+									<th>Количество</th>
+								</tr>
 
 								<?php
-									$order_items = Order::load_order_items($order['id']);
+								$order_items = Order::load_order_items($order['id']);
 								$i = 1;
 								foreach ($order_items as $order_item) { ?>
 									<tr>
@@ -137,11 +132,12 @@
 									$i++;
 								}
 								?>
-								</table>
-							</div>
+							</table>
 						</div>
 					</div>
-
+					<div class="modal-footer">
+						<button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Закрыть</button>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -55,7 +55,7 @@ class User extends CI_Controller
             $data['active'] = 'blocks';
             $data['main_settings'] = Settings::load_main_settings();
             $data['contact_settings'] = Settings::load_contact_settings();
-            if($block_category < 1 OR $block_category > 3){
+            if($block_category < 1 OR $block_category > 4){
                 show_404();
             }
             if($block_category == 1){
@@ -64,6 +64,8 @@ class User extends CI_Controller
                 $block_category = 'Пазогребневые блоки';
             }elseif($block_category == 3){
                 $block_category = 'Брусовые перемычки';
+            }elseif($block_category == 4){
+                $block_category = 'Перегородочные блоки';
             }
 
             $data['categories'] = Product::load_categories(1);

@@ -392,7 +392,8 @@ if (isset($this->session->userdata['items'])) {
                                     alt="" class="fa-times">
                             </span>
                         </button>
-                        <h3 class="text-center bold">Задать вопрос</h3>
+                        <h3 class="text-center bold mb0">Задать вопрос</h3>
+                        <p class="text-center text-light" style="opacity: 0.8;">Расскажите о вашем объекте и поможем вам подобрать необходимое количество материалов</p>
                     </div>
                     <div class="column large-12">
                         <form class="ajax-form" method="post" action="/user/send_message">
@@ -484,7 +485,8 @@ if (isset($this->session->userdata['items'])) {
                                     alt="" class="fa-times">
                             </span>
                         </button>
-                        <h3 class="text-center bold">Заказать в 1 клик</h3>
+                        <h3 class="text-center bold mb0">Заказать в 1 клик</h3>
+                        <p class="text-center text-light" style="opacity: 0.8;">Наш менеджер свяжется с вами узнает все детали и оформит заказ</p>
                     </div>
                     <div class="column large-12">
                         <form class="ajax-form" method="post" action="/user/send_message">

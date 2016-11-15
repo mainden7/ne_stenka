@@ -28,15 +28,15 @@
 				<div class="column large-6">
 					<h4 class="text-white">За это время мы:</h4>
 					<div class="column large-4 medium-4 small-12 pl0">
-						<img src="<?php echo base_url() ?>application/resources/user_resources/img/about_people.png">
+						<img src="<?php echo base_url() ?>application/resources/user_resources/img/icon-1.png">
 						<p class="text-white">Более 10000 клиентов</p>
 					</div>
 					<div class="column large-4 medium-4 small-12">
-						<img src="<?php echo base_url() ?>application/resources/user_resources/img/about_people.png">
+						<img src="<?php echo base_url() ?>application/resources/user_resources/img/icon-1.png">
 						<p class="text-white">Более 10000 клиентов</p>
 					</div>
 					<div class="column large-4 medium-4 small-12">
-						<img src="<?php echo base_url() ?>application/resources/user_resources/img/about_people.png">
+						<img src="<?php echo base_url() ?>application/resources/user_resources/img/icon-1.png">
 						<p class="text-white">Более 10000 клиентов</p>
 					</div>
 				</div>

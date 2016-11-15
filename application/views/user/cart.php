@@ -187,7 +187,7 @@
 					}
 				}else { ?>
 					<h3 class='empty_title'>Ваша корзина пуста</h3>
-					<a role="button" aria-label="submit form" href="/user/product" class="button btn-blueLine btn-inverted add-to-cart">Перейти в каталог <i class="fa fa-long-arrow-right"></i></a>
+					<a role="button" aria-label="submit form" href="/user/product" class="button btn-blueLine btn-inverted add-to-cart">Выбрать блоки <i class="fa fa-long-arrow-right"></i></a>
 				<?php	}
 				?>
 

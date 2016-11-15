@@ -64,7 +64,6 @@ class Admin_panel extends CI_Controller {
 
         $data = array();
         if($post){
-            print '<pre>' . print_r(sha1('admin'.'admin'), true) . '</pre>'; die();
         	//save logo
             if ($_FILES['logo']['name']) {
                 $uploaddir = 'application/resources/upload/site/';

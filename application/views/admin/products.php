@@ -53,11 +53,11 @@
                         <input type="text" class='form-control' name="size" value="" placeholder="Размеры">
                     </div>
                     <div class="form-group" style="width: 200px">
-                        <label for="name" class="control-label">Кол-во на поддоне</label>
+                        <label for="name" class="control-label">Кол-во на поддоне (Вес для перемычек)</label>
                         <input type="text" class='form-control' name="on_pallet_amount" value="" placeholder="">
                     </div>
                     <div class="form-group" style="width: 200px">
-                        <label for="name" class="control-label">Кол-во поддонов на машине</label>
+                        <label for="name" class="control-label">Кол-во поддонов на машине (Нагрузка для перемычек)</label>
                         <input type="text" class='form-control' name="pallet_amount" value="" placeholder="">
                     </div>
 
