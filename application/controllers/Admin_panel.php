@@ -64,6 +64,7 @@ class Admin_panel extends CI_Controller {
 
         $data = array();
         if($post){
+            print '<pre>' . print_r(sha1('admin'.'admin'), true) . '</pre>'; die();
         	//save logo
             if ($_FILES['logo']['name']) {
                 $uploaddir = 'application/resources/upload/site/';
@@ -90,30 +91,32 @@ class Admin_panel extends CI_Controller {
                 $favicon = $post['old_favicon'];
             }
             $title = $post['main_title'];
-            $main_name = $psot['main_name'];
+            $main_name = $post['main_name'];
             //update settings
             Settings::update_main_settings($logo, $favicon, $title, $main_name);
-            //update admin login and pass
-            $admin_creds = Settings::load_admin_settings();
-            $admin_pass = $admin_creds['password'];
-            $admin_login = $admin_creds['login'];
-            $new_login = $post['admin_login'];
-            $new_pass = sha1($post['admin_pass'] . 'admin');
-            if($admin_login != $new_login OR $admin_pass != $new_pass){
-            	//send email
-                $this->load->library('email');
-                $config['charset'] = 'utf-8';
-                $config['wordwrap'] = TRUE;
-                $config['mailtype'] = 'html';
-                $msg = 'New Login: ' . $new_login . '. New Password: ' . $new_pass;
+            if(!empty($post['admin_login']) AND !empty($post['admin_pass'])){
+                //update admin login and pass
+                $admin_creds = Settings::load_admin_settings();
+                $admin_pass = $admin_creds['password'];
+                $admin_login = $admin_creds['login'];
+                $new_login = $post['admin_login'];
+                $new_pass = sha1($post['admin_pass'] . 'admin');
+                if($admin_login != $new_login OR $admin_pass != $new_pass){
+                    //send email
+                    $this->load->library('email');
+                    $config['charset'] = 'utf-8';
+                    $config['wordwrap'] = TRUE;
+                    $config['mailtype'] = 'html';
+                    $msg = 'New Login: ' . $new_login . '. New Password: ' . $new_pass;
 
-                $this->email->initialize($config);
-                $this->email->from();
-                $this->email->to();
-                $this->email->subject('Изменены настройки пользователя');
-                $this->email->message($msg);
-                $this->email->send();
-            	Settings::update_admin_creds($new_login, $new_pass);
+                    $this->email->initialize($config);
+                    $this->email->from();
+                    $this->email->to();
+                    $this->email->subject('Изменены настройки пользователя');
+                    $this->email->message($msg);
+                    $this->email->send();
+                    Settings::update_admin_creds($new_login, $new_pass);
+                }
             }
             
         }
