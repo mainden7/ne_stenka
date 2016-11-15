@@ -91,9 +91,8 @@ $(function(){
   });
 });
 $( function() {
-  $( "#faq .tab" ).each(function(){
-     $(this).accordion();
-  });
+  $( "#accordion" ).accordion();
+
 });
 //FAQ tabs
 $(function(){
@@ -102,7 +101,7 @@ $(function(){
     $(this).addClass('active');
     var show = $(this).attr('data-show');
     $('.tab').hide();
-    $('div[data-filter="'+show+'"').show();
+    $('div[data-filter="'+show+'"').show().accordion();
   });
 });
 //accordion FAQ 1st TAB
