@@ -26,7 +26,7 @@
 		<h2 class="text-center uppercase">Может пригодиться</h2>
 		<h5 class="text-center mb80 text-18 text-light">В нашем каталоге есть все необходимое для кладки блоков</h5>
 		<div class="row large-10">
-			<?php foreach ($data['products'] AS $product) {
+			<?php foreach ($data['additional_products'] AS $product) {
 				if ($product['recommended'] == 1) { ?>
 					<div class="column large-6 medium-6 small-12 mb30">
 						<div class="column large-12 proposal">

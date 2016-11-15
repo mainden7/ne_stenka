@@ -370,7 +370,7 @@
                         <div class="row large-12">
                             <div class="column large-4  medium-6 small-12 pl40">
                                 <div class="medium-12">
-                                    <h2 class='mt0 blocks-header'><?php echo $data['blocks_category'] ?><br> 1-й категории</h2>
+                                    <h2 class='mt0 blocks-header'><?php echo $data['blocks_category'] ?></h2>
                                     <p>Железобетонные плиты перекрытия с круглыми пустотами и предварительно напряженной стержневой арматурой.</p>
                                 </div>
                             </div>
@@ -382,8 +382,7 @@
                             <div class="column large-4 small-12">
                                 <div class='price'>
                                     <div class='price-inner white'>
-                                        <h4 class='price-amount mb0'><?php echo $data['oneclick']['slab_price'] ?> руб/м3</h4>
-                                        <p>106 руб/шт</p>
+                                        <h4 class='price-amount'><?php echo $data['oneclick']['slab_price'] ?> руб/м3</h4>
                                         <a role="button" aria-label="submit form" href="#" data-target="#oneClick" data-toggle="modal"
                                            class="button btn-blueLine mb-25">Заказ в 1 клик</a>
                                     </div>
@@ -422,26 +421,23 @@
                                 <table class="responsive">
                                     <thead class="table-header">
                                     <tr class='row-1'>
-                                        <th>Размер</th>
-                                        <th>Кол-во</th>
-                                        <th colspan="2" class="text-center">Кол-во на поддоне</th>
-                                        <th colspan="3" class="text-center">Кол-во на машине</th>
-                                        <th colspan="3" class="text-center">Цена руб.</th>
-                                        <th class="text-center">Кол-во поддонов</th>
+                                        <th>Наименование</th>
+                                        <th class="text-center">Размер</th>
+                                        <th class="text-center">Обьем</th>
+                                        <th colspan="" class="text-center">Вес</th>
+                                        <th colspan="" class="text-center">Нагрузка</th>
+                                        <th colspan="" class="text-center">Цена руб.</th>
+                                        <th class="text-center">Заказать</th>
                                         <th class='br-none' style='border-right: none;'></th>
                                     </tr>
                                     <tr class="row-2">
-                                        <td>выс. шир. дл.</td>
-                                        <td>шт. в 1м3</td>
-                                        <td class='text-center br-none'>шт</td>
-                                        <td class='text-center'>м3</td>
-                                        <td class='text-center br-none'>под</td>
-                                        <td class='text-center br-none'>шт</td>
-                                        <td class='text-center'>м3</td>
-                                        <td class='text-center br-none'>под</td>
-                                        <td class='text-center br-none'>м3</td>
-                                        <td class='text-center'>машины</td>
                                         <td></td>
+                                        <td class="text-center">выс. шир. дл.</td>
+                                        <td class="text-center">1м3</td>
+                                        <td class='text-center'>т</td>
+                                        <td class='text-center'>кг/м2</td>
+                                        <td class='text-center'>шт</td>
+                                        <td class='text-center'>шт</td>
                                         <td class='br-none'></td>
                                     </tr>
                                     </thead>
@@ -450,6 +446,7 @@
                                         if ($product['category'] == $data['categories']['name']) {
                                             ?>
                                             <tr>
+                                                <td><?php echo isset($product['name']) ? $product['name'] : ''; ?></td>
                                                 <td><?php echo isset($product['size']) ? $product['size'] : 0; ?></td>
                                                 <td>
                                                     <?php
@@ -459,27 +456,12 @@
                                                     foreach ($size as $length) {
                                                         $volume *= ($length*0.001);
                                                     }
-                                                    echo number_format((1/$volume), 2, '.', ',');
+                                                    echo number_format(($volume), 2, '.', ',');
                                                     ?>
                                                 </td>
                                                 <td class="text-center br-none"><?php echo $on_pallet_amount = isset($product['on_pallet_amount']) ? $product['on_pallet_amount'] : 80 ?></td>
-                                                <td class="text-center">
-                                                    <?php
-                                                    $count = isset($product['on_pallet_amount']) ? $product['on_pallet_amount'] : 80;
-                                                    echo number_format(($count * $volume), 2, '.', ',');
-                                                    ?>
-                                                </td>
+
                                                 <td class="text-center br-none"><?php echo $pallet_amount = isset($product['pallet_amount']) ? $product['pallet_amount'] : 22 ?></td>
-                                                <td class="text-center br-none">
-                                                    <?php
-                                                    echo $pallet_amount * $on_pallet_amount;
-                                                    ?>
-                                                </td>
-                                                <td class="text-center">
-                                                    <?php
-                                                    echo number_format($volume * $pallet_amount * $on_pallet_amount, 3, '.', ',');
-                                                    ?>
-                                                </td>
 
                                                 <td class="text-center br-none">
                                                     <?php
@@ -503,12 +485,6 @@
                                                         echo $price_pallet;
                                                     }
 
-                                                    ?>
-                                                </td>
-                                                <td class="text-center br-none"><?php echo $cube_price = number_format($price_pallet / ($count * $volume), 0, '.', ' ') ?></td>
-                                                <td class="text-center">
-                                                    <?php
-                                                    echo number_format($price_pallet * $pallet_amount, 0, '.', ' ');
                                                     ?>
                                                 </td>
                                                 <td class='text-center'>

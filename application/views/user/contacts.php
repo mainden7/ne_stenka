@@ -32,7 +32,7 @@
 			</div>
 			<div class="column large-4 medium-4 small-12">
 				<img src="<?php echo base_url() ?>application/resources/user_resources/img/contacts_form.png">
-				<h3><a href="">Задать вопрос</a></h3>
+				<h3><a href="" data-target="#askQuestion" data-toggle="modal">Задать вопрос</a></h3>
 			</div>
 				</div>
 			</div>

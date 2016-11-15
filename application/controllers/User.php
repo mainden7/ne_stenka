@@ -230,6 +230,7 @@ class User extends CI_Controller
             $data['main_settings'] = Settings::load_main_settings();
             $data['contact_settings'] = Settings::load_contact_settings();
             $data['product'] = Product::load_products($id);
+            $data['additional_products'] = Product::load_products();
             $data['title'] = $data['product']['title'];
             $data['meta'] = $data['product']['meta'];
             if (!isset($data['product']) OR empty($data['product'])) {
@@ -261,22 +262,23 @@ class User extends CI_Controller
             $data['title'] = '';
             $data['main_settings'] = Settings::load_main_settings();
             $data['contact_settings'] = Settings::load_contact_settings();
-            $data['product'] = Product::load_products($id);
+            $data['product'] = Product::load_product_by_category('Блоки');
             $data['products'] = Product::load_products();
-            $data['title'] = $data['product']['title'];
-            $data['meta'] = $data['product']['meta'];
+            $data['title'] = $data['product'][0]['title'];
+            $data['meta'] = $data['product'][0]['meta'];
+
             if (!isset($data['product']) OR empty($data['product'])) {
                 show_404();
             }
-            if ($data['product']['category'] != 'Блоки') {
-                show_404();
-            }
+
+
+//            print '<pre>' . print_r($data['product'], true) . '</pre>'; die();
             // Data.
             $data = array('data' => $data, 'csrf_hash' => $csrf_hash, 'csrf_token_name' => $csrf_token_name);
             //views
             $this->load->view('user/header', $data);
             $this->load->view('user/main_menu', $data);
-            $this->load->view('user/product_main', $data);
+            $this->load->view('user/product_default', $data);
             $this->load->view('user/additional_proposal', $data);
             $this->load->view('user/do_not_find', $data);
             $this->load->view('user/main_footer', $data);
